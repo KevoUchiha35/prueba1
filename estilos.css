@@ -1,8 +1,14 @@
+body{
+    font-family: Times New Roman;
+}
+
 table {
     border-collapse: separate;
-    border-spacing: 5px;
-    
-    border: 1px solid #000;
+    border-spacing: 15px;
+    text-align: center;
+    border: 5px solid #000;
+    border-collapse: collapse;
+    font-size: .9em;
  }
 
 
@@ -13,6 +19,30 @@ table {
     border: 1px solid rebeccapurple;
  }
 
-.carousel-inner{
-    text-align: center;
-}
+ main{
+    padding: 1em 2em;
+ }
+
+
+
+
+ @media (max-width: 30em){ 
+    table{
+width: 100%;
+    }
+    table tr{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+    table td[data-titulo]{
+        display: flex;
+    }
+    table td[data-titulo]::before{
+        content: attr(data-titulo );
+        width: 90px;
+    }
+
+ }

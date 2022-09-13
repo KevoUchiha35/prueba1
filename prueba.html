@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tabla de grupos musicales</title>
+    <link rel="stylesheet" href="estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Compiled and minified Bootstrap CSS -->
@@ -13,12 +15,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Compiled and minified Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
 </head>
 <body>
     <h1>tabla de grupos musicales</h1>
     <h1>Me gusta la sandia</h1>
     <td><img src="https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/06/cosplay-itachi-1.jpg?fit=1280%2C720&quality=80&ssl=1" WIDTH=270 HEIGHT=200 alt=""></td>
-    <table cellspacing="10" cellpadding="10" border="3">
+    <table >
         <tr>
             <th>id</th>
             <th>nombre</th>
@@ -28,76 +31,77 @@
 
         </tr>
         <tr>
-            <td>1</td>
-            <td>Metallica</td>
-            <td> Fue fundada en 1981 en Los Ángeles por Lars Ulrich y James Hetfield, 
+            <td data-titulo="id">1</td>
+            <td data-titulo="nombre">Metallica</td>
+            <td data-titulo="descripcion"> Fue fundada en 1981 en Los Ángeles por Lars Ulrich y James Hetfield, 
                 a los que se les unirían Dave Mustaine y Ron McGovney. </td>
                 <td><img src="https://indiehoy.com/wp-content/uploads/2020/06/metallica-1200x675.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCiMhD4jzUqG-IgPzUmmytRQ">Metallica</a></td>
         </tr>
         <tr>
-        <td>2</td>
-        <td>Slipknot</td> 
-        <td>Es una banda estadounidense de metal alternativo formada en 1995 en Des Moines</td>
+        <td data-titulo="id">2</td>
+        <td data-titulo="nombre">Slipknot</td> 
+        <td data-titulo="descripcion">Es una banda estadounidense de metal alternativo formada en 1995 en Des Moines</td>
         <td><img src="https://indiehoy.com/wp-content/uploads/2020/09/slipknot.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
         <td><a href="https://www.youtube.com/channel/UCiMhD4jzUqG-IgPzUmmytRQ">Slipknot</a></td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>Bring me the horizon</td>
-            <td>Es una banda británica de rock proveniente de Sheffield, Inglaterra. Se formó en 2003 </td>
+            <td data-titulo="id">3</td>
+            <td data-titulo="nombre">Bring me the horizon</td>
+            <td data-titulo="descripcion">Es una banda británica de rock proveniente de Sheffield, Inglaterra. Se formó en 2003 </td>
             <td><img src="https://www.thebackstage.net/wp-content/uploads/2012/07/bringmethehorizon_n.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
             <td><a href="https://www.youtube.com/channel/UCiMhD4jzUqG-IgPzUmmytRQ">Bring me the horizon</a></td>
         </tr>
         <tr>
-            <td>4</td>
-            <td>Bullet for my valentine</td>
-            <td> El grupo se constituyó originalmente bajo el nombre de "Jeff Killed John" en 1998, 
+            <td data-titulo="id">4</td>
+            <td data-titulo="nombre">Bullet for my valentine</td>
+            <td data-titulo="descripcion"> El grupo se constituyó originalmente bajo el nombre de "Jeff Killed John" en 1998, 
                 versionando canciones de Metallica y Nirvana.</td>
                 <td><img src="https://1.bp.blogspot.com/-VBU3FgdcLA0/XdrAGHk6VtI/AAAAAAAAY88/of46nCTrMZs8AuOGhg7s0ncKcCrDsUWrQCLcBGAsYHQ/s1600/untitled.png"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCiMhD4jzUqG-IgPzUmmytRQ">Bullet for my valentine</a></td>
         </tr>
         <tr>
-            <td>5</td>
-            <td>Megadeth</td>
-            <td>Fue creada en 1983 por Dave Mustaine, después de que fuera expulsado de Metallica, 
+            <td data-titulo="id">5</td>
+            <td data-titulo="nombre">Megadeth</td>
+            <td data-titulo="descripcion">Fue creada en 1983 por Dave Mustaine, después de que fuera expulsado de Metallica, 
                 donde ocupaba el puesto de guitarrista principal. </td>
                 <td><img src="https://wikirock.net/wp-content/uploads/2021/03/megadeth-1990-2-1210x642-1-1000x600.jpg" WIDTH=170 HEIGHT=100  alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCLVz1B001PIbq9LliJenV2w">Megadeth</a></td>
         </tr>
         <tr>
-            <td>6</td>
-            <td>Evanescence</td>
-            <td>Es una banda estadounidense de rock fundada en Little Rock, Arkansas, en 1995 por la cantante, 
+            <td data-titulo="id">6</td>
+            <td data-titulo="nombre">Evanescence</td>
+            <td data-titulo="descripcion">Es una banda estadounidense de rock fundada en Little Rock, Arkansas, en 1995 por la cantante, 
                 pianista y compositora Amy Lee y el guitarrista Ben Moody. </td>
                 <td><img src="https://www.rockaxis.com/img/newsList/3284452.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCJeH7gl6PbDVV4DTldIOPOA">Evanescence</a></td>
         </tr>
         <tr>
-            <td>7</td>
-            <td>Black veil brides</td>
-            <td>Es una banda estadounidense de rock con sede en Hollywood, California. </td>
+            <td data-titulo="id">7</td>
+            <td data-titulo="nombre">Black veil brides</td>
+            <td data-titulo="descripcion">Es una banda estadounidense de rock con sede en Hollywood, California. </td>
                 <td><img src="https://i.scdn.co/image/ab6761610000e5eb56c59b51661237eb3e3b75f1"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCDdKEz8e7m5g-hXg42-HBQg">Black veil brides</a></td>
         </tr>
-        <td>8</td>
-        <td>Queen</td>
-        <td>Es una banda británica de rock formada en 1970 en Londres por el cantante y pianista Freddie Mercury, 
+        <td data-titulo="id">8</td>
+        <td data-titulo="nombre">Queen</td>
+        <td data-titulo="descripcion">Es una banda británica de rock formada en 1970 en Londres por el cantante y pianista Freddie Mercury, 
             el guitarrista Brian May y el baterista Roger Taylor</td>
             <td><img src="https://www.biografiasyvidas.com/biografia/q/fotos/queen.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
             <td><a href="https://www.youtube.com/channel/UCiMhD4jzUqG-IgPzUmmytRQ">Queen</a></td>        
             <tr>
-            <td>9</td>
-            <td>Black Sabbath</td>
+
+            <td data-titulo="id">9</td>
+            <td data-titulo="nombre">Black Sabbath</td>
             <td>Fue una banda británica de heavy metal y hard rock formada en 1968 en 
                 Birmingham por Tony Iommi, Ozzy Osbourne, Geezer Butler y Bill Ward. </td>
                 <td><img src="https://indiehoy.com/wp-content/uploads/2020/08/black-sabbath.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCrx-X329UKv0Y06VhfpFVvw">Black Sabbath</a></td>
         </tr>
         <tr>
-            <td>10</td>
-            <td>Linkin park</td>
-            <td>Es una banda estadounidense de rock alternativo procedente de Agoura Hills, 
+            <td data-titulo="id">10</td>
+            <td data-titulo="nombre">Linkin park</td>
+            <td data-titulo="descripcion">Es una banda estadounidense de rock alternativo procedente de Agoura Hills, 
                 California formada en 1996. </td>
                 <td><img src="https://www.elsoldemexico.com.mx/gossip/celebridades/9f17kc-linkin-park-3.jpg/ALTERNATES/LANDSCAPE_1140/linkin%20park%203.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCZU9T1ceaOgwfLRq7OKFU4Q">Linkin Park</a></td>
