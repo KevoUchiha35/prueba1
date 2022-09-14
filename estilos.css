@@ -6,9 +6,15 @@ table {
     border-collapse: separate;
     border-spacing: 15px;
     text-align: center;
-    border: 5px solid #000;
+    border: 15px solid #000;
     border-collapse: collapse;
     font-size: .9em;
+    background-color: aqua;
+    transition-property: border;
+    transition-duration: 15s;
+    
+
+    
  }
 
 
@@ -16,7 +22,7 @@ table {
     width: 25%;
     text-align: left;
     vertical-align: top;
-    border: 1px solid rebeccapurple;
+   
  }
 
  main{
@@ -44,5 +50,7 @@ width: 100%;
         content: attr(data-titulo );
         width: 90px;
     }
+
+
 
  }
