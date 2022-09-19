@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +66,7 @@
             <td data-titulo="nombre">Megadeth</td>
             <td data-titulo="descripcion">Fue creada en 1983 por Dave Mustaine, después de que fuera expulsado de Metallica, 
                 donde ocupaba el puesto de guitarrista principal. </td>
-                <td><img src="https://wikirock.net/wp-content/uploads/2021/03/megadeth-1990-2-1210x642-1-1000x600.jpg" WIDTH=170 HEIGHT=100  alt=""></td>
+                <td><img src="https://indiehoy.com/wp-content/uploads/2020/11/megadeth.jpg"WIDTH=170 HEIGHT=100 alt=""></td>
                 <td><a href="https://www.youtube.com/channel/UCLVz1B001PIbq9LliJenV2w">Megadeth</a></td>
         </tr>
         <tr>
@@ -119,15 +120,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="img/1.jpg" width="10000px" height="10000px" " alt="">
+                <td data-title="imagen"> <img src="{% static 'img/1.jpg' %}" width="10000px" height="10000px" " alt="">
                 
             </div>
             <div class="item">
-                <img src="img/2.jpg" width="10000px" height="10000px"  alt="">
+                <td data-title="imagen"> <img src="{% static 'img/2.jpg' %}"width="10000px" height="10000px"  alt="">
                 
             </div>
             <div class="item">
-                <img src="img/3.jpg" width="10000px" height="10000px"  alt="">
+                <td data-title="imagen"> <img src="{% static 'img/3.jpg' %}"width="10000px" height="10000px"  alt="">
                 
             </div>
         </div>
