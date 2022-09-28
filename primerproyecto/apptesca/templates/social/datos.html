@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/estilos2.css">
+</head>
+<style>
+body{
+    text-align: center;
+    background: url(https://gamersrd.com/wp-content/uploads/2018/01/maxresdefault-17.jpg-17.jpg);
+	font-size: 62.5%;
+}
+h1{
+    color: blue;
+}
+label{
+    color: yellow;
+}
+</style>
+<body>
+    <div class="container">
+        <!-- Formulario-->
+        <!-- <section class="form-register"> -->
+        <form class="form-register">
+             {% csrf_token %}
+    
+          <div class="info">
+            <h1> datos</h1>
+            <nav class="second-nav">
+                <button class="feed" href="{% url 'feed' %}">REGRESAR</button>
+
+                
+             
+              </nav>
+            <p class="gamer"> participa en este gran torneo</p>
+          </div>
+    
+          <div class="campos">
+            <!-- campos a llenar -->
+            <div class="camposForm">
+              <p>
+              <label class="etiquetaForm">Nombre*</label>
+              <input class="controllers" type="text" name="user" id="userField" placeholder="Ingrese su usuario"
+                onkeypress="return ch(event)" required>
+              </p>
+    
+              <p>
+              <label class="etiquetaForm">Apellidos* </label>
+              <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
+                onkeypress="return ch(event)" required>
+              </p>
+    
+              <p>
+                <label class="etiquetaForm">Nickname* </label>
+              <input class="controllers" type="text" name="Nickname" id="nickField" placeholder="Ingrese su Nickname"
+                required>
+              </p>
+    
+              <p>
+                <label class="etiquetaForm">Nacimiento* </label>
+              <input class="controllers" type="date" name="Nacimiento" id="nacimientoField" placeholder="Ingrese tu fecha de nacimiento"
+                onkeypress="return numb(event)" required>
+              </p>
+    
+              <p>
+                <label class="etiquetaForm">Correo* </label>
+              <input class="controllers" type="email" name="correo" id="correoField"
+                placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
+              </p>
+    
+              <p>
+                <label class="etiquetaForm">RedSocial* </label>
+              <input class="controllers" type="text" name="RedSocial" id="socialField" placeholder="Ingrese su red social donde podamos contactarlo"
+                onkeypress="return ch(event)" required>
+              </p>
+
+              <p>
+                <label class="etiquetaForm">Videojuegofav* </label>
+              <input class="controllers" type="text" name="Videojuegofav" id="juegoField" placeholder="Ingres su Videojuegofav"
+                onkeypress="return ch(event)" required>
+              </p>
+
+              <p>
+                <label class="etiquetaForm">plataforma* </label>
+              <input class="controllers" type="text" name="plataforma_xbox" id="plataformaField" placeholder="Ingrese la plataforma donde juega"
+                onkeypress="return ch(event)" required>
+              </p>
+    
+            </div>
+            <!-- fin campos a llenar -->
+    
+            <h4> Comentarios* </h4>
+            <textarea class="controllers" placeholder="Deje su comentario" id="comentariosField"
+              onkeypress="return check(event)" required></textarea>
+    
+            <!-- <input class="buttons" type="submit" value="Contactanos"> -->
+            <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
+    
+          </div>
+    
+        </form>
+        <!-- </section> -->
+        <!-- Fin Formulario-->
+    
+        <!-- Fin contenedor -->
+      </div>
+</body>
+</html>

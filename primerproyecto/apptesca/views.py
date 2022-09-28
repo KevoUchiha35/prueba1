@@ -51,4 +51,6 @@ def retorno(request):
  
   return render(request, 'social/prueba.html')
  
-    
+def formulario(request):
+ 
+  return render(request, 'social/datos.html')  
