@@ -11,18 +11,18 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-# el context es para pedir datos a base 
+# el context es para pedir datos a base
 
 def feed(request):
- 
+
   return render(request, 'social/feed.html')
 
 
 def perfil(request):
- 
+
   return render(request, 'social/perfil.html')
 
- 
+
 def registro(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
@@ -34,23 +34,40 @@ def registro(request):
 	else:
 		form = UserRegisterForm()
 
-	context = { 'form' : form }
+	context = {'form': form}
 	return render(request, 'social/registro.html', context)
 
 
-
- 
-
-
 def login(request):
- 
+
   return render(request, 'social/login.html')
+
 
 @login_required
 def retorno(request):
- 
+
   return render(request, 'social/prueba.html')
- 
+
+
 def formulario(request):
- 
-  return render(request, 'social/datos.html')  
+  if request.method == 'POST':  
+       
+        dato = jugadores.objects.create(
+          
+                user_id=request.POST['Usuario'], 
+                nombre=request.POST['Nombre'], 
+                apellido=request.POST['Apellidos'], 
+                nickname=request.POST['Nickname'], 
+                nacimiento=request.POST['Nacimiento'], 
+                correo=request.POST['Correo'], 
+                redsocial=request.POST['RedSocial'],  
+                videojuegofav=request.POST['Videojuegofav'], 
+                
+				
+               
+            
+          )
+        dato.save()
+  return render(request, 'social/datos.html')
+
+
