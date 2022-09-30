@@ -24,7 +24,7 @@ p{
 
 button{
 	font-size: 1rem;
-	color: red;
+	color: black;
 	padding: 0.4rem 1.4rem;
 	border: none;
 	background: blue;
@@ -39,7 +39,7 @@ img{
 
 /* Nav bar */
 .main-head{
-	background: yellow;
+	background: blue;
 	color: black;
 }
 
@@ -74,7 +74,7 @@ a{
 
 
 .main{
-	background: yellow;
+	background: red;
 	width: 60%;
 	margin: 5% auto;
 	border-radius: 4px;
@@ -199,10 +199,10 @@ input {
   border: 0;
   border-bottom: 2px solid black;
   outline: 0;
-  background: crimson;
+  background: red;
   padding: 20px 0 4px;
   margin: 0 0 20px;
-  color: white;
+  color: black;
 }
 input:focus {
   border-color: #7A9D96;
@@ -213,21 +213,21 @@ textarea {
   border: 0;
   border-bottom: 2px solid black;
   outline: 0;
-  background: crimson;
+  background: red;
   padding: 20px 0 4px;
   margin: 0 0 20px;
-  color: white;
+  color: black;
 }
 textarea:focus {
   border-color: black;
-  color: #2C3238;
+  color: #16497c;
 }
 button#submit {
   width: 100%;
   padding: 20px 0;
   text-align: center;
   background: red;
-  color: blue;
+  color: black;
   border: 0;
   border-radius: 4px;
   opacity: .8;
@@ -243,7 +243,7 @@ button#submit:hover {
   text-align: center;
   padding: 10px 20px;
   border-radius: 4px;
-  color: orange;
+  color: black;
   font-size: 0.9rem;
 }
 .success {

@@ -1,3 +1,6 @@
+{% extends 'social/layout.html' %}
+{% load static%}
+{% block content%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +8,96 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos2.css' %}">
   <title>Document</title>
-  <link rel="stylesheet" href="styles/estilos2.css">
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
 
+</head>
+<style>
+h2{
+  text-align: center;
+  color: blue;
+}
+
+h1{
+  text-align: center;
+  color: red;
+}
+body {
+		background: url(https://indiehoy.com/wp-content/uploads/2020/09/high-score.jpg);
+	}
+  .main-head{
+	background:cyan;
+	color: black;
+}
+.main{
+	background: cyan;
+	width: 60%;
+	margin: 5% auto;
+	border-radius: 4px;
+	padding-bottom: 20px;
+}
+input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  background: cyan ;
+  padding: 20px 0 4px;
+  margin: 0 0 20px;
+  color: black;
+}
+textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  background: cyan ;
+  padding: 20px 0 4px;
+  margin: 0 0 20px;
+  color: black;
+}
+textarea:focus {
+  border-color: black;
+  color: #16497c;
+}
+button#submit {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: red;
+  color: black;
+  border: 0;
+  border-radius: 4px;
+  opacity: .8;
+  transition: .35s linear;
+}
+h1{
+color: black;
+}
+
+h2{
+  color: black;
+}
+input:focus {
+  border-color: red;
+  color: black;
+}
+.second-nav .new{
+	flex: 6 1 5rem;
+	text-align: right;
+	text-transform: uppercase;
+  	color: black ;
+}
+</style>
+<script language="javascript" type="text/javascript">
+  function exefunction(){
+      var lfckv = document.getElementById("lifecheck").checked;
+      alert(lfckv);
+  }
+</script>
 <body>
   <div class="container">
     <!-- Formulario-->
@@ -20,30 +106,33 @@
       {% csrf_token %}
 
       <div class="info">
-        <h1> datos</h1>
+        <h1> Participa</h1>
         <nav class="second-nav">
           <button class="feed" href="{% url 'feed' %}">REGRESAR</button>
 
 
 
         </nav>
-        <p class="gamer"> participa en este gran torneo</p>
+        <h2> participa en este gran torneo</h2>
       </div>
 
       <div class="campos">
         <!-- campos a llenar -->
         <div class="camposForm">
-          <p>
-          <label class="etiquetaForm">Usuario*</label>
-          <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
-            placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-          </p>
-          <p>
-            <label class="etiquetaForm">Nombre*</label>
-            <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
-              onkeypress="return ch(event)" required>
-          </p>
-
+          <font size="5" face="cambria">
+            <p>
+              <label class="etiquetaForm">Usuario*</label>
+              <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
+                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+            </p>
+          </font>
+          <font size="5" face="cambria">
+            <p>
+              <label class="etiquetaForm">Nombre*</label>
+              <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
+                onkeypress="return ch(event)" required>
+            </p>
+          </font>
           <p>
             <label class="etiquetaForm">Apellidos* </label>
             <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
@@ -80,10 +169,12 @@
               placeholder="Ingres su Videojuegofav" onkeypress="return ch(event)" required>
           </p>
 
+         
 <!--           <p>
-            <label class="etiquetaForm">Plataforma* </label>
-            <input class="controllers" type="text" name="plataforma_xbox" id="plataformaField"
-              placeholder="Ingrese la plataforma donde juega" onkeypress="return ch(event)" required>
+            <label class="etiquetaForm">plataforma_xbox*</label>
+            <input class="controllers"  type="checkbox" id="plataformaField"
+             placeholder="¿juega en xbox?" onkeypress="return ch(event)" required>
+          
           </p> -->
 
         </div>
@@ -93,7 +184,6 @@
         <textarea class="controllers" placeholder="Deje su comentario" id="comentariosField"
           onkeypress="return check(event)" required></textarea>
 
-        <!-- <input class="buttons" type="submit" value="Contactanos"> -->
         <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
 
       </div>
@@ -121,7 +211,9 @@
           'Correo': $('#correoField').val(),
           'RedSocial': $('#socialField').val(),
           'Videojuegofav': $('#juegoField').val(),
-          
+,
+
+
 
           csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
         }
@@ -132,9 +224,7 @@
 
   </script>
 
-
-
-
 </body>
 
 </html>
+{% endblock %}
