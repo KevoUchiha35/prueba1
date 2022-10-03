@@ -16,88 +16,99 @@
 
 </head>
 <style>
-h2{
-  text-align: center;
-  color: blue;
-}
+  h2 {
+    text-align: center;
+    color: blue;
+  }
 
-h1{
-  text-align: center;
-  color: red;
-}
-body {
-		background: url(https://indiehoy.com/wp-content/uploads/2020/09/high-score.jpg);
-	}
-  .main-head{
-	background:cyan;
-	color: black;
-}
-.main{
-	background: cyan;
-	width: 60%;
-	margin: 5% auto;
-	border-radius: 4px;
-	padding-bottom: 20px;
-}
-input {
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid black;
-  outline: 0;
-  background: cyan ;
-  padding: 20px 0 4px;
-  margin: 0 0 20px;
-  color: black;
-}
-textarea {
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid black;
-  outline: 0;
-  background: cyan ;
-  padding: 20px 0 4px;
-  margin: 0 0 20px;
-  color: black;
-}
-textarea:focus {
-  border-color: black;
-  color: #16497c;
-}
-button#submit {
-  width: 100%;
-  padding: 20px 0;
-  text-align: center;
-  background: red;
-  color: black;
-  border: 0;
-  border-radius: 4px;
-  opacity: .8;
-  transition: .35s linear;
-}
-h1{
-color: black;
-}
+  h1 {
+    text-align: center;
+    color: red;
+  }
 
-h2{
-  color: black;
-}
-input:focus {
-  border-color: red;
-  color: black;
-}
-.second-nav .new{
-	flex: 6 1 5rem;
-	text-align: right;
-	text-transform: uppercase;
-  	color: black ;
-}
+  body {
+    background: url(https://indiehoy.com/wp-content/uploads/2020/09/high-score.jpg);
+  }
+
+  .main-head {
+    background: cyan;
+    color: black;
+  }
+
+  .main {
+    background: cyan;
+    width: 60%;
+    margin: 5% auto;
+    border-radius: 4px;
+    padding-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
+
+  textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
+
+  textarea:focus {
+    border-color: black;
+    color: #16497c;
+  }
+
+  button#submit {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    background: red;
+    color: black;
+    border: 0;
+    border-radius: 4px;
+    opacity: .8;
+    transition: .35s linear;
+  }
+
+  h1 {
+    color: black;
+  }
+
+  h2 {
+    color: black;
+  }
+
+  input:focus {
+    border-color: red;
+    color: black;
+  }
+
+  .second-nav .new {
+    flex: 6 1 5rem;
+    text-align: right;
+    text-transform: uppercase;
+    color: black;
+  }
 </style>
 <script language="javascript" type="text/javascript">
-  function exefunction(){
-      var lfckv = document.getElementById("lifecheck").checked;
-      alert(lfckv);
+  function exefunction() {
+    var lfckv = document.getElementById("lifecheck").checked;
+    alert(lfckv);
   }
 </script>
+
 <body>
   <div class="container">
     <!-- Formulario-->
@@ -169,14 +180,18 @@ input:focus {
               placeholder="Ingres su Videojuegofav" onkeypress="return ch(event)" required>
           </p>
 
-         
-<!--           <p>
-            <label class="etiquetaForm">plataforma_xbox*</label>
-            <input class="controllers"  type="checkbox" id="plataformaField"
-             placeholder="¿juega en xbox?" onkeypress="return ch(event)" required>
-          
-          </p> -->
 
+          <p>
+            <label for="plataformaField">¿juegas en xbox?</label>
+            <select name="plataforma_xbox" id="plataformaField">
+              <option value="True">Si</option>
+              <option value="False">No</option>
+
+            </select>
+
+
+
+          </p>
         </div>
         <!-- fin campos a llenar -->
 
@@ -211,7 +226,7 @@ input:focus {
           'Correo': $('#correoField').val(),
           'RedSocial': $('#socialField').val(),
           'Videojuegofav': $('#juegoField').val(),
-,
+          'plataforma_xbox': $('#plataformaField').val(),
 
 
 

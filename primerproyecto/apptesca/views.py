@@ -62,6 +62,7 @@ def formulario(request):
                 correo=request.POST['Correo'], 
                 redsocial=request.POST['RedSocial'],  
                 videojuegofav=request.POST['Videojuegofav'], 
+                plataforma_xbox=request.POST['plataforma_xbox'],
 
                 
 				
