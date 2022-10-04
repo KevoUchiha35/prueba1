@@ -1,5 +1,4 @@
-
- main{
+main{
     padding: 1em 2em;
  }
 
@@ -7,20 +6,20 @@
 
 
  @media (max-width: 30em){ 
-    carousel slide{
+    table{
 width: 100%;
     }
-    table tr{
+    carousel-inner{
         display: flex;
         flex-direction: column;
         border: 1px solid grey;
         padding: 1em;
         margin-bottom: 1em;
     }
-    table td[data-titulo]{
+    carousel-inner[data-titulo]{
         display: flex;
     }
-    table td[data-titulo]::before{
+    carousel-inner[data-titulo]::before{
         content: attr(data-titulo );
         width: 90px;
     }

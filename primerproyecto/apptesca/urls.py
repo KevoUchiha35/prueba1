@@ -14,4 +14,7 @@ urlpatterns = [
     url('^logout/$' , LogoutView.as_view(template_name='social/logout.html'), name="logout"),
     url('^acceso/$' , views.retorno, name="prueba"),
     url('^datos/$' , views.formulario, name="datos"),
+    url('^consultas/$' , views.consulta, name="consultas"),
+    url('^carrusel/$' , views.carusel, name="carrusel"),
+
 ]

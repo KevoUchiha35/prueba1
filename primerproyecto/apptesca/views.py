@@ -72,4 +72,10 @@ def formulario(request):
         dato.save()
   return render(request, 'social/datos.html')
 
+def consulta(request):
+  return render(request,'social/consultas.html')
+  
+def carusel(request):
+  return render(request, 'social/carrusel.html')
+
 
