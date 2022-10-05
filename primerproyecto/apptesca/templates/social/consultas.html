@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +7,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <table>
-        <tr>
-            <th style="text-align: center ;">id</th>
-            <th style="text-align: center ;">nombre</th>
-            <th style="text-align: center ;">apellido</th>
-            <th style="text-align: center ;">nickname</th>
-            <th style="text-align: center ;">nacimiento</th>
-            <th style="text-align: center ;">correo</th>
-            <th style="text-align: center ;">redsocial</th>
-            <th style="text-align: center ;">videojuegofav</th>
-            <th style="text-align: center ;">plataforma_xbox</th>
+<style>
+    body {
+        background-color: crimson;
+        text-align: center;
 
-            </tr>
-    </table>
+    }
+
+    h1 {
+        text-align: center;
+        font-family: arial;
+
+    }
+
+    table {
+        border-collapse: ;
+        border-spacing: 5px;
+        flex-wrap: wrap;
+        font-family: Times New Roman;
+        text-align: center;
+        background-color: aqua;
+    }
+    tbody{
+        text-align: center;
+        font-family: arial;
+    }
+    main{
+        text-align: center;
+    }
+</style>
+<body>
+
+  <main>
+
+
+    <div class="info">
+        <h1 class="titt"> Consultas de datos de personal</h1>
+        <nav class="second-nav">
+
+       
+          </nav>
+       
+      </div>
+   
+
+  
+  
+  
+    <table class="table table-bordered"  > 
+      <thead>
+        <tr style="background-color: black;">
+            
+            <th style="color: white ;">ID</th>
+          <th style="color: white ;">Nombre</th>
+          <th style="color: white ;">Apellido</th>
+
+          <th style="color: white ;">Nickname</th>
+
+          <th style="color: white ;">Nacimiento</th>
+
+          <th style="color: white ;">Correo</th>
+      
+          <th style="color: white ;">Redsocial</td>
+
+          <th style="color: white ;">Videojuegofav</th>
+
+          <th style="color: white ;">Plataforma_xbox</th>
+      
+        </tr>
+      </thead>
+
+
+      <tbody>
+        {% if posts %}
+        {% for info in posts %}
+        <tr>
+
+            <td>{{info.id}}</td>
+            <td>{{info.nombre}}</td>
+            <td>{{info.apellido}}</td>
+            <td>{{info.nickname}}</td>
+            <td>{{info.nacimiento}}</td>
+            <td>{{info.correo}}</td>
+            <td>{{info.redsocial}}</td>
+            <td>{{info.videojuegofav}}</td>
+            <td>{{info.plataforma_xbox}}</td>
+
+       
+        </tbody>
+        {% endfor %}
+
+        {% else %}
+
+        <h1>NO HAY REGISTROS</h1>
+
+        {% endif %}
+      </main>
+      </table>
 </body>
 </html>

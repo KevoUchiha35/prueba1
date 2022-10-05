@@ -36,7 +36,8 @@
 				{% if request.user.is_authenticated %}
 				<li><a href="{% url 'logout' %}">Logout</a></li>
 				<li><a class="profile" href="{% url 'perfil' %}">Mi Perfil</a></li>
-				<li><a class="new" href="{% url 'datos' %}">datos</a></li>
+				<li><a class="new" href="{% url 'datos' %}">Datos</a></li>
+				<li><a class="new" href="{% url 'correo' %}">Correo</a></li>
 				{% else %}
 				<li><a href="{% url 'registro' %}">Register</a></li>
 				<li><a href="{% url 'login' %}">Login</a></li>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .models import jugadores
+from .models import contactanos
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -73,9 +74,27 @@ def formulario(request):
   return render(request, 'social/datos.html')
 
 def consulta(request):
-  return render(request,'social/consultas.html')
+    info = jugadores.objects.all()
   
+    context= {'posts': info}
+
+
+    return render(request, 'social/consultas.html', context)
+
 def carusel(request):
   return render(request, 'social/carrusel.html')
 
+def correo(request):
+  if request.method == 'POST':  
+       
+        correito = contactanos.objects.create(
+          
+                nombre=request.POST['nombre'], 
+                apellido=request.POST['apellidos'], 
+                nickname=request.POST['nickname'], 
+                email=request.POST['correo'], 
+                asunto=request.POST['asunto'],
+          )
+        correito.save()
+  return render(request, 'social/correo.html')
 

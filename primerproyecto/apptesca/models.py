@@ -15,3 +15,10 @@ class jugadores(models.Model):
     redsocial = models.CharField(max_length=250, null=True, unique=False)
     videojuegofav = models.CharField(max_length=250, null=True, unique=False)
     plataforma_xbox = models.BooleanField(default=False,null=True)
+
+class contactanos(models.Model):
+    nombre = models.CharField(max_length=250, null=True)
+    apellido = models.CharField(max_length=250, null=True)
+    nickname = models.CharField(max_length=250, null=True)
+    email = models.CharField(max_length=250, null=True, unique=False) 
+    asunto = models.CharField(max_length=250, null=True, unique=False) 

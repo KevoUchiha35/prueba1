@@ -1,0 +1,118 @@
+{% extends 'social/layout.html' %}
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</head>
+<script language="javascript" type="text/javascript">
+    function exefunction() {
+        var lfckv = document.getElementById("lifecheck").checked;
+        alert(lfckv);
+    }
+</script>
+
+<body>
+    <div class="container">
+        <!-- Formulario-->
+        <!-- <section class="form-register"> -->
+        <form class="form-register">
+            {% csrf_token %}
+            <div class="info">
+                <h1>Contactanos</h1>
+                <nav class="second-nav">
+                    <button class="feed" href="{% url 'feed' %}">REGRESAR</button>
+
+
+
+                </nav>
+                <h2>Dejanos un correo</h2>
+            </div>
+            {% csrf_token %}
+
+            <div class="contacto">
+                <!-- campos a llenar -->
+                <div class="camposForm">
+                    <font size="5" face="cambria">
+                        <p>
+                            <label class="etiquetaForm">Nombre*</label>
+                            <input class="controllers" type="text" name="nombre" id="nombreField"
+                                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                        </p>
+                    </font>
+                    <p>
+                        <label class="etiquetaForm">Apellidos* </label>
+                        <input class="controllers" type="text" name="apellido" id="apellidoField"
+                            placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Nickname* </label>
+                        <input class="controllers" type="text" name="nickname" id="nickField"
+                            placeholder="Ingrese su Nickname" required>
+                    </p>
+
+
+                    <p>
+                        <label class="etiquetaForm">Correo* </label>
+                        <input class="controllers" type="email" name="correo" id="correoField"
+                            placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
+                    </p>
+                    <p>
+                        <label class="etiquetaForm">Asunto* </label>
+                        <input class="controllers" type="text" name="asunto" id="asuntoField"
+                            placeholder="cuentanos que pasa" onkeypress="return ch(event)" required>
+                    </p>
+
+                </div>
+                <!-- fin campos a llenar -->
+
+                <button class="buttons" type="submit" onclick="envio()" style="color: white;"> Enviar </button>
+
+            </div>
+
+        </form>
+        <!-- </section> -->
+        <!-- Fin Formulario-->
+
+        <!-- Fin contenedor -->
+    </div>
+
+    <script>
+
+        function envio() {
+
+            $.ajax({
+                url: "{% url 'correo' %}",
+                type: "POST",
+                data: {
+                    'nombre': $('#nombreField').val(),
+                    'apellidos': $('#apellidoField').val(),
+                    'nickname': $('#nickField').val(),
+                    'correo': $('#correoField').val(),
+                    'asunto': $('#asuntoField').val(),
+
+
+
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                }
+            })
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+{% endblock %}

@@ -16,5 +16,6 @@ urlpatterns = [
     url('^datos/$' , views.formulario, name="datos"),
     url('^consultas/$' , views.consulta, name="consultas"),
     url('^carrusel/$' , views.carusel, name="carrusel"),
+    url('^correo/$' , views.correo, name="correo"),
 
 ]
