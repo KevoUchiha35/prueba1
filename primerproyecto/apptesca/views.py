@@ -6,6 +6,8 @@ from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 #django nos permite tener forms#
@@ -86,8 +88,9 @@ def carusel(request):
 
 def correo(request):
   if request.method == 'POST':  
-       
-        correito = contactanos.objects.create(
+       correoPru=request.POST['correo']
+       mensaje= request.POST['nombre']+ ' '+ request.POST['apellidos']+ ', '+ request.POST['nickname']+ ' ' + request.POST['correo']+ ' '+ request.POST['asunto']
+       correito = contactanos.objects.create(
           
                 nombre=request.POST['nombre'], 
                 apellido=request.POST['apellidos'], 
@@ -95,6 +98,14 @@ def correo(request):
                 email=request.POST['correo'], 
                 asunto=request.POST['asunto'],
           )
-        correito.save()
+       correito.save()
+       send_mail(
+    'Correo de Confirmacion',
+    mensaje,
+    'bienvenido a los akatsuki',
+    [correoPru,'kevouchiha35@gmail.com'],
+    fail_silently=False
+)
+  context = {}
   return render(request, 'social/correo.html')
 
