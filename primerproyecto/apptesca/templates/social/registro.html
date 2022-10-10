@@ -1,7 +1,41 @@
 {% extends 'social/layout.html' %}
 
 {% block content %}
+<style>
+	.main-head {
+  background: cyan;
+  color: black;
+}
 
+.main {
+  background: cyan;
+  width: 60%;
+  margin: 5% auto;
+  border-radius: 4px;
+  padding-bottom: 20px;
+}
+	input {
+  width: 100%;
+  border: 0;
+  border-radius: 15px;
+  outline: 0;
+  background: white;
+  padding: 20px 0 4px;
+  margin: 0 0 20px;
+  color: black;
+}
+button#submit {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: yellow;
+  color: black;
+  border: 0;
+  border-radius: 4px;
+  opacity: .8;
+  transition: .35s linear;
+}
+</style>
 <form class="form" method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
