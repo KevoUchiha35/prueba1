@@ -7,7 +7,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 
 
 urlpatterns = [
-    path('', views.feed, name='feed'),
+    path('', views.principal, name='inicio'),
     url('^perfil/$' , views.perfil, name="perfil"),
     url('^register/$' , views.registro, name="registro"),
     url('^login/$' , LoginView.as_view(template_name='social/login.html'), name="login"),
@@ -17,5 +17,7 @@ urlpatterns = [
     url('^consultas/$' , views.consulta, name="consultas"),
     url('^carrusel/$' , views.carusel, name="carrusel"),
     url('^correo/$' , views.correo, name="correo"),
+    url('^feed/$' , views.feed, name="feed"),
+    url('^carrito/$' , views.compras, name="carrito"),
 
 ]

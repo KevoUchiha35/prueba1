@@ -41,6 +41,7 @@
 				{% else %}
 				<li><a href="{% url 'registro' %}">Register</a></li>
 				<li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'inicio' %}">inicio</a></li>
 				{% endif %}
 
 			</ul>
@@ -63,16 +64,16 @@
 
 		<nav class="second-nav">
 			{% if request.user.is_authenticated %}
-						{% if user.is_superuser == True  %}
-			<a class="feed" href="{% url 'feed' %}">Inicio</a>			
+						{% if user.is_superuser == True  %}			
 			<a class="new" href="{% url 'prueba' %}">Prueba</a>
 			<a class="new" href="{% url 'consultas' %}">consultas</a>
 			<a class="new" href="{% url 'carrusel' %}">carrusel</a>
 
 			{% else %}
-			<a class="feed" href="{% url 'feed' %}">Inicio</a>
 			<a class="new" href="{% url 'prueba' %}">Prueba</a>
 			<a class="new" href="{% url 'correo' %}">Correo</a>
+            <a class="new" href="{% url 'carrito' %}">carrito</a>
+            
 
 			{% endif %}
 			{% else %}

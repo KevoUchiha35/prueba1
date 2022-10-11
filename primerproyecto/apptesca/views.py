@@ -109,3 +109,8 @@ def correo(request):
   context = {}
   return render(request, 'social/correo.html')
 
+def principal(request):
+  return render(request, 'social/inicio.html')
+
+def compras(request):
+  return render(request, 'social/carrito.html')
