@@ -1,4 +1,6 @@
+
 {% load static%}
+{% block content%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -16,7 +17,7 @@
 <style>
     body {
         margin: 0px;
-        background-color: cyan;
+        background: url(https://tecolotito.elsiglodetorreon.com.mx/i/2020/12/1377878.jpeg);
         font-family: 'Nerko One', cursive;
     }
     
@@ -106,14 +107,11 @@
             <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
               placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
           </p>
-        </font>
-        <font size="5" face="cambria">
           <p>
             <label class="etiquetaForm">Nombre*</label>
             <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
               onkeypress="return ch(event)" required>
           </p>
-        </font>
         <p>
           <label class="etiquetaForm">Apellidos* </label>
           <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
@@ -126,7 +124,7 @@
           </p>
           <p>
             <label class="etiquetaForm">Numero* </label>
-            <input class="controllers" type="number" name="correo" id="numeroField" placeholder="Ingrese su numero"
+            <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese su numero"
               onkeypress="return ch(event)" required>
           </p>
           <p>
@@ -140,10 +138,10 @@
 
 
           </p>
-        <button id="checkout" class="button-checkout" onclick="pay()">Pagar</button>
+        <button id="checkout" type="submit" class="button-checkout" onclick="pay()">Pagar</button>
     </div>
     <div class="page-content" id="producto">
-        <div class="product-container" >
+        <div class="product-container" id="producto1" >
             <h3>Teclado gamer Ocelot OGEK01 QWERTY <br>
             <h3>español España color negro con luz RGB</h3>
             <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
@@ -151,7 +149,7 @@
             <button class="button-add" onclick="add('product-1', 1000)">Agregar</button>
         </div>
 
-        <div class="product-container" >
+        <div class="product-container" id="producto2"  >
             <h3>Teclado Gamer Mecanico HyperX Alloy Origins 60  <br>
             <h3>/ HyperX Switch Red / LED RGB / Ingles - <br>
             <h3>HKBO1S-RB-US/G</h3>
@@ -234,17 +232,18 @@
         console.log(product, price);
         products.push(product);
         total = total + price;
-        document.getElementById("checkout").innerHTML = `Pagar $${total}`
+        id="totalField"
+        document.getElementById("checkout").innerHTML = `Pagar $${total}` 
     }
 
-    function pay() {
+/*     function pay() {
         window.alert(products.join(", \n"));
-    }
+    } */
 </script>
 
 <script>
 
-    function datos() {
+    function pay() {
 
       $.ajax({
         url: "{% url 'carrito' %}",
@@ -257,7 +256,6 @@
           'Numero': $('#numeroField').val(),
           'producto': $('#producto').val(),
           'metodo_pago': $('#pagoField').val(),
-          'pagar': $('#checkout').val(),
 
 
 
@@ -271,3 +269,4 @@
   </script>
 
 </html>
+{% endblock %}

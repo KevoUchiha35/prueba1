@@ -29,6 +29,5 @@ class carro(models.Model):
     apellido = models.CharField(max_length=250, null=True)
     correo = models.CharField(max_length=250, null=True, unique=False)
     numero = models.CharField(max_length=250, null=True, unique=False)
-    producto = models.CharField(max_length=250, null=True, unique=False)
     pago = models.BooleanField(default=False,null=True)
     total = models.CharField(max_length=250, null=True, unique=False)

@@ -123,7 +123,7 @@ def compras(request):
                 apellido=request.POST['Apellidos'], 
                 correo=request.POST['Correo'], 
                 numero=request.POST['Numero'],
-                producto=request.POST['Producto'],
+                producto=request.POST['producto'],
                 pago=request.POST['metodo_pago'],
                 total=request.POST['pagar'],
 
