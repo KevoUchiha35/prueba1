@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from .models import jugadores
 from .models import contactanos
-from .models import carro
+from .models import tienda
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -114,18 +114,18 @@ def principal(request):
   return render(request, 'social/inicio.html')
 
 def compras(request):
+  print(request)
   if request.method == 'POST':  
        
-        dato = carro.objects.create(
+        dato = tienda.objects.create(
           
                 user_id=request.POST['Usuario'], 
                 nombre=request.POST['Nombre'], 
                 apellido=request.POST['Apellidos'], 
                 correo=request.POST['Correo'], 
                 numero=request.POST['Numero'],
-                producto=request.POST['producto'],
                 pago=request.POST['metodo_pago'],
-                total=request.POST['pagar'],
+                total=request.POST['total'],
 
                 
 				

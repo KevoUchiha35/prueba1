@@ -1,4 +1,3 @@
-
 {% load static%}
 {% block content%}
 <!DOCTYPE html>
@@ -14,206 +13,212 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
-<style>
-    body {
-        margin: 0px;
-        background: url(https://tecolotito.elsiglodetorreon.com.mx/i/2020/12/1377878.jpeg);
-        font-family: 'Nerko One', cursive;
-    }
-    
-    button {
-        font-size: 16px;
-        text-align: center;
-        border-radius: 8px;
-        padding: 10px 20px;
-    }
-    
-    .page-nav {
-        background-color: yellow;
-        border: 1px solid black;
-        position: relative;
-    }
-    
-    .page-nav h1 {
-        margin: 20px;
-    }
-    
-    .button-checkout {
-        background-color: white;
-        color: black;
-        border: 2px solid #008CBA; /* Blue */
-        transition-duration: 0.4s;
-        position: absolute;
-        right: 15px;
-        bottom: 15px;
-    }
-    
-    .button-checkout:hover {
-        background-color: #008CBA; /* Blue */
-        color: white;
-    }
-    
-    .page-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    
-    .product-container {
-        margin: 15px;
-        padding: 2px 16px;
-        position: relative;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
-        background-color: white;
-    }
-    
-    .product-container:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      }
-    
-    .product-container img {
-        width: 300px;
-    }
-    
-    .product-container h1 {
-        margin-bottom: 10px;
-        margin-left: 15px;
-    }
-    
-    .button-add {
-        background-color: white;
-        color: black;
-        border: 2px solid #4CAF50; /* Green */
-        transition-duration: 0.4s;
-        position: absolute;
-        right: 15px;
-        bottom: 10px;
-    }
-      
-    .button-add:hover {
-        background-color: #4CAF50; /* Green */
-        color: white;
-    }
-</style>
+    <style>
+        body {
+            margin: 0px;
+            background: url(https://tecolotito.elsiglodetorreon.com.mx/i/2020/12/1377878.jpeg);
+            font-family: 'Nerko One', cursive;
+        }
+
+        button {
+            font-size: 16px;
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
+
+        .page-nav {
+            background-color: yellow;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .page-nav h1 {
+            margin: 20px;
+        }
+
+        .button-checkout {
+            background-color: white;
+            color: black;
+            border: 2px solid #008CBA;
+            /* Blue */
+            transition-duration: 0.4s;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
+
+        .button-checkout:hover {
+            background-color: #008CBA;
+            /* Blue */
+            color: white;
+        }
+
+        .page-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .product-container {
+            margin: 15px;
+            padding: 2px 16px;
+            position: relative;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .product-container:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .product-container img {
+            width: 300px;
+        }
+
+        .product-container h1 {
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .button-add {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+            /* Green */
+            transition-duration: 0.4s;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+
+        .button-add:hover {
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+
     <div class="page-nav">
+        <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
         {% csrf_token %}
         <h1>NEGATIVE - GAMING</h1>
         <p>
             <label class="etiquetaForm">Usuario*</label>
-            <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
-              placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-          </p>
-          <p>
+            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
+                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+        </p>
+        <p>
             <label class="etiquetaForm">Nombre*</label>
             <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
-              onkeypress="return ch(event)" required>
-          </p>
+                onkeypress="return ch(event)" required>
+        </p>
         <p>
-          <label class="etiquetaForm">Apellidos* </label>
-          <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
-            onkeypress="return ch(event)" required>
+            <label class="etiquetaForm">Apellidos* </label>
+            <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
+                onkeypress="return ch(event)" required>
         </p>
         <p>
             <label class="etiquetaForm">Correo* </label>
             <input class="controllers" type="email" name="correo" id="correoField" placeholder="Ingrese tu correo"
-              onkeypress="return ch(event)" required>
-          </p>
-          <p>
+                onkeypress="return ch(event)" required>
+        </p>
+        <p>
             <label class="etiquetaForm">Numero* </label>
             <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese su numero"
-              onkeypress="return ch(event)" required>
-          </p>
-          <p>
-            <label for="pagoField">metodo de pago</label>
+                onkeypress="return ch(event)" required>
+        </p>
+        <p>
+            <label for="pagoField">metodo de pago tarjeta</label>
             <select name="metodo_pago" id="pagoField">
-              <option value="True">tarjeta</option>
-              <option value="False">efectivo</option>
+                <option value="True">Si</option>
+                <option value="False">efectivo</option>
 
             </select>
 
 
 
-          </p>
+        </p>
         <button id="checkout" type="submit" class="button-checkout" onclick="pay()">Pagar</button>
+
     </div>
     <div class="page-content" id="producto">
-        <div class="product-container" id="producto1" >
+        <div class="product-container" id="producto1">
             <h3>Teclado gamer Ocelot OGEK01 QWERTY <br>
-            <h3>español España color negro con luz RGB</h3>
-            <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
-            <h1>$1,000.00 MXN</h1>
-            <button class="button-add" onclick="add('product-1', 1000)">Agregar</button>
+                <h3>español España color negro con luz RGB</h3>
+                <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
+                <h1>$1,000.00 MXN</h1>
+                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)" required>Agregar</button>
         </div>
 
-        <div class="product-container" id="producto2"  >
-            <h3>Teclado Gamer Mecanico HyperX Alloy Origins 60  <br>
-            <h3>/ HyperX Switch Red / LED RGB / Ingles - <br>
-            <h3>HKBO1S-RB-US/G</h3>
-            <img src="{% static 'img/teclado2.png' %}"  HEIGHT=200 alt="Teclado">
-                        <h1>$1,999.00 MXN</h1>
-            <button class="button-add" onclick="add('product-2', 1999)">Agregar</button>
+        <div class="product-container" id="producto2">
+            <h3>Teclado Gamer Mecanico HyperX Alloy Origins 60 <br>
+                <h3>/ HyperX Switch Red / LED RGB / Ingles - <br>
+                    <h3>HKBO1S-RB-US/G</h3>
+                    <img src="{% static 'img/teclado2.png' %}" HEIGHT=200 alt="Teclado">
+                    <h1>$1,999.00 MXN</h1>
+                    <button class="button-add" onclick="add('product-2', 1999)">Agregar</button>
         </div>
 
-        <div class="product-container" >
+        <div class="product-container">
             <h3>Teclado inalámbrico Gaming ESPAÑOL<br>
-            <h3>Duradero, resiste al Agua, ergonómico,<br>
-            <h3>silencioso + Teclado Gamer PC PS4 Xbox One Mac</h3>
-            <img src="{% static 'img/teclado3.jpg' %}" alt="Teclado">
-                        <h1>$1,083.00 MXN</h1>
-            <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
+                <h3>Duradero, resiste al Agua, ergonómico,<br>
+                    <h3>silencioso + Teclado Gamer PC PS4 Xbox One Mac</h3>
+                    <img src="{% static 'img/teclado3.jpg' %}" alt="Teclado">
+                    <h1>$1,083.00 MXN</h1>
+                    <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
         </div>
 
         <div class="product-container">
             <h3>Mouse Gamer BINDEN M371, Alámbrico, <br>
-            <h3>1600 DPI, 3 Botones, RGB</h3>
-            <img src="{% static 'img/mouse.jpg' %}" alt="Mouse">
-                        <h1>$198.00 MXN</h1>
-            <button class="button-add" onclick="add('product-4', 198)">Agregar</button>
+                <h3>1600 DPI, 3 Botones, RGB</h3>
+                <img src="{% static 'img/mouse.jpg' %}" alt="Mouse">
+                <h1>$198.00 MXN</h1>
+                <button class="button-add" onclick="add('product-4', 198)">Agregar</button>
         </div>
 
         <div class="product-container">
             <h3>Mouse Gamer óptico con botones laterales</h3>
             <img src="{% static 'img/mouse2.jpg' %}" alt="Mouse">
-                        <h1>$115.00 MXN</h1>
+            <h1>$115.00 MXN</h1>
             <button class="button-add" onclick="add('product-5', 115)">Agregar</button>
         </div>
 
         <div class="product-container">
             <h3>Mouse Gamer Óptico Spectra PJT-DMS812 <br>
-            <h3>/ Alámbrico / USB / 2400dpi / Negro</h3>
-            <img src="{% static 'img/mouse3.jpg' %}" alt="Mouse">
-                        <h1>$239.00 MXN</h1>
-            <button class="button-add" onclick="add('product-6', 239)">Agregar</button>
+                <h3>/ Alámbrico / USB / 2400dpi / Negro</h3>
+                <img src="{% static 'img/mouse3.jpg' %}" alt="Mouse">
+                <h1>$239.00 MXN</h1>
+                <button class="button-add" onclick="add('product-6', 239)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>MSI - Monitor Gamer Curvo de 24"  (1500R) <br>
-            <h3>- Optix G24C6P - Panel VA - 1920x1080 (FHD) </h3>
-            <img src="{% static 'img/monitor.jpg' %}" alt="Mouse">
-                        <h1>$5,399.00 MXN</h1>
-            <button class="button-add" onclick="add('product-7', 5399)">Agregar</button>
+            <h3>MSI - Monitor Gamer Curvo de 24" (1500R) <br>
+                <h3>- Optix G24C6P - Panel VA - 1920x1080 (FHD) </h3>
+                <img src="{% static 'img/monitor.jpg' %}" alt="Mouse">
+                <h1>$5,399.00 MXN</h1>
+                <button class="button-add" onclick="add('product-7', 5399)">Agregar</button>
         </div>
 
         <div class="product-container">
             <h3>Monitor Gamer ASUS 34" <br>
-            <h3>/ Radeon Freesync Premium / HDR10 / 1MS <br>
-            <h3>/ HDMIx2 / DPx2 / UWQHD - 165Hz / TUF <br>
-                <h3>GAMING VG34VQL1B</h3>
-            <img src="{% static 'img/monitor2.jpg' %}" alt="Mouse">
+                <h3>/ Radeon Freesync Premium / HDR10 / 1MS <br>
+                    <h3>/ HDMIx2 / DPx2 / UWQHD - 165Hz / TUF <br>
+                        <h3>GAMING VG34VQL1B</h3>
+                        <img src="{% static 'img/monitor2.jpg' %}" alt="Mouse">
                         <h1>$11,699.00 MXN</h1>
-            <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
+                        <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
         </div>
 
         <div class="product-container">
             <h3>Monitor Gamer Curvo Gigabyte 34" Gaming G34WQC <br>
-            <h3>/ HDMIx2 - DPx2 / 1ms / 144Hz / WQHD / HDR</h3>
-            <img src="{% static 'img/monitor3.jpg' %}" alt="Mouse">
-                        <h1>$10,999.00 MXN</h1>
-            <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
+                <h3>/ HDMIx2 - DPx2 / 1ms / 144Hz / WQHD / HDR</h3>
+                <img src="{% static 'img/monitor3.jpg' %}" alt="Mouse">
+                <h1>$10,999.00 MXN</h1>
+                <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
         </div>
 
 
@@ -223,50 +228,56 @@
 
     </div>
 
-</body>
-<script>
-    let products = [];
-    let total = 0;
-
-    function add(product, price) {
-        console.log(product, price);
-        products.push(product);
-        total = total + price;
-        id="totalField"
-        document.getElementById("checkout").innerHTML = `Pagar $${total}` 
-    }
-
-/*     function pay() {
-        window.alert(products.join(", \n"));
-    } */
-</script>
-
-<script>
-
-    function pay() {
-
-      $.ajax({
-        url: "{% url 'carrito' %}",
-        type: "POST",
-        data: {
-          'Usuario': $('#userField').val(),
-          'Nombre': $('#nombreField').val(),
-          'Apellidos': $('#apellidoField').val(),
-          'Correo': $('#correoField').val(),
-          'Numero': $('#numeroField').val(),
-          'producto': $('#producto').val(),
-          'metodo_pago': $('#pagoField').val(),
+    <script>
+        let products = [];
+        let total = 0;
 
 
+        function add(product, price) {
+            console.log(product, price);
+            products.push(product);
+            total = total + price;
+            document.getElementById("checkout").innerHTML = `Pagar $${total}`
 
-          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
         }
-      })
 
-    }
+        /*     function pay() {
+                window.alert(products.join(", \n"));
+            }  */
+    </script>
+    <script>
+
+        function pay() {
+
+            $.ajax({
+                url: "{% url 'carrito' %}",
+                type: "POST",
+                data: {
+                    'Usuario': $('#userField').val(),
+                    'Nombre': $('#nombreField').val(),
+                    'Apellidos': $('#apellidoField').val(),
+                    'Correo': $('#correoField').val(),
+                    'Numero': $('#numeroField').val(),
+                    'metodo_pago': $('#pagoField').val(),
+                    'total': total,
 
 
-  </script>
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                }
+            })
+
+        }
+
+
+    </script>
+<!--     <script>
+        function clearHtml() {
+            button-checkout.innerHTML = '';
+        }
+    </script> -->
+
+</body>
+
 
 </html>
 {% endblock %}
