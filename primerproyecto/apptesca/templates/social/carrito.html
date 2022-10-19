@@ -28,7 +28,7 @@
         }
 
         .page-nav {
-            background-color: yellow;
+            background-color: cyan;
             border: 1px solid black;
             position: relative;
         }
@@ -101,7 +101,7 @@
 </head>
 
 <body>
-
+    {{ form.as_p }}
     <div class="page-nav">
         <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
         {% csrf_token %}
@@ -142,16 +142,16 @@
 
 
         </p>
-        <button id="checkout" type="submit" class="button-checkout" onclick="pay()">Pagar</button>
+        <button id="checkout" type="submit" class="button-checkout" onclick="pay()" >Pagar</button>
 
     </div>
     <div class="page-content" id="producto">
-        <div class="product-container" id="producto1">
+        <div class="product-container" id="producto1" onkeypress="return ch(event)" required >
             <h3>Teclado gamer Ocelot OGEK01 QWERTY <br>
                 <h3>español España color negro con luz RGB</h3>
                 <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
                 <h1>$1,000.00 MXN</h1>
-                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)" required>Agregar</button>
+                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)" required >Agregar</button>
         </div>
 
         <div class="product-container" id="producto2">
