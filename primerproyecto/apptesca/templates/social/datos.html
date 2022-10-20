@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos2.css' %}">
-  <title>Document</title>
+  <title>datos</title>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -27,7 +27,9 @@
   }
 
   body {
-    background: url(https://indiehoy.com/wp-content/uploads/2020/09/high-score.jpg);
+    background: url(https://www.todofondos.net/wp-content/uploads/pc-gaming-wallpaper-hd.jpg);
+    font-size: 62.5%;
+	font-family: 'Times New Roman', Times, serif;
   }
 
   .main-head {
@@ -67,14 +69,14 @@
 
   textarea:focus {
     border-color: black;
-    color: #16497c;
+    color: #000000;
   }
 
   button#submit {
     width: 100%;
     padding: 20px 0;
     text-align: center;
-    background: red;
+    background: black;
     color: black;
     border: 0;
     border-radius: 4px;
@@ -91,7 +93,7 @@
   }
 
   input:focus {
-    border-color: red;
+    border-color: black;
     color: black;
   }
 
@@ -101,6 +103,7 @@
     text-transform: uppercase;
     color: black;
   }
+  
 </style>
 <script language="javascript" type="text/javascript">
   function exefunction() {
@@ -119,31 +122,29 @@
       <div class="info">
         <h1> Participa</h1>
         <nav class="second-nav">
-          <button class="feed" href="{% url 'feed' %}">REGRESAR</button>
 
 
 
         </nav>
-        <h2> participa en este gran torneo</h2>
+        <h2> Participa en Este Gran Torneo</h2>
       </div>
 
       <div class="campos">
         <!-- campos a llenar -->
         <div class="camposForm">
-          <font size="5" face="cambria">
+
             <p>
               <label class="etiquetaForm">Usuario*</label>
               <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
                 placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
             </p>
-          </font>
-          <font size="5" face="cambria">
+
             <p>
               <label class="etiquetaForm">Nombre*</label>
               <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
                 onkeypress="return ch(event)" required>
             </p>
-          </font>
+
           <p>
             <label class="etiquetaForm">Apellidos* </label>
             <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
@@ -199,8 +200,9 @@
         <textarea class="controllers" placeholder="Deje su comentario" id="comentariosField"
           onkeypress="return check(event)" required></textarea>
 
+        <center>
         <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
-
+        </center>
       </div>
 
     </form>

@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>consultas</title>
+    <title>consultas_carrito</title>
 </head>
 <style>
     body {
@@ -37,12 +36,13 @@
     }
 </style>
 <body>
-  <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+    <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
   <main>
 
 
+
     <div class="info">
-        <h1 class="titt"> Consultas de datos de personal</h1>
+        <h1 class="titt"> Consultas de datos de carrito</h1>
         <nav class="second-nav">
 
        
@@ -53,26 +53,24 @@
 
   
   
-      <center>
+  <center>
     <table class="table table-bordered"  > 
       <thead>
         <tr style="background-color: black;">
             
-            <th style="color: white ;">ID</th>
+          <th style="color: white ;">ID</th>
+
           <th style="color: white ;">Nombre</th>
+
           <th style="color: white ;">Apellido</th>
-
-          <th style="color: white ;">Nickname</th>
-
-          <th style="color: white ;">Nacimiento</th>
 
           <th style="color: white ;">Correo</th>
       
-          <th style="color: white ;">Redsocial</td>
+          <th style="color: white ;">Numero</td>
 
-          <th style="color: white ;">Videojuegofav</th>
+          <th style="color: white ;">Pago con tarjeta</th>
 
-          <th style="color: white ;">Plataforma_xbox</th>
+          <th style="color: white ;">Total</th>
       
         </tr>
       </thead>
@@ -86,12 +84,10 @@
             <td>{{info.id}}</td>
             <td>{{info.nombre}}</td>
             <td>{{info.apellido}}</td>
-            <td>{{info.nickname}}</td>
-            <td>{{info.nacimiento}}</td>
             <td>{{info.correo}}</td>
-            <td>{{info.redsocial}}</td>
-            <td>{{info.videojuegofav}}</td>
-            <td>{{info.plataforma_xbox}}</td>
+            <td>{{info.numero}}</td>
+            <td>{{info.pago}}</td>
+            <td>{{info.total}}</td>
 
        
         </tbody>
@@ -105,4 +101,5 @@
       </main>
       </table></center>
 </body>
+
 </html>

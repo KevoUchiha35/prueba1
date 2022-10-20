@@ -134,3 +134,12 @@ def compras(request):
           )
         dato.save()
   return render(request, 'social/carrito.html')
+
+
+def carro(request):
+    info = tienda.objects.all()
+  
+    context= {'posts': info}
+
+
+    return render(request, 'social/consultas_carrito.html', context)

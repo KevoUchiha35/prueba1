@@ -19,5 +19,6 @@ urlpatterns = [
     url('^correo/$' , views.correo, name="correo"),
     url('^feed/$' , views.feed, name="feed"),
     url('^carrito/$' , views.compras, name="carrito"),
+    url('^consultas_carrito/$' , views.carro, name="consultas_carrito"),
 
 ]
