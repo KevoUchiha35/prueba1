@@ -143,3 +143,6 @@ def carro(request):
 
 
     return render(request, 'social/consultas_carrito.html', context)
+
+def recuadro(request):
+  return render(request, 'social/ventana.html')

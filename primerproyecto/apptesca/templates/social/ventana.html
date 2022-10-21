@@ -1,0 +1,28 @@
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="modal ">
+        <div class="modal__container">
+            <p>
+                <label class="etiquetaForm">Nombre*</label>
+                <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
+                    onkeypress="return ch(event)" required>
+            </p>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+    </section>
+
+
+   
+    <script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>
+{% endblock %}

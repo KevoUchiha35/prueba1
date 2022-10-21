@@ -103,7 +103,7 @@
 <body>
     {{ form.as_p }}
     <div class="page-nav">
-        <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+        <a class="feed" href="{% url 'ventana' %}">REGRESAR</a>        
         {% csrf_token %}
         <h1>NEGATIVE - GAMING</h1>
         <p>
@@ -142,7 +142,9 @@
 
 
         </p>
+
         <button id="checkout" type="submit" class="button-checkout" onclick="pay()" >Pagar</button>
+
         
 
     </div>
@@ -226,8 +228,22 @@
 
 
 
-
     </div>
+    <section class="modal ">
+        <div class="modal__container">
+            <a class="feed" href="#">REGRESAR</a> 
+            <p>
+                <label class="etiquetaForm">Nombre*</label>
+                <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
+                    onkeypress="return ch(event)" required>
+            </p>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+    </section>
+
+
+   
+    <script src="{% static 'scripts/main.js' %}"></script>
 
     <script>
         let products = [];
