@@ -31,4 +31,4 @@ class tienda(models.Model):
     correo = models.CharField(max_length=250, null=True, unique=False)
     numero = models.CharField(max_length=250, null=True, unique=False)
     pago = models.BooleanField(default=False,null=True)
-    total = models.IntegerField()
+    total = models.CharField(max_length=250, null=True, unique=False)

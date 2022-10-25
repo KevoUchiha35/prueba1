@@ -13,6 +13,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <style>
         body {
             margin: 0px;
@@ -97,64 +108,33 @@
             /* Green */
             color: white;
         }
+        
     </style>
 </head>
 
 <body>
     {{ form.as_p }}
     <div class="page-nav">
-        <a class="feed" href="{% url 'ventana' %}">REGRESAR</a>        
+        <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
         {% csrf_token %}
-        <h1>NEGATIVE - GAMING</h1>
-        <p>
-            <label class="etiquetaForm">Usuario*</label>
-            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
-                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-        </p>
-        <p>
-            <label class="etiquetaForm">Nombre*</label>
-            <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
-                onkeypress="return ch(event)" required>
-        </p>
-        <p>
-            <label class="etiquetaForm">Apellidos* </label>
-            <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
-                onkeypress="return ch(event)" required>
-        </p>
-        <p>
-            <label class="etiquetaForm">Correo* </label>
-            <input class="controllers" type="email" name="correo" id="correoField" placeholder="Ingrese tu correo"
-                onkeypress="return ch(event)" required>
-        </p>
-        <p>
-            <label class="etiquetaForm">Numero* </label>
-            <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese su numero"
-                onkeypress="return ch(event)" required>
-        </p>
-        <p>
-            <label for="pagoField">metodo de pago tarjeta</label>
-            <select name="metodo_pago" id="pagoField">
-                <option value="True">Si</option>
-                <option value="False">efectivo</option>
-
-            </select>
-
-
-
-        </p>
-
-        <button id="checkout" type="submit" class="button-checkout" onclick="pay()" >Pagar</button>
-
-        
+        <center>
+            <h1>Static Gaming</h1>
+        </center>
 
     </div>
+
+
+
+
+
     <div class="page-content" id="producto">
-        <div class="product-container" id="producto1" onkeypress="return ch(event)" required >
+        <div class="product-container" id="producto1" onkeypress="return ch(event)" required>
             <h3>Teclado gamer Ocelot OGEK01 QWERTY <br>
                 <h3>español España color negro con luz RGB</h3>
                 <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
                 <h1>$1,000.00 MXN</h1>
-                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)" required >Agregar</button>
+                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)"
+                    required>Agregar</button>
         </div>
 
         <div class="product-container" id="producto2">
@@ -225,73 +205,134 @@
         </div>
 
 
-
-
-
     </div>
-    <section class="modal ">
-        <div class="modal__container">
-            <a class="feed" href="#">REGRESAR</a> 
-            <p>
-                <label class="etiquetaForm">Nombre*</label>
-                <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
-                    onkeypress="return ch(event)" required>
-            </p>
-            <a href="#" class="modal__close">Cerrar Modal</a>
-        </div>
-    </section>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:red ;">
+            pagar
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">LLENAR CAMPOS</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div>
+
+                                <label class="etiquetaForm">Usuario*</label>
+                                <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
+                                    placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                            </div>
+                            <div>
+                                <label class="etiquetaForm">Nombre*</label>
+                                <input class="controllers" type="text" name="nombre" id="nombreField"
+                                    placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                            </div>
+                            <div>
+                                <label class="etiquetaForm">Apellidos* </label>
+                                <input class="controllers" type="text" name="apellido" id="apellidoField"
+                                    placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
+                            </div>
+                            <div>
+                                <label class="etiquetaForm">Correo* </label>
+                                <input class="controllers" type="email" name="correo" id="correoField"
+                                    placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
+                            </div>
+                            <div>
+                                <label class="etiquetaForm">Numero* </label>
+                                <input class="controllers" type="text" name="Numero" id="numeroField"
+                                    placeholder="Ingrese su numero" onkeypress="return ch(event)" required>
+                            </div>
+                            <div>
+                                <label for="pagoField">metodo de pago tarjeta</label>
+                                <select name="metodo_pago" id="pagoField">
+                                    <option value="True">Si</option>
+                                    <option value="False">efectivo</option>
+
+                                </select>
+                            </div>
+                            <div>
+                                <input type="text" id="checkout" name="total" disabled>
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button  type="submit" 
+                                    onclick="pay()">Pagar</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 
-   
+
+
     <script src="{% static 'scripts/main.js' %}"></script>
 
     <script>
         let products = [];
-        let total = 0;
+        let tol = 0;
 
 
         function add(product, price) {
             console.log(product, price);
             products.push(product);
-            total = total + price;
-            document.getElementById("checkout").innerHTML = `Pagar $${total}`
+            tol = tol + price;
+            document.getElementById("checkout").value = tol;
+            
 
         }
 
         /*     function pay() {
                 window.alert(products.join(", \n"));
             }  */
-    </script>
-    <script>
-
+            
         function pay() {
 
             $.ajax({
                 url: "{% url 'carrito' %}",
                 type: "POST",
                 data: {
-                    'Usuario': $('#userField').val(),
-                    'Nombre': $('#nombreField').val(),
-                    'Apellidos': $('#apellidoField').val(),
-                    'Correo': $('#correoField').val(),
+                    'total': $('#checkout').val(),
+                    'user': $('#userField').val(),
+                    'nombre': $('#nombreField').val(),
+                    'apellido': $('#apellidoField').val(),
+                    'correo': $('#correoField').val(),
                     'Numero': $('#numeroField').val(),
                     'metodo_pago': $('#pagoField').val(),
-                    'total': total,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    
 
-
-                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    
                 }
+                
+
+                
             })
+            
+
+            
 
         }
-
+        
+       
 
     </script>
-<!--     <script>
-        function clearHtml() {
-            button-checkout.innerHTML = '';
-        }
-    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 
 </body>
 

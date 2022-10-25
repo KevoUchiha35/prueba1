@@ -17,20 +17,25 @@
 	body {
 		background: url(https://www.todofondos.net/wp-content/uploads/pc-gaming-wallpaper-hd.jpg);
 		font-size: medium;
+
 	}
-	.second-nav .new{
-	flex: 6 1 5rem;
-	text-align: right;
-	text-transform: uppercase;
-  	color: black ;
-}
-footer {
-  background: cyan;
-  color: black;
-  line-height: ;
-  width: 100%;
-  align-self: flex-end;
-}
+
+	.second-nav .new {
+		flex: 6 1 5rem;
+		text-align: right;
+		text-transform: uppercase;
+		color: black;
+	}
+
+	footer {
+		background: cyan;
+		color: black;
+		position: absolute;
+		margin-top: 50px;
+		width: 100%;
+		height: 85px;
+
+	}
 </style>
 
 <body>
@@ -39,18 +44,24 @@ footer {
 
 	<header class="main-head">
 		<nav class="main">
-			<img src="{% static 'img/logo_gaming.png' %}" width="100px"  alt="">
-			
+			<img src="{% static 'img/logo_gaming.png' %}" width="100px" alt="">
+
 			<ul>
 				{% if request.user.is_authenticated %}
 				<li><a href="{% url 'logout' %}">Logout</a></li>
-				<li><a class="profile" href="{% url 'perfil' %}">Mi Perfil</a></li>
-				<li><a class="new" href="{% url 'datos' %}">Datos</a></li>
-				
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<li><a class="profile" href="{% url 'perfil' %}" style="font-size: 15px;">Mi Perfil</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<li><a class="new" href="{% url 'datos' %}" style="font-size: 15px;">Datos</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+
 				{% else %}
-				<li><a href="{% url 'registro' %}">Register</a></li>
-				<li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'inicio' %}">inicio</a></li>
+				<li><a href="{% url 'registro' %}" style="font-size: 15px;">Register</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<li><a href="{% url 'login' %}" style="font-size: 15px;">Login</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<li><a href="{% url 'inicio' %}" style="font-size: 15px;">inicio</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				{% endif %}
 
 			</ul>
@@ -73,17 +84,23 @@ footer {
 
 		<nav class="second-nav">
 			{% if request.user.is_authenticated %}
-						{% if user.is_superuser == True  %}			
-			<a class="new" href="{% url 'prueba' %}">Prueba</a>
-			<a class="new" href="{% url 'consultas' %}">consultas</a>
-			<a class="new" href="{% url 'carrusel' %}">carrusel</a>
-			<a class="new" href="{% url 'consultas_carrito' %}">consultas_carrito</a>
+			{% if user.is_superuser == True %}
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Prueba</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+			<a class="new" href="{% url 'consultas' %}" style="font-size: 15px;">consultas</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+			<a class="new" href="{% url 'carrusel' %}" style="font-size: 15px;">carrusel</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+			<a class="new" href="{% url 'consultas_carrito' %}" style="font-size: 15px;">consultas_carrito</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 			{% else %}
-			<a class="new" href="{% url 'prueba' %}">Prueba</a>
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Prueba</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
-            <a class="new" href="{% url 'carrito' %}">carrito</a>
-            
+			<a class="new" href="{% url 'carrito' %}" style="font-size: 15px;">carrito</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+
 
 			{% endif %}
 			{% else %}
@@ -99,12 +116,18 @@ footer {
 
 	</div>
 
+
 	<footer>
 		<div class="row">
-			<font size="20">
-			<a class="new" href="{% url 'correo' %}">Correo</a>
-			
-			</font>
+			<h2 style="font-size: 20px;">
+				<a class="new" href="{% url 'correo' %}" style="font-size: 15px;">Contactanos</a>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<a href="sample.html" class="link" style="font-size: 15px;">Aviso legal</a> 
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<a href="sample.html" class="link" style="font-size: 15px;">Cookies</a>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<p class="m-0 mbt1" style="font-size: 15px;">&copy; Static Gaming</p>
+			</h2>
 		</div>
 	</footer>
 
