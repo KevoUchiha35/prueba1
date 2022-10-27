@@ -36,6 +36,13 @@
 		height: 85px;
 
 	}
+	
+	.main a{
+		color:black;
+	}
+	.row a{
+		color:black;
+	}
 </style>
 
 <body>
@@ -48,20 +55,23 @@
 
 			<ul>
 				{% if request.user.is_authenticated %}
-				<li><a href="{% url 'logout' %}">Logout</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<li><a href="{% url 'logout' %}" style="font-size: 15px;">Logout</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a class="profile" href="{% url 'perfil' %}" style="font-size: 15px;">Mi Perfil</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a class="new" href="{% url 'datos' %}" style="font-size: 15px;">Datos</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
+
 				{% else %}
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a href="{% url 'registro' %}" style="font-size: 15px;">Register</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a href="{% url 'login' %}" style="font-size: 15px;">Login</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a href="{% url 'inicio' %}" style="font-size: 15px;">inicio</a></li>
-				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+
 				{% endif %}
 
 			</ul>

@@ -27,8 +27,8 @@
     <style>
         body {
             margin: 0px;
-            background: url(https://tecolotito.elsiglodetorreon.com.mx/i/2020/12/1377878.jpeg);
-            font-family: 'Nerko One', cursive;
+            background-color: white;
+            font-family:Arial, Helvetica, sans-serif;
         }
 
         button {
@@ -39,13 +39,15 @@
         }
 
         .page-nav {
-            background-color: cyan;
+            background-image: url("{% static 'img/banner.jpg' %}");
             border: 1px solid black;
             position: relative;
         }
 
-        .page-nav h1 {
-            margin: 20px;
+        .page-nav p {
+            margin: 10px;
+            color: black;
+            
         }
 
         .button-checkout {
@@ -73,10 +75,13 @@
 
         .product-container {
             margin: 15px;
-            padding: 2px 16px;
+            padding: 2px 0px;
             position: relative;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
             background-color: white;
+
+
+
         }
 
         .product-container:hover {
@@ -85,22 +90,25 @@
 
         .product-container img {
             width: 300px;
+
         }
 
         .product-container h1 {
             margin-bottom: 10px;
             margin-left: 15px;
+            text-align: center;
         }
 
         .button-add {
-            background-color: white;
+            background-color: red;
             color: black;
             border: 2px solid #4CAF50;
-            /* Green */
+
             transition-duration: 0.4s;
-            position: absolute;
-            right: 15px;
+            position: static;
+            right: 80px;
             bottom: 10px;
+
         }
 
         .button-add:hover {
@@ -108,17 +116,48 @@
             /* Green */
             color: white;
         }
-        
+
+        .product-container h3 {
+            text-align: center;
+            font-size: 22px;
+            font-family: Arial Narrow;
+
+        }
+
+        .product-container P {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            background-color: rgb(129, 129, 202);
+            color: black;
+            padding: 2px 7px 4px 21px;
+            clip-path: circle(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+        }
+        .modal-title h5{
+            text-align: center;
+        }
+        footer {
+        background-image: url("{% static 'img/banner.jpg' %}");
+		color: black;
+		position: absolute;
+		margin-top: 50px;
+		width: 100%;
+		height: 85px;
+
+	}
+    .row a{
+		color:yellow;
+	}
     </style>
 </head>
 
 <body>
     {{ form.as_p }}
-    <div class="page-nav">
-        <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+    <div class="page-nav" >
+        <b><a class="feed" href="{% url 'feed' %}">REGRESAR</a></b>
         {% csrf_token %}
         <center>
-            <h1>Static Gaming</h1>
+            <b><p style="font-size: 50px;">Static Gaming</p></b>
         </center>
 
     </div>
@@ -129,89 +168,97 @@
 
     <div class="page-content" id="producto">
         <div class="product-container" id="producto1" onkeypress="return ch(event)" required>
-            <h3>Teclado gamer Ocelot OGEK01 QWERTY <br>
-                <h3>español España color negro con luz RGB</h3>
-                <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
-                <h1>$1,000.00 MXN</h1>
-                <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)"
-                    required>Agregar</button>
+
+
+            <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
+            <h3>Teclado gamer Ocelot OGEK01<br>
+                <h3>QWERTY español España<br>
+                    <h3>color negro con luz RGB</h3>
+                    <p><span>$1,000.00</span>MXN</p>
+                    <button class="button-add" onclick="add('product-1', 1000)" onkeypress="return ch(event)"
+                        required>Agregar</button>
         </div>
 
         <div class="product-container" id="producto2">
-            <h3>Teclado Gamer Mecanico HyperX Alloy Origins 60 <br>
-                <h3>/ HyperX Switch Red / LED RGB / Ingles - <br>
-                    <h3>HKBO1S-RB-US/G</h3>
-                    <img src="{% static 'img/teclado2.png' %}" HEIGHT=200 alt="Teclado">
-                    <h1>$1,999.00 MXN</h1>
+
+            <img src="{% static 'img/teclado5.png' %}" alt="Teclado">
+            <h3>HyperX Mechanical Gaming<br>
+                <h3>Alloy Origins 60 Switch <br>
+                    <h3>Red LED RGB HKBO1S-RB-US/G</h3>
+                    <p><span>$1,999.00</span>MXN</p>
                     <button class="button-add" onclick="add('product-2', 1999)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>Teclado inalámbrico Gaming ESPAÑOL<br>
-                <h3>Duradero, resiste al Agua, ergonómico,<br>
-                    <h3>silencioso + Teclado Gamer PC PS4 Xbox One Mac</h3>
-                    <img src="{% static 'img/teclado3.jpg' %}" alt="Teclado">
-                    <h1>$1,083.00 MXN</h1>
-                    <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
+            <img src="{% static 'img/teclado31.jpg' %}" alt="Teclado">
+            <h3>Teclado inalámbrico Gaming Duradero,<br>
+                <h3>resiste al Agua, ergonómico,silencioso</h3>
+                <p><span>$1,083.00</span>MXN</p>
+                <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
         </div>
 
         <div class="product-container">
+            <img src="{% static 'img/mouse.jpg' %}" alt="Mouse">
             <h3>Mouse Gamer BINDEN M371, Alámbrico, <br>
                 <h3>1600 DPI, 3 Botones, RGB</h3>
-                <img src="{% static 'img/mouse.jpg' %}" alt="Mouse">
-                <h1>$198.00 MXN</h1>
+                <p><span>$198.00</span>MXN</p>
                 <button class="button-add" onclick="add('product-4', 198)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>Mouse Gamer óptico con botones laterales</h3>
             <img src="{% static 'img/mouse2.jpg' %}" alt="Mouse">
-            <h1>$115.00 MXN</h1>
+            <h3>Mouse Gamer óptico con botones laterales</h3>
+            <p><span>$115.00</span>MXN</p>
             <button class="button-add" onclick="add('product-5', 115)">Agregar</button>
         </div>
 
         <div class="product-container">
+            <img src="{% static 'img/mouse3.jpg' %}" alt="Mouse">
             <h3>Mouse Gamer Óptico Spectra PJT-DMS812 <br>
                 <h3>/ Alámbrico / USB / 2400dpi / Negro</h3>
-                <img src="{% static 'img/mouse3.jpg' %}" alt="Mouse">
-                <h1>$239.00 MXN</h1>
+                <p><span>$239.00</span>MXN</p>
                 <button class="button-add" onclick="add('product-6', 239)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>MSI - Monitor Gamer Curvo de 24" (1500R) <br>
-                <h3>- Optix G24C6P - Panel VA - 1920x1080 (FHD) </h3>
-                <img src="{% static 'img/monitor.jpg' %}" alt="Mouse">
-                <h1>$5,399.00 MXN</h1>
+            <img src="{% static 'img/monitor.jpg' %}" alt="Mouse">
+            <h3>Monitor Gamer Curvo de 24" (1500R) <br>
+                <h3>Optix G24C6P Panel VA 1920x1080 (FHD)</h3>
+                <p><span>$5,399.00</span>MXN</p>
                 <button class="button-add" onclick="add('product-7', 5399)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>Monitor Gamer ASUS 34" <br>
-                <h3>/ Radeon Freesync Premium / HDR10 / 1MS <br>
-                    <h3>/ HDMIx2 / DPx2 / UWQHD - 165Hz / TUF <br>
-                        <h3>GAMING VG34VQL1B</h3>
-                        <img src="{% static 'img/monitor2.jpg' %}" alt="Mouse">
-                        <h1>$11,699.00 MXN</h1>
-                        <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
+            <img src="{% static 'img/monitor32.jpg' %}" alt="Mouse">
+            <h3>Monitor Gamer ASUS 34" Radeon Freesync<br>
+                <h3>Premium HDR10 1MS HDMIx2 DPx2 <br>
+                    <h3>UWQHD - 165Hz TUF GAMING VG34VQL1B</h3>
+                    <p><span>$11,699.00</span>MXN</p>
+                    <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
         </div>
 
         <div class="product-container">
-            <h3>Monitor Gamer Curvo Gigabyte 34" Gaming G34WQC <br>
-                <h3>/ HDMIx2 - DPx2 / 1ms / 144Hz / WQHD / HDR</h3>
-                <img src="{% static 'img/monitor3.jpg' %}" alt="Mouse">
-                <h1>$10,999.00 MXN</h1>
-                <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
+            <img src="{% static 'img/monitor31.jpg' %}" alt="Mouse">
+            <h3>Monitor Gamer Curvo Gigabyte 34"<br>
+                <h3>Gaming G34WQC HDMIx2 - DPx2<br>
+                    <h3> 1ms 144Hz WQHD HDR</h3>
+
+                    <p><span>$10,999.00</span>MXN</p>
+                    <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
         </div>
 
 
     </div>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:red ;">
+    <!-- Button trigger modal -->
+    <center>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            style="background-color:red ;">
             pagar
         </button>
+    </center>
 
+    <center>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -253,10 +300,10 @@
                                     placeholder="Ingrese su numero" onkeypress="return ch(event)" required>
                             </div>
                             <div>
-                                <label for="pagoField">metodo de pago tarjeta</label>
+                                <label for="pagoField">metodo de pago</label>
                                 <select name="metodo_pago" id="pagoField">
-                                    <option value="True">Si</option>
-                                    <option value="False">efectivo</option>
+                                    <option value="True">Tarjeta</option>
+                                    <option value="False">Efectivo</option>
 
                                 </select>
                             </div>
@@ -266,15 +313,14 @@
 
                             <div class="modal-footer">
 
-                                <button  type="submit" 
-                                    onclick="pay()">Pagar</button>
+                                <button type="submit" onclick="pay()">Pagar</button>
 
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
+    </center>
 
 
 
@@ -290,14 +336,14 @@
             products.push(product);
             tol = tol + price;
             document.getElementById("checkout").value = tol;
-            
+
 
         }
 
         /*     function pay() {
                 window.alert(products.join(", \n"));
             }  */
-            
+
         function pay() {
 
             $.ajax({
@@ -312,21 +358,21 @@
                     'Numero': $('#numeroField').val(),
                     'metodo_pago': $('#pagoField').val(),
                     csrfmiddlewaretoken: '{{ csrf_token }}',
-                    
 
-                    
+
+
                 }
-                
 
-                
+
+
             })
-            
 
-            
+
+
 
         }
-        
-       
+
+
 
     </script>
 
@@ -336,6 +382,20 @@
 
 </body>
 
-
+<footer>
+    <center>
+    <div class="row">
+        <h2 style="font-size: 20px;">
+            <b><a class="new" href="{% url 'correo' %}" style="font-size: 15px;">Contactanos</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b><a href="sample.html" class="link" style="font-size: 15px;">Aviso legal</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b><a href="sample.html" class="link" style="font-size: 15px;">Cookies</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b><p class="m-0 mbt1" style="font-size: 15px;">&copy; Static Gaming</p></b>
+        </h2>
+    </div>
+    </center>
+</footer>
 </html>
 {% endblock %}
