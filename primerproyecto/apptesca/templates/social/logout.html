@@ -1,6 +1,7 @@
 {% extends 'social/layout.html' %}
+{% load static%}
+{% block content%}
 
-{% block content %}
 <style>
 
 .main-head {
@@ -16,9 +17,17 @@
     border-radius: 4px;
     padding-bottom: 20px;
 }
+h1{
+    text-align: center;
+}
+
 </style>
 <div style="height: 300px; width: 100%;">
 <h1>Nos vemos</h1>
+<center>
+<img src="{% static 'img/Adios-vaquero.jpg' %}" width="445px"  " alt=""></center>
 </div>
+
+
 
 {% endblock %}  
