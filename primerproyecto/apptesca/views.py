@@ -140,3 +140,4 @@ def carro(request):
     context = {'posts': info}
 
     return render(request, 'social/consultas_carrito.html', context)
+

@@ -232,7 +232,9 @@
                 <h3>Alloy Origins 60 Switch <br>
                     <h3>Red LED RGB HKBO1S-RB-US/G</h3>
                     <p><span>$1,999.00</span>MXN</p>
+                    <center>
                     <button class="button-add" onclick="add('product-2', 1999)">Agregar</button>
+                    </center>
         </div>
 
         <div class="product-container">
@@ -240,7 +242,9 @@
             <h3>Teclado inalámbrico Gaming Duradero,<br>
                 <h3>resiste al Agua, ergonómico,silencioso</h3>
                 <p><span>$1,083.00</span>MXN</p>
+                <center>
                 <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
+                </center>
         </div>
 
         <div class="product-container">
@@ -248,14 +252,18 @@
             <h3>Mouse Gamer BINDEN M371, Alámbrico, <br>
                 <h3>1600 DPI, 3 Botones, RGB</h3>
                 <p><span>$198.00</span>MXN</p>
+                <center>
                 <button class="button-add" onclick="add('product-4', 198)">Agregar</button>
+                </center>
         </div>
 
         <div class="product-container">
             <img src="{% static 'img/mouse2.jpg' %}" alt="Mouse">
             <h3>Mouse Gamer óptico con botones laterales</h3>
             <p><span>$115.00</span>MXN</p>
+            <center>
             <button class="button-add" onclick="add('product-5', 115)">Agregar</button>
+            </center>
         </div>
 
         <div class="product-container">
@@ -263,7 +271,9 @@
             <h3>Mouse Gamer Óptico Spectra PJT-DMS812 <br>
                 <h3>/ Alámbrico / USB / 2400dpi / Negro</h3>
                 <p><span>$239.00</span>MXN</p>
+                <center>
                 <button class="button-add" onclick="add('product-6', 239)">Agregar</button>
+                </center>
         </div>
 
         <div class="product-container">
@@ -271,7 +281,9 @@
             <h3>Monitor Gamer Curvo de 24" (1500R) <br>
                 <h3>Optix G24C6P Panel VA 1920x1080 (FHD)</h3>
                 <p><span>$5,399.00</span>MXN</p>
+                <center>
                 <button class="button-add" onclick="add('product-7', 5399)">Agregar</button>
+                </center>
         </div>
 
         <div class="product-container">
@@ -280,7 +292,9 @@
                 <h3>Premium HDR10 1MS HDMIx2 DPx2 <br>
                     <h3>UWQHD - 165Hz TUF GAMING VG34VQL1B</h3>
                     <p><span>$11,699.00</span>MXN</p>
+                    <center>
                     <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
+                    </center>
         </div>
 
         <div class="product-container">
@@ -288,9 +302,10 @@
             <h3>Monitor Gamer Curvo Gigabyte 34"<br>
                 <h3>Gaming G34WQC HDMIx2 - DPx2<br>
                     <h3> 1ms 144Hz WQHD HDR</h3>
-
                     <p><span>$10,999.00</span>MXN</p>
+                    <center>
                     <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
+                    </center>
         </div>
 
 
@@ -354,16 +369,18 @@
                                 </select>
                             </div>
                             <div>
-                                <input type="text" id="checkout" name="total" disabled>
+                                <input type="number" id="checkout" name="total">
                             </div>
 
                             <div class="modal-footer">
 
                                 <button type="submit" onclick="pay()">Pagar</button>
+        
 
                             </div>
                         </form>
                     </div>
+                    
                 </div>
             </div>
     </center>
@@ -382,7 +399,7 @@
             products.push(product);
             tol = tol + price;
             document.getElementById("checkout").value = tol;
-
+            console.log(tol);
 
         }
 
@@ -403,6 +420,7 @@
                     'correo': $('#correoField').val(),
                     'Numero': $('#numeroField').val(),
                     'metodo_pago': $('#pagoField').val(),
+                    
                     csrfmiddlewaretoken: '{{ csrf_token }}',
 
 

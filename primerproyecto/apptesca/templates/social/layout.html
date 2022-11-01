@@ -95,7 +95,7 @@
 		<nav class="second-nav">
 			{% if request.user.is_authenticated %}
 			{% if user.is_superuser == True %}
-			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Prueba</a>
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Tabla grupos musicales</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 			<a class="new" href="{% url 'consultas' %}" style="font-size: 15px;">consultas</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
@@ -105,7 +105,7 @@
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 			{% else %}
-			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Prueba</a>
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Tabla grupos musicales</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 			<a class="new" href="{% url 'carrito' %}" style="font-size: 15px;">Tienda</a>
