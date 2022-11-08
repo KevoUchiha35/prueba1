@@ -21,3 +21,5 @@ urlpatterns = [
     url('^carrito/$' , views.compras, name="carrito"),
     url('^consultas_carrito/$' , views.carro, name="consultas_carrito"),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

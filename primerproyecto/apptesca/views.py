@@ -3,6 +3,7 @@ from .models import *
 from .models import jugadores
 from .models import contactanos
 from .models import tienda
+from .models import Imagenes
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -141,3 +142,8 @@ def carro(request):
 
     return render(request, 'social/consultas_carrito.html', context)
 
+
+def home(request):
+ noticias=Imagenes.objects.all()
+  
+ return render(request, 'social/inicio.html', {"noticias":noticias})

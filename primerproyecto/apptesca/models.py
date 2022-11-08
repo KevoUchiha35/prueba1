@@ -32,3 +32,19 @@ class tienda(models.Model):
     numero = models.CharField(max_length=250, null=True, unique=False)
     pago = models.BooleanField(default=False,null=True)
     total = models.CharField(max_length=250, null=True, unique=False)
+
+class Imagenes(models.Model):
+    titulo = models.CharField(max_length=90)
+    contenido = models.CharField(max_length=200)
+    imagen = models.ImageField(upload_to="imagenes", null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now_add=True)
+    class Meta:
+       
+        verbose_name= "noticia"
+        verbose_name_plural= "noticias"
+    
+    
+  #salida 
+    def _str_(self):
+        return self.titulo

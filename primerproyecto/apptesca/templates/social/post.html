@@ -1,0 +1,91 @@
+{% extends 'social/feed.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hotel_image</title> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> 
+	</script> 
+	
+</head>
+<style>
+	body {
+		background: url(https://www.todofondos.net/wp-content/uploads/pc-gaming-wallpaper-hd.jpg);
+		font-size: medium;
+
+	}
+
+	.second-nav .new {
+		flex: 6 1 5rem;
+		text-align: right;
+		text-transform: uppercase;
+		color: black;
+	}
+
+	footer {
+		background: cyan;
+		color: black;
+		position: absolute;
+		margin-top: 50px;
+		width: 100%;
+		height: 85px;
+
+	}
+
+	.main a {
+		color: black;
+	}
+
+	.row a {
+		color: black;
+	}
+
+	input {
+		background: cyan;
+		color: black;
+		text-align: center;
+		width: 50%;
+		border-bottom: 2px solid cyan;
+	}
+
+	button,
+	h1,
+	h2 {
+		margin: 0;
+		padding: 0;
+		background-color: cyan;
+	}
+
+	#wrapper {
+		width: 100%;
+	}
+
+	h1 {
+		padding: 50px 0;
+		text-align: center;
+	}
+
+	h2 {
+		padding: 50px 0;
+		text-align: center;
+		color: green;
+	}
+</style>
+
+<body> 
+ 
+	
+</body> 
+
+</html>
+{{ block.super }}
+{% endblock %}
