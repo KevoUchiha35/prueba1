@@ -33,12 +33,15 @@ class tienda(models.Model):
     pago = models.BooleanField(default=False,null=True)
     total = models.CharField(max_length=250, null=True, unique=False)
 
-class Imagenes(models.Model):
+class Noticias  (models.Model):
+    
     titulo = models.CharField(max_length=90)
     contenido = models.CharField(max_length=200)
-    imagen = models.ImageField(upload_to="imagenes", null=True, blank=True)
+    imagen = models.ImageField(upload_to="noticias", null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now_add=True)
+
+
     class Meta:
        
         verbose_name= "noticia"

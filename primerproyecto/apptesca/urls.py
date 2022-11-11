@@ -20,6 +20,8 @@ urlpatterns = [
     url('^feed/$' , views.feed, name="feed"),
     url('^carrito/$' , views.compras, name="carrito"),
     url('^consultas_carrito/$' , views.carro, name="consultas_carrito"),
+    url('^noticias/$' , views.home, name="noticias"),
+    url('^publicacion/$' , views.ppost, name="publicacion"),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -41,11 +41,9 @@
 </style>
 
 <body>
-<center>
-    
-    <b><h1 id="logo">BIENVENIDO</h1>
-        <font FACE="times new roman">¡Adquiere la computadora de tus sueños!<font>
-    </center>
+    <div>
+        <h1>¡Proximamente!</h1>
+    </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -53,27 +51,38 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="carousel-inner">
-                {% for noticia in noticias %} 
-                  <div class="carousel-item
-            
-                    {% if forloop.first %}
-                    active
-                  {% endif %}
-                  ">
-                      <!-- <img src="{% static 'img/icons/vision.png' %}" class="caja-icono"> -->
-                      <img src="{{noticia.imagen.url}}" width="600px" height="600px" alt="">
-                      <div class="carousel-caption">
-                          
-              <h2 style="color: white;">{{noticia.titulo}}</h2>
-              <p style="color: white;">{{noticia.contenido}}</p>
-                      </div>
-                  </div>
-                  {% endfor %}
+            <div class="item active">
+                <td data-title="imagen"> <img src="{% static 'img/tarjetagrafica3090.jpg' %}" width="10000px"
+                        height="10000px" " alt="">
+                    
+                </div>
+                <div class=" item">
+                <td data-title="imagen"> <img src="{% static 'img/tarjetagrafica4090.jpg' %}" width="10000px" height="10000px"
+                        alt="">
+
+            </div>
+            <div class="item">
+                <td data-title="imagen"> <img src="{% static 'img/tarjetamadrez270.jpg' %}" width="10000px" height="10000px"
+                        alt="">
+
+            </div>
+            <div class="item">
+                <td data-title="imagen"> <img src="{% static 'img/procesadorryzen.jpg' %}" width="10000px"
+                        height="10000px" alt="">
+
+            </div>
+            <div class="item">
+                <td data-title="imagen"> <img src="{% static 'img/procesadoresintel.jpg' %}" width="10000px"
+                        height="10000px" alt="">
+
+            </div>
+        </div>
 
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -98,8 +107,6 @@
             $("#myCarouselCustom").carousel("next");
         });
     </script>
-
-
 
 </body>
 
