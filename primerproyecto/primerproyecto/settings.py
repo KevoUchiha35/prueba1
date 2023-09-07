@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-^dgedy3$^sp0m*-%b9lv8170jj@$!4%-ug65$!usixd$9bxchg"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -79,10 +79,10 @@ WSGI_APPLICATION = "primerproyecto.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tesca',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'kevortega35',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'postgres',
+        'HOST': 'db_postgres',
         'PORT': '5432',
 
     }
@@ -120,7 +120,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/code/static/'
 
 LOGIN_REDIRECT_URL = 'inicio'
 LOGIN_URL = 'prueba'
