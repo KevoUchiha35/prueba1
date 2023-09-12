@@ -120,19 +120,29 @@ def principal(request):
     return render(request, 'social/inicio.html')
 
 
+
 def compras(request):
-    print(request)
-    if request.method == 'POST':
+  ejemplos = Producto.objects.all()
+  print(request)
+  if request.method == 'POST':  
+       
         dato = tienda.objects.create(
-            user_id=request.POST['user'],
-            nombre=request.POST['nombre'],
-            apellido=request.POST['apellido'],
-            correo=request.POST['correo'],
-            numero=request.POST['Numero'],
-            pago=request.POST['metodo_pago'],
-            total=request.POST['total'])
+          
+                user_id=request.POST['user'],
+                nombre=request.POST['nombre'],
+                apellido=request.POST['apellido'],
+                correo=request.POST['correo'],
+                numero=request.POST['Numero'],
+                pago=request.POST['metodo_pago'],
+                total=request.POST['total']
+
+                
+				
+               
+            
+          )
         dato.save()
-    return render(request, 'social/carrito.html')
+  return render(request, 'social/carrito.html', {'ejemplos' :ejemplos})
 
 
 def carro(request):

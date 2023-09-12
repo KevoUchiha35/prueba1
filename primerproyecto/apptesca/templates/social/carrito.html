@@ -9,181 +9,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Static Gaming</title>
     <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
-    <script src="{% static 'scripts/main.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <style>
-        body {
-            margin: 0px;
-            background-color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
 
-        button {
-            font-size: 16px;
-            text-align: center;
-            border-radius: 8px;
-            padding: 10px 20px;
-        }
-
-        .page-nav {
-            background-image: url("{% static 'img/baner.png' %}");
-            border: 1px solid black;
-            position: relative;
-        }
-
-        .page-nav {
-            margin-left: 700px;
-            margin-inline-start: 10px;
-            align-content: center;
-
-        }
-
-        .page-nav p {
-            margin-left: 0px;
-            color: cyan;
-            text-align: center;
-
-        }
-
-
-        .button-checkout {
-            background-color: white;
-            color: black;
-            border: 2px solid #008CBA;
-            /* Blue */
-            transition-duration: 0.4s;
-            position: absolute;
-            right: 15px;
-            bottom: 15px;
-        }
-
-        .button-checkout:hover {
-            background-color: #008CBA;
-            /* Blue */
-            color: white;
-        }
-
-        .page-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
-
-        .product-container {
-            margin: 15px;
-            padding: 2px 0px;
-            position: relative;
-            box-shadow: 0 4px 8px 0 black;
-            background-color: white;
-
-
-
-        }
-
-        .product-container:hover {
-            box-shadow: 0 8px 16px 0 black;
-        }
-
-        .product-container img {
-            width: 350px;
-
-        }
-
-        .product-container h1 {
-            margin-bottom: 10px;
-            margin-left: 15px;
-            text-align: center;
-        }
-
-        .button-add {
-            background-color: cyan;
-            color: black;
-            border: 2px solid #040504;
-
-            transition-duration: 0.4s;
-            position: static;
-            right: 200px;
-            bottom: 10px;
-
-        }
-
-        .button-add:hover {
-            background-color: #4CAF50;
-            /* Green */
-            color: white;
-        }
-
-        .product-container h3 {
-            text-align: center;
-            font-size: 22px;
-            font-family: Arial Narrow;
-
-        }
-
-        .product-container P {
-            position: absolute;
-            top: 0;
-            right: 0px;
-            background-color: rgb(129, 129, 202);
-            color: black;
-            padding: 2px 7px 4px 21px;
-            clip-path: circle(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
-        }
-
-        .modal-title h5 {
-            text-align: center;
-        }
-
-        footer {
-            background-image: url("{% static 'img/baner.png' %}");
-            color: black;
-            position: absolute;
-            margin-top: 50px;
-            width: 100%;
-            height: 85px;
-
-        }
-
-        .row a {
-            color: yellow;
-        }
-
-        .row p {
-            color: yellow;
-        }
-
-        #wrapper {
-            text-align: center;
-        }
-
-        #div1 {
-            display: inline-block;
-
-        }
-
-        #div2 {
-            display: inline-block;
-
-        }
-        #div3 {
-            display: inline-block;
-
-        } 
-    </style>
 </head>
+<style>
+    body {
+        margin: 0px;
+        background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button {
+        font-size: 16px;
+        text-align: center;
+        border-radius: 8px;
+        padding: 10px 20px;
+    }
+
+    .page-nav {
+        background-image: url("{% static 'img/baner.png' %}");
+        border: 1px solid black;
+        position: relative;
+    }
+
+    .page-nav {
+        margin-left: 700px;
+        margin-inline-start: 0px;
+        align-content: center;
+        color: yellow;
+
+    }
+
+
+
+    .button-checkout:hover {
+        background-color: #008CBA;
+        /* Blue */
+        color: white;
+
+    }
+
+    .page-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+
+
+    footer {
+        background-image: url("{% static 'img/baner.png' %}");
+        color: yellow;
+        position: absolute;
+        margin-top: 50px;
+        width: 100%;
+        height: 85px;
+
+
+
+    }
+
+
+
+    #wrapper {
+        text-align: center;
+        color: yellow;
+    }
+
+    #div1 {
+        display: inline-block;
+
+    }
+
+    #div2 {
+        display: inline-block;
+
+    }
+
+    #div3 {
+        display: inline-block;
+
+    }
+
+
+    /* Estilos para el botón de "Pagar" */
+
+
+
+    /* Estilos para el formulario */
+
+
+    /* Estilos para los label */
+    .form-group label {
+        color: black;
+        font-size: 14px;
+        /* Tamaño de fuente reducido */
+    }
+
+    /* Estilos para los input */
+    .form-control {
+        background-color: white;
+        /* Fondo blanco para mejor legibilidad */
+        color: black;
+        font-size: 14px;
+        /* Tamaño de fuente reducido */
+        border: 1px solid #ccc;
+        /* Borde más delgado */
+        border-radius: 4px;
+        padding: 8px;
+        width: 100%;
+
+    }
+
+
+    /* Estilos para el botón "Pagar" dentro del formulario */
+    .form-container button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 auto;
+        margin-top: 20px;
+
+    }
+
+    .product-image {
+        width: 200px;
+        /* Ancho deseado */
+        height: 200px;
+        /* Alto deseado */
+        object-fit: cover;
+        /* Controla cómo se ajusta la imagen en su contenedor */
+    }
+</style>
 
 <body>
     {{ form.as_p }}
@@ -207,260 +174,155 @@
         </div>
     </div>
 
-
-
-
-
-    <div class="page-content" id="producto">
-        <div class="product-container" id="producto1" onkeypress="return ch(event)" required>
-
-
-            <img src="{% static 'img/teclado.jpg' %}" alt="Teclado">
-            <h3>Teclado gamer Ocelot OGEK01<br>
-                <h3>QWERTY español España<br>
-                    <h3>color negro con luz RGB</h3>
-                    <p><span>$1,000.00</span>MXN</p>
-                    <center>
-                    <button class="button-add" onclick="add('product-1', 1000)" >Agregar</button>
-                        </center>
-        </div>
-
-        <div class="product-container" id="producto2">
-
-            <img src="{% static 'img/teclado5.png' %}" alt="Teclado">
-            <h3>HyperX Mechanical Gaming<br>
-                <h3>Alloy Origins 60 Switch <br>
-                    <h3>Red LED RGB HKBO1S-RB-US/G</h3>
-                    <p><span>$1,999.00</span>MXN</p>
-                    <center>
-                    <button class="button-add" onclick="add('product-2', 1999)">Agregar</button>
-                    </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/teclado31.jpg' %}" alt="Teclado">
-            <h3>Teclado inalámbrico Gaming Duradero,<br>
-                <h3>resiste al Agua, ergonómico,silencioso</h3>
-                <p><span>$1,083.00</span>MXN</p>
-                <center>
-                <button class="button-add" onclick="add('product-3', 1083)">Agregar</button>
-                </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/mouse.jpg' %}" alt="Mouse">
-            <h3>Mouse Gamer BINDEN M371, Alámbrico, <br>
-                <h3>1600 DPI, 3 Botones, RGB</h3>
-                <p><span>$198.00</span>MXN</p>
-                <center>
-                <button class="button-add" onclick="add('product-4', 198)">Agregar</button>
-                </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/mouse2.jpg' %}" alt="Mouse">
-            <h3>Mouse Gamer óptico con botones laterales</h3>
-            <p><span>$115.00</span>MXN</p>
-            <center>
-            <button class="button-add" onclick="add('product-5', 115)">Agregar</button>
-            </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/mouse3.jpg' %}" alt="Mouse">
-            <h3>Mouse Gamer Óptico Spectra PJT-DMS812 <br>
-                <h3>/ Alámbrico / USB / 2400dpi / Negro</h3>
-                <p><span>$239.00</span>MXN</p>
-                <center>
-                <button class="button-add" onclick="add('product-6', 239)">Agregar</button>
-                </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/monitor.jpg' %}" alt="Mouse">
-            <h3>Monitor Gamer Curvo de 24" (1500R) <br>
-                <h3>Optix G24C6P Panel VA 1920x1080 (FHD)</h3>
-                <p><span>$5,399.00</span>MXN</p>
-                <center>
-                <button class="button-add" onclick="add('product-7', 5399)">Agregar</button>
-                </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/monitor32.jpg' %}" alt="Mouse">
-            <h3>Monitor Gamer ASUS 34" Radeon Freesync<br>
-                <h3>Premium HDR10 1MS HDMIx2 DPx2 <br>
-                    <h3>UWQHD - 165Hz TUF GAMING VG34VQL1B</h3>
-                    <p><span>$11,699.00</span>MXN</p>
-                    <center>
-                    <button class="button-add" onclick="add('product-8', 11699)">Agregar</button>
-                    </center>
-        </div>
-
-        <div class="product-container">
-            <img src="{% static 'img/monitor31.jpg' %}" alt="Mouse">
-            <h3>Monitor Gamer Curvo Gigabyte 34"<br>
-                <h3>Gaming G34WQC HDMIx2 - DPx2<br>
-                    <h3> 1ms 144Hz WQHD HDR</h3>
-                    <p><span>$10,999.00</span>MXN</p>
-                    <center>
-                    <button class="button-add" onclick="add('product-9', 10999)">Agregar</button>
-                    </center>
-        </div>
-
-
     </div>
+    <br>
+ 
 
-    <!-- Button trigger modal -->
+
+    <form class="form-container">
+        <div class="form-group">
+            <label for="userField" style="color: black;"></label>
+            <input class="form-control" value="{{user.id}}" type="hidden" name="user" id="userField"
+                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+        </div>
+        <div class="form-group">
+            <label for="nombreField" style="color: black;">Nombre</label>
+            <input class="form-control" type="text" name="nombre" id="nombreField" placeholder="Ingrese su usuario"
+                onkeypress="return ch(event)" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="apellidoField" style="color: black;">Apellidos</label>
+            <input class="form-control" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
+                onkeypress="return ch(event)" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="correoField" style="color: black;">Correo</label>
+            <input class="form-control" type="email" name="correo" id="correoField" placeholder="Ingrese tu correo"
+                onkeypress="return ch(event)" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="numeroField" style="color: black;">Número</label>
+            <input class="form-control" type="text" name="Numero" id="numeroField" placeholder="Ingrese su número"
+                onkeypress="return ch(event)" autofocus required>
+        </div>
+        <div>
+            <label for="pagoField">metodo de pago</label>
+            <select name="metodo_pago" id="pagoField">
+                <option value="True">Tarjeta</option>
+                <option value="False">Efectivo</option>
+
+            </select>
+        </div>
+    </form>
     <center>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            style="background-color:red ;">
-            pagar
-        </button>
+    <button id="checkout" type="submit" class="button-checkout" onclick="pay()"
+        style="background-color: cyan;">Ordenar</button>
     </center>
 
-    <center>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">LLENAR CAMPOS</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
+
+
+
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            {% for producto in ejemplos %}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card" style="background-color: #f7f7f7; border: 1px solid #ddd;">
+                    <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}"
+                        style="max-height: 150px; object-fit: contain;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" style="color: black;">{{ producto.nombre }}</h5>
+                        <p class="card-text" style="color: black;">{{ producto.descripcion }}</p>
+                        <p class="card-text" style="color: black">$ {{ producto.precio }} MXN</p>
+                        <button class="btn btn-primary" onclick="add('{{ producto }}', '{{ producto.precio }}')"
+                            onkeypress="return ch(event)" required style="background-color: #007BFF;">Agregar</button>
                     </div>
-                    <div class="modal-body">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div>
-
-                                <label class="etiquetaForm">Usuario*</label>
-                                <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
-                                    placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-                            </div>
-                            <div>
-                                <label class="etiquetaForm">Nombre*</label>
-                                <input class="controllers" type="text" name="nombre" id="nombreField"
-                                    placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-                            </div>
-                            <div>
-                                <label class="etiquetaForm">Apellidos* </label>
-                                <input class="controllers" type="text" name="apellido" id="apellidoField"
-                                    placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
-                            </div>
-                            <div>
-                                <label class="etiquetaForm">Correo* </label>
-                                <input class="controllers" type="email" name="correo" id="correoField"
-                                    placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
-                            </div>
-                            <div>
-                                <label class="etiquetaForm">Numero* </label>
-                                <input class="controllers" type="text" name="Numero" id="numeroField"
-                                    placeholder="Ingrese su numero" onkeypress="return ch(event)" required>
-                            </div>
-                            <div>
-                                <label for="pagoField">metodo de pago</label>
-                                <select name="metodo_pago" id="pagoField">
-                                    <option value="True">Tarjeta</option>
-                                    <option value="False">Efectivo</option>
-
-                                </select>
-                            </div>
-                            <div>
-                                <input type="number" id="checkout" name="total">
-                            </div>
-
-                            <div class="modal-footer">
-
-                                <button type="submit" onclick="pay()">Pagar</button>
-        
-
-                            </div>
-                        </form>
-                    </div>
-                    
                 </div>
             </div>
-    </center>
+            {% endfor %}
+        </div>
+    </div>
 
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-    <script src="{% static 'scripts/main.js' %}"></script>
-
-    <script>
-        let products = [];
-        let tol = 0;
-
-
-        function add(product, price) {
-            console.log(product, price);
-            products.push(product);
-            tol = tol + price;
-            document.getElementById("checkout").value = tol;
-            console.log(tol);
-
-        }
-
-        /*     function pay() {
-                window.alert(products.join(", \n"));
-            }  */
-
-        function pay() {
-
-            $.ajax({
-                url: "{% url 'carrito' %}",
-                type: "POST",
-                data: {
-                    'total': $('#checkout').val(),
-                    'user': $('#userField').val(),
-                    'nombre': $('#nombreField').val(),
-                    'apellido': $('#apellidoField').val(),
-                    'correo': $('#correoField').val(),
-                    'Numero': $('#numeroField').val(),
-                    'metodo_pago': $('#pagoField').val(),
-                    
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-
-
-
-                }
-
-
-
-            })
-
-
-
-
-        }
-
-
-
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
+    <script>
+        let products = [];
+        let total = 0;
+
+        function add(product, precio) {
+            console.log(product, precio);
+            products.push(product);
+            total = (parseInt(total) + parseInt(precio));
+            document.getElementById("checkout").innerHTML = `Pagar $${[total]}`
+        }
+    </script>
+
+    <script>
+        function pay() {
+            let nombre = String(nombreField.value).trim();
+
+            if (nombre.length === 0) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'DATOS REQUERIDOS',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    timer: 2000
+                });
+            } else {
+                $.ajax({
+                    url: "{% url 'carrito' %}",
+                    type: "POST",
+                    data: {
+
+                        'user': $('#userField').val(),
+                        'nombre': $('#nombreField').val(),
+                        'apellido': $('#apellidoField').val(),
+                        'correo': $('#correoField').val(),
+                        'Numero': $('#numeroField').val(),
+                        'metodo_pago': $('#pagoField').val(),
+                        'total': total,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (data) {
+                        console.log(data)
+                        console.log("Success");
+                        window.location.href = "{% url 'carrito' %}";
+                    },
+                    error: function () {
+                        alert('Hubo algún error al realizar la llamada AJAX!');
+                    }
+                });
+            }
+        }
+    </script>
 
 </body>
 
 <footer>
     <center>
-        <div class="row">
-            <h2 style="font-size: 20px;">
-                <b><a class="new" href="{% url 'correo' %}" style="font-size: 15px;">Contactanos</a></b>
-                &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                <b><a href="sample.html" class="link" style="font-size: 15px;">Aviso legal</a></b>
-                &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                <b><a href="sample.html" class="link" style="font-size: 15px;">Cookies</a></b>
-                &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                <b>
-                    <p class="m-0 mbt1" style="font-size: 15px;">&copy; Static Gaming</p>
-                </b>
-            </h2>
-        </div>
+        <h2 style="font-size: 20px;">
+            <b><a class="new" href="{% url 'correo' %}" style="font-size: 15px;color: yellow;">Contactanos</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b><a href="sample.html" class="link" style="font-size: 15px; color: yellow;">Aviso legal</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b><a href="sample.html" class="link" style="font-size: 15px;color: yellow;">Cookies</a></b>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+            <b>
+                <p class="m-0 mbt1" style="font-size: 15px;">&copy; Static Gaming</p>
+            </b>
+        </h2>
     </center>
 </footer>
 

@@ -44,10 +44,19 @@ class Noticias  (models.Model):
 
     class Meta:
        
-        verbose_name= "noticia"
+        verbose_name= "noticia" 
         verbose_name_plural= "noticias"
     
-    
+
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=50)
+    precio = models.FloatField()
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to="productos", null=True)
+    def _str_(self): 
+        return self.nombre 
+
   #salida 
     def _str_(self):
         return self.titulo
