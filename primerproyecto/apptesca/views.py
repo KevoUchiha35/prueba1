@@ -44,12 +44,12 @@ def registro(request):
 
 
 def login(request):
-
+    usuarios = registro.objects.get(id=id)
     return render(request, 'social/login.html')
 
 
 @login_required
-def retorno(request):
+def retorno(request, id=None):
 
     return render(request, 'social/prueba.html')
 
