@@ -4,13 +4,14 @@ from .models import jugadores
 from .models import contactanos
 from .models import tienda
 from .models import Noticias
+from .models import Producto
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.mail import send_mail
-
+from django.core.files.storage import FileSystemStorage
 
 #django nos permite tener forms#
 
@@ -44,12 +45,12 @@ def registro(request):
 
 
 def login(request):
-    usuarios = registro.objects.get(id=id)
+    usuarios = registro.objects.get()
     return render(request, 'social/login.html')
 
 
 @login_required
-def retorno(request, id=None):
+def retorno(request):
 
     return render(request, 'social/prueba.html')
 
@@ -120,10 +121,12 @@ def principal(request):
     return render(request, 'social/inicio.html')
 
 
-
+@login_required
 def compras(request):
+  Datosuser = request.user
   ejemplos = Producto.objects.all()
   print(request)
+  
   if request.method == 'POST':  
        
         dato = tienda.objects.create(
@@ -142,7 +145,7 @@ def compras(request):
             
           )
         dato.save()
-  return render(request, 'social/carrito.html', {'ejemplos' :ejemplos})
+  return render(request, 'social/carrito.html', {'user': Datosuser, 'ejemplos' :ejemplos})
 
 
 def carro(request):
@@ -161,3 +164,57 @@ def home(request):
 def ppost(request):
 
     return render(request, 'social/post.html')
+
+def agregar(request):
+
+    
+        return render(request, 'social/menu_admin.html')
+
+def gamer(request):
+    ejemplos = Producto.objects.all()
+    if request.method == 'POST':
+        nombre = request.POST['Nombre']
+        precio = request.POST['Precio']
+        descripcion = request.POST['Descripcion']
+        imagen = request.FILES['Imagen']  # Usa request.FILES para acceder al archivo
+
+        # Configura un sistema de almacenamiento para las imágenes
+        fs = FileSystemStorage(location='media/productos')
+        filename = fs.save(imagen.name, imagen)  # Guarda la imagen en el sistema de almacenamiento
+        print(filename)
+        imagen_url = ("productos/"+filename)  # Obtiene la URL de la imagen
+        print(imagen_url)
+        dato = Producto.objects.create(
+            nombre=nombre,
+            precio=precio,
+            descripcion=descripcion,
+            imagen=imagen_url  # Guarda la URL de la imagen en la base de datos
+        )
+        dato.save()
+
+        return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
+
+    return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
+
+def llenar(request):
+
+    
+        return render(request, 'social/registro_datos.html')
+
+
+def campos(request):
+   if request.method == 'POST':
+
+        dato = Datosuser.objects.create(
+
+            user=request.POST['user'],
+            nombre=request.POST['nombre'],
+            apellido=request.POST['apellido'],
+            correo=request.POST['correo'],
+            redsocial=request.POST['numero'],
+
+        )
+        dato.save()
+    
+        return render(request, 'social/registro_datos.html')
+

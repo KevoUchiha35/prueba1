@@ -60,3 +60,11 @@ class Producto(models.Model):
   #salida 
     def _str_(self):
         return self.titulo
+    
+class Datosuser(models.Model):
+    user = models.ForeignKey(
+    User, on_delete=models.CASCADE, related_name='User', null=True)
+    nombre = models.CharField(max_length=250, null=True)
+    apellido = models.CharField(max_length=250, null=True)
+    correo = models.EmailField(max_length=250, null=True, unique=False)
+    numero = models.CharField(max_length=250, null=True, unique=False)

@@ -2,8 +2,13 @@ from django.urls import path
 from . import views
 from django.conf.urls import url
 from django.conf import settings
+
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
+
+# Construir la URL completa de un archivo multimedia
+
+
 
 
 urlpatterns = [
@@ -18,11 +23,15 @@ urlpatterns = [
     url('^carrusel/$' , views.carusel, name="carrusel"),
     url('^correo/$' , views.correo, name="correo"),
     url('^feed/$' , views.feed, name="feed"),
-    url('^carrito/<int:id>' , views.compras, name="carrito"),
+    url('^carrito/' , views.compras, name="carrito"),
     url('^consultas_carrito/$' , views.carro, name="consultas_carrito"),
     url('^noticias/$' , views.home, name="noticias"),
     url('^publicacion/$' , views.ppost, name="publicacion"),
+    url('^menu/$' , views.agregar, name="menu"),
+    url('^productoss/$' , views.gamer, name="productoss"),
+    url('^registros/$' , views.llenar, name="registros"),
+    url('^registrar/$' , views.campos, name="registrar"),
 
 ]
-
-urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

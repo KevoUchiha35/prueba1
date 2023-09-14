@@ -74,6 +74,8 @@
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 				<li><a href="{% url 'inicio' %}" style="font-size: 15px;">Inicio</a></li>
 
+
+
 				{% endif %}
 
 			</ul>
@@ -105,6 +107,10 @@
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 			<a class="new" href="{% url 'consultas_carrito' %}" style="font-size: 15px;">consultas_carrito</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+			<a class="new" href="{% url 'menu' %}" style="font-size: 15px;">menu carrito</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+			<a class="new" href="{% url 'registro' %}" style="font-size: 15px;">Registra tus datos de compra</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 			{% else %}
 			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Tabla grupos musicales</a>
@@ -113,6 +119,8 @@
 			<a class="new" href="{% url 'carrito'  %}" style="font-size: 15px;">Tienda</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
+		<a class="new" href="{% url 'registros' %}" style="font-size: 15px;">Registra tus datos de compra</a>
+			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 			{% endif %}
 			{% else %}

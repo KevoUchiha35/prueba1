@@ -1,0 +1,212 @@
+{% extends 'social/layout.html' %}
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2 {
+        text-align: center;
+        color: blue;
+    }
+
+    h1 {
+        text-align: center;
+        color: red;
+    }
+
+    body {
+        background: url(https://www.todofondos.net/wp-content/uploads/pc-gaming-wallpaper-hd.jpg);
+        font-size: 62.5%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .main-head {
+        background: cyan;
+        color: black;
+    }
+
+    .main {
+        background: cyan;
+        width: 60%;
+        margin: 5% auto;
+        border-radius: 4px;
+        padding-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid black;
+        outline: 0;
+        background: cyan;
+        padding: 20px 0 4px;
+        margin: 0 0 20px;
+        color: black;
+    }
+
+    textarea {
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid black;
+        outline: 0;
+        background: cyan;
+        padding: 20px 0 4px;
+        margin: 0 0 20px;
+        color: black;
+    }
+
+    textarea:focus {
+        border-color: black;
+        color: #000000;
+    }
+
+    button#submit {
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        background: black;
+        color: black;
+        border: 0;
+        border-radius: 4px;
+        opacity: .8;
+        transition: .35s linear;
+    }
+
+    h1 {
+        color: black;
+    }
+
+    h2 {
+        color: black;
+    }
+
+    input:focus {
+        border-color: black;
+        color: black;
+    }
+
+    .second-nav .new {
+        flex: 6 1 5rem;
+        text-align: right;
+        text-transform: uppercase;
+        color: black;
+    }
+</style>
+<script language="javascript" type="text/javascript">
+    function exefunction() {
+        var lfckv = document.getElementById("lifecheck").checked;
+        alert(lfckv);
+    }
+</script>
+
+<body>
+    <div class="container">
+        <!-- Formulario-->
+        <!-- <section class="form-register"> -->
+        <form class="form-register">
+            {% csrf_token %}
+
+            <div class="info">
+                <h1> Participa</h1>
+                <nav class="second-nav">
+
+
+
+                </nav>
+                <h2> Participa en Este Gran Torneo</h2>
+            </div>
+
+            <div class="campos">
+                <!-- campos a llenar -->
+                <div class="camposForm">
+                    <p>
+                        <label class="etiquetaForm">Usuario*</label>
+                        <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
+                          placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                      </p>
+                    <p>
+                        <label class="etiquetaForm">Nombre*</label>
+                        <input class="controllers" type="text" name="nombre" id="nombreField"
+                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Apellidos* </label>
+                        <input class="controllers" type="text" name="apellido" id="apellidoField"
+                            placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Correo* </label>
+                        <input class="controllers" type="email" name="correo" id="correoField"
+                            placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Numero de telefono* </label>
+                        <input class="controllers" type="text" name="numero" id="numeroField"
+                            placeholder="Ingrese su numero de telefono donde podamos contactarlo"
+                            onkeypress="return ch(event)" required>
+                    </p>
+
+
+
+                </div>
+                <!-- fin campos a llenar -->
+
+
+                <center>
+                    <button class="buttons" type="submit" onclick="subir()" style="color: white;"> Enviar </button>
+                </center>
+            </div>
+
+        </form>
+        <!-- </section> -->
+        <!-- Fin Formulario-->
+
+        <!-- Fin contenedor -->
+    </div>
+
+    <script>
+
+        function subir() {
+
+            $.ajax({
+                url: "{% url 'registrar' %}",
+                type: "POST",
+                data: {
+                    'user': $('#userField').val(),
+                    'nombre': $('#nombreField').val(),
+                    'apellido': $('#apellidoField').val(),
+                    'correo': $('#correoField').val(),
+                    'numero': $('#numeroField').val(),
+
+
+
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                }
+            })
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
+{% endblock %}
