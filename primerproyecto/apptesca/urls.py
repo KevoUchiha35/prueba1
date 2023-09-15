@@ -30,7 +30,7 @@ urlpatterns = [
     url('^menu/$' , views.agregar, name="menu"),
     url('^productoss/$' , views.gamer, name="productoss"),
     url('^registros/$' , views.llenar, name="registros"),
-    url('^registrar/$' , views.campos, name="registrar"),
+    url('^registrar_tienda/$' , views.campos, name="registrar_tienda"),
 
 ]
 if settings.DEBUG:

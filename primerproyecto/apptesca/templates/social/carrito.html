@@ -277,13 +277,13 @@
 
                         <label for="nombreField" style="color: black;">Nombre</label>
                         <input class="form-control" type="text" name="nombre" id="nombreField"
-                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ Datosuser.nombre }}"{% endif %}>
+                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ user.first_name}}"{% endif %}>
 
 
 
                         <label for="apellidoField" style="color: black;">Apellidos</label>
                         <input class="form-control" type="text" name="apellido" id="apellidoField"
-                            placeholder="Ingrese su apellido" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ user.username }}"{% endif %}>
+                            placeholder="Ingrese su apellido" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ user.last_name }}"{% endif %}>
    
 
                         <label for="correoField" style="color: black;">Correo</label>
@@ -293,6 +293,10 @@
                         <label for="numeroField" style="color: black;">Número</label>
                         <input class="form-control" type="text" name="Numero" id="numeroField"
                             placeholder="Ingrese su número" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ user.username }}"{% endif %}>
+
+                            <label for="numeroField" style="color: black;">Dirección</label>
+                            <input class="form-control" type="text" name="direccion" id="direccionField"
+                                placeholder="Ingrese su número" onkeypress="return ch(event)" autofocus required {% if user.is_authenticated %}value="{{ user.username }}"{% endif %}>
 
                         <label for="pagoField">metodo de pago</label>
                         <select name="metodo_pago" id="pagoField">
@@ -349,6 +353,7 @@
                         'apellido': $('#apellidoField').val(),
                         'correo': $('#correoField').val(),
                         'Numero': $('#numeroField').val(),
+                        'direccion': $('#direccionField').val(),
                         'metodo_pago': $('#pagoField').val(),
                         'total': total,
                         csrfmiddlewaretoken: '{{ csrf_token }}',

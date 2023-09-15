@@ -3,15 +3,16 @@
 {% block content%}
 <!DOCTYPE html>
 <html lang="en">
-    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="scripts.js"></script>
-    <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="scripts.js"></script>
+<script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,13 +122,13 @@
             {% csrf_token %}
 
             <div class="info">
-                <h1> Participa</h1>
+                <h1>Datos de compra</h1>
                 <nav class="second-nav">
 
 
 
                 </nav>
-                <h2> Participa en Este Gran Torneo</h2>
+                <h2>Ingresa tus datos para tus compras</h2>
             </div>
 
             <div class="campos">
@@ -136,17 +137,17 @@
                     <p>
                         <label class="etiquetaForm">Usuario*</label>
                         <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
-                          placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-                      </p>
+                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                    </p>
                     <p>
                         <label class="etiquetaForm">Nombre*</label>
-                        <input class="controllers" type="text" name="nombre" id="nombreField"
+                        <input class="controllers" type="text" name="nombre" id="first_nameField"
                             placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
                     </p>
 
                     <p>
                         <label class="etiquetaForm">Apellidos* </label>
-                        <input class="controllers" type="text" name="apellido" id="apellidoField"
+                        <input class="controllers" type="text" name="apellido" id="last_nameField"
                             placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
                     </p>
 
@@ -163,6 +164,12 @@
                             onkeypress="return ch(event)" required>
                     </p>
 
+                    <p>
+                        <label class="etiquetaForm">Dirección* </label>
+                        <input class="controllers" type="text" name="direccion" id="direccionField"
+                            placeholder="Ingrese su direccion"
+                            onkeypress="return ch(event)" required>
+                    </p>
 
 
                 </div>
@@ -180,21 +187,25 @@
 
         <!-- Fin contenedor -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    </script>
 
     <script>
 
         function subir() {
 
             $.ajax({
-                url: "{% url 'registrar' %}",
+                url: "{% url 'registrar_tienda' %}",
                 type: "POST",
                 data: {
                     'user': $('#userField').val(),
-                    'nombre': $('#nombreField').val(),
-                    'apellido': $('#apellidoField').val(),
+                    'first_name': $('#first_nameField').val(),
+                    'last_name': $('#apellidoField').val(),
                     'correo': $('#correoField').val(),
                     'numero': $('#numeroField').val(),
-
+                    'direccion': $('#direccionField').val(),
 
 
                     csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),

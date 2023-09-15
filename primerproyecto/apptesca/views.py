@@ -5,6 +5,7 @@ from .models import contactanos
 from .models import tienda
 from .models import Noticias
 from .models import Producto
+from .models import Datosuser 
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -123,7 +124,8 @@ def principal(request):
 
 @login_required
 def compras(request):
-  Datosuser = request.user
+
+  User = request.user
   ejemplos = Producto.objects.all()
   print(request)
   
@@ -136,6 +138,7 @@ def compras(request):
                 apellido=request.POST['apellido'],
                 correo=request.POST['correo'],
                 numero=request.POST['Numero'],
+                direccion=request.POST['direccion'],
                 pago=request.POST['metodo_pago'],
                 total=request.POST['total']
 
@@ -145,7 +148,7 @@ def compras(request):
             
           )
         dato.save()
-  return render(request, 'social/carrito.html', {'user': Datosuser, 'ejemplos' :ejemplos})
+  return render(request, 'social/carrito.html', {'user': User,  'ejemplos' :ejemplos})
 
 
 def carro(request):
@@ -208,10 +211,11 @@ def campos(request):
         dato = Datosuser.objects.create(
 
             user=request.POST['user'],
-            nombre=request.POST['nombre'],
-            apellido=request.POST['apellido'],
+            first_name=request.POST['first_name'],
+            last_name=request.POST['last_name'],
             correo=request.POST['correo'],
-            redsocial=request.POST['numero'],
+            numero=request.POST['numero'],
+            direccion=request.POST['direccion'],
 
         )
         dato.save()
