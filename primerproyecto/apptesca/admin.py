@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Noticias, contactanos, Producto, tienda, Datosuser
+from .models import Noticias, contactanos, Producto, tienda, jugadores
 # Register your models here.
 
 class NoticiaAdmin(admin.ModelAdmin):
@@ -21,13 +21,14 @@ class TiendaAdmin(admin.ModelAdmin):
 
     readonly_fields=()
 
-class DatosuserAdmin(admin.ModelAdmin):
+class JugadoresAdmin(admin.ModelAdmin):
 
     readonly_fields=()
+
 
 
 admin.site.register(Noticias, NoticiaAdmin)
 admin.site.register(contactanos, ContactanosAdmin)
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(tienda, TiendaAdmin)
-admin.site.register(Datosuser, DatosuserAdmin)
+admin.site.register(jugadores, JugadoresAdmin)

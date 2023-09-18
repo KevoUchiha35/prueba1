@@ -5,7 +5,6 @@ from .models import contactanos
 from .models import tienda
 from .models import Noticias
 from .models import Producto
-from .models import Datosuser 
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -22,12 +21,22 @@ from django.core.files.storage import FileSystemStorage
 
 def feed(request):
 
-    return render(request, 'social/feed.html')
+    arroba = jugadores.objects.all()
+
+    return render(request, 'social/feed.html', {'arroba':arroba})
 
 
 def perfil(request):
 
-    return render(request, 'social/perfil.html')
+
+
+
+
+    nick = jugadores.objects.all()
+
+
+
+    return render(request, 'social/perfil.html', {'nick':nick})
 
 
 def registro(request):
@@ -67,6 +76,8 @@ def formulario(request):
             nickname=request.POST['Nickname'],
             nacimiento=request.POST['Nacimiento'],
             correo=request.POST['Correo'],
+            numero=request.POST['Numero'],
+            direccion=request.POST['Direccion'],
             redsocial=request.POST['RedSocial'],
             videojuegofav=request.POST['Videojuegofav'],
             plataforma_xbox=request.POST['plataforma_xbox'],
@@ -125,38 +136,31 @@ def principal(request):
 @login_required
 def compras(request):
 
-  User = request.user
+
   ejemplos = Producto.objects.all()
   print(request)
   
   if request.method == 'POST':  
        
         dato = tienda.objects.create(
-          
+
                 user_id=request.POST['user'],
-                nombre=request.POST['nombre'],
-                apellido=request.POST['apellido'],
-                correo=request.POST['correo'],
-                numero=request.POST['Numero'],
-                direccion=request.POST['direccion'],
                 pago=request.POST['metodo_pago'],
                 total=request.POST['total']
-
-                
 				
                
             
           )
         dato.save()
-  return render(request, 'social/carrito.html', {'user': User,  'ejemplos' :ejemplos})
+  return render(request, 'social/carrito.html', {'ejemplos' :ejemplos})
 
 
 def carro(request):
-    info = tienda.objects.all()
+    info = jugadores.objects.all()
+    ejemplo = tienda.objects.all()
+    
 
-    context = {'posts': info}
-
-    return render(request, 'social/consultas_carrito.html', context)
+    return render(request, 'social/consultas_carrito.html', {'info' :info , 'ejemplo' :ejemplo})
 
 
 def home(request):
@@ -199,26 +203,5 @@ def gamer(request):
 
     return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
 
-def llenar(request):
 
-    
-        return render(request, 'social/registro_datos.html')
-
-
-def campos(request):
-   if request.method == 'POST':
-
-        dato = Datosuser.objects.create(
-
-            user=request.POST['user'],
-            first_name=request.POST['first_name'],
-            last_name=request.POST['last_name'],
-            correo=request.POST['correo'],
-            numero=request.POST['numero'],
-            direccion=request.POST['direccion'],
-
-        )
-        dato.save()
-    
-        return render(request, 'social/registro_datos.html')
 

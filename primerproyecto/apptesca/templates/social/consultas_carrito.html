@@ -1,105 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>consultas_carrito</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>consultas_carrito</title>
 </head>
 <style>
-    body {
-        background-color: crimson;
-        text-align: center;
+  body {
+    background-color: crimson;
+    text-align: center;
 
-    }
+  }
 
-    h1 {
-        text-align: center;
-        font-family: arial;
+  h1 {
+    text-align: center;
+    font-family: arial;
 
-    }
+  }
 
-    table {
-        border-collapse: ;
-        border-spacing: 5px;
-        flex-wrap: wrap;
-        font-family: Times New Roman;
-        text-align: center;
-        background-color: aqua;
-    }
-    tbody{
-        text-align: center;
-        font-family: arial;
-    }
-    main{
-        text-align: center;
-    }
+  table {
+    border-collapse: ;
+    border-spacing: 5px;
+    flex-wrap: wrap;
+    font-family: Times New Roman;
+    text-align: center;
+    background-color: aqua;
+  }
+
+  tbody {
+    text-align: center;
+    font-family: arial;
+  }
+
+  main {
+    text-align: center;
+  }
 </style>
+
 <body>
-    <a class="feed" href="{% url 'inicio' %}">REGRESAR</a>
+  <a class="feed" href="{% url 'inicio' %}">REGRESAR</a>
   <main>
 
 
 
     <div class="info">
-        <h1 class="titt"> Consultas de datos de carrito</h1>
-        <nav class="second-nav">
-
-       
-          </nav>
-       
-      </div>
-   
-
-  
-  
-  <center>
-    <table class="table table-bordered"  > 
-      <thead>
-        <tr style="background-color: black;">
-            
-          <th style="color: white ;">ID</th>
-
-          <th style="color: white ;">Nombre</th>
-
-          <th style="color: white ;">Apellido</th>
-
-          <th style="color: white ;">Correo</th>
-      
-          <th style="color: white ;">Numero</td>
-
-          <th style="color: white ;">Pago con tarjeta</th>
-
-          <th style="color: white ;">Total</th>
-      
-        </tr>
-      </thead>
+      <h1 class="titt"> Consultas de datos de carrito</h1>
+      <nav class="second-nav">
 
 
-      <tbody>
-        {% if posts %}
-        {% for info in posts %}
-        <tr>
+      </nav>
 
-            <td>{{info.id}}</td>
-            <td>{{info.nombre}}</td>
-            <td>{{info.apellido}}</td>
-            <td>{{info.correo}}</td>
-            <td>{{info.numero}}</td>
-            <td>{{info.pago}}</td>
-            <td>{{info.total}}</td>
+    </div>
 
-       
+
+
+
+    <center>
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background-color: black;">
+
+            <th style="color: white ;">ID</th>
+
+            <th style="color: white ;">ID user</th>
+
+            <th style="color: white ;">Nombre</th>
+
+            <th style="color: white ;">Apellido</th>
+
+            <th style="color: white ;">Correo</th>
+
+            <th style="color: white ;">Direccion</th>
+
+            <th style="color: white ;">Numero</td>
+
+            <th style="color: white ;">Pago con tarjeta</th>
+
+            <th style="color: white ;">Total</th>
+
+          </tr>
+        </thead>
+
+
+        <tbody>
+          {% for jugadores in info %}
+          {% for tienda in ejemplo %}
+          <tr>
+
+            <td>{{tienda.id}}</td>
+            <td>{{jugadores.user.id}}</td>
+            <td>{{jugadores.nombre}}</td>
+            <td>{{jugadores.apellido}}</td>
+            <td>{{jugadores.correo}}</td>
+            <td>{{jugadores.direccion}}</td>
+            <td>{{jugadores.numero}}</td>
+            <td>{{tienda.pago}}</td>
+            <td>{{tienda.total}}</td>
+
+
         </tbody>
         {% endfor %}
 
-        {% else %}
+        {% endfor %}
 
-        <h1>NO HAY REGISTROS</h1>
 
-        {% endif %}
-      </main>
-      </table></center>
+
+  </main>
+  </table>
+  </center>
 </body>
 
 </html>

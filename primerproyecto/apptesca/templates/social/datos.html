@@ -120,13 +120,13 @@
       {% csrf_token %}
 
       <div class="info">
-        <h1> Participa</h1>
+        <h1> Informacion basica</h1>
         <nav class="second-nav">
 
 
 
         </nav>
-        <h2> Participa en Este Gran Torneo</h2>
+        <h2> Ingrese sus datos para completar su perfil</h2>
       </div>
 
       <div class="campos">
@@ -166,6 +166,18 @@
           <p>
             <label class="etiquetaForm">Correo* </label>
             <input class="controllers" type="email" name="correo" id="correoField" placeholder="Ingrese tu correo"
+              onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Numero* </label>
+            <input class="controllers" type="text" name="numero" id="numeroField" placeholder="Ingrese tu numero"
+              onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Direccion* </label>
+            <input class="controllers" type="text" name="direccion" id="direccionField" placeholder="Ingrese su direccion"
               onkeypress="return ch(event)" required>
           </p>
 
@@ -226,6 +238,8 @@
           'Nickname': $('#nickField').val(),
           'Nacimiento': $('#nacimientoField').val(),
           'Correo': $('#correoField').val(),
+          'Numero': $('#numeroField').val(),
+          'Direccion': $('#direccionField').val(),
           'RedSocial': $('#socialField').val(),
           'Videojuegofav': $('#juegoField').val(),
           'plataforma_xbox': $('#plataformaField').val(),

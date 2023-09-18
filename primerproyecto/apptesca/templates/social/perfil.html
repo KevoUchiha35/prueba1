@@ -1,36 +1,69 @@
-{% extends 'social/feed.html' %}
-{% block content %}
-{% load static %}
+{% extends 'social/layout.html' %}
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+    body {
 
-<!-- Profile -->
-<div class="profile">
-	<img src="https://www.geekmi.news/__export/1616984602510/sites/debate/img/2021/03/28/kokushibo_crop1616984507007.jpg_1339198940.jpg">
-	<h2>@kevin</h2>
+        background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
+        font-family: 'Times New Roman', Times, serif;
+    }
 
+    .main-head {
+
+          background: cyan;
+        color: black;
+    }
+
+    .main {
+        background: cyan;
+        color: black;
+        width: 60%;
+        margin: 5% auto;
+        border-radius: 4px;
+        padding-bottom: 20px;
+    }
+</style>
+<body>
+	<div class="profile">
+		<img src="https://www.geekmi.news/__export/1616984602510/sites/debate/img/2021/03/28/kokushibo_crop1616984507007.jpg_1339198940.jpg">
+		{% if request.user.is_authenticated %}
+		<h2>{{ request.user.username }}</h2>
+		<h4>@{{ request.user.username }}</h4>
+		{% endif %}	
+				<button><a class="follow-button" href="#">Follow</a></button>
+		
+				
+		
+	</div>
 	
-			<button><a class="follow-button" href="#">Follow</a></button>
-	
+	<!-- Follow items -->
+	<div class="follow">
+		<div>
+			<h5>Post</h5>
+			
+		</div>
+		<div>
+			<h5>Followers</h5>
 			
 	
-</div>
-
-<!-- Follow items -->
-<div class="follow">
-	<div>
-		<h5>Post</h5>
+		</div>
+		<div>
+			<h5>Following</h5>
 		
+		</div>
 	</div>
-	<div>
-		<h5>Followers</h5>
-		
-
-	</div>
-	<div>
-		<h5>Following</h5>
 	
-	</div>
-</div>
+</body>
+</html>
 
 
-{{ block.super }}
+
+
 {% endblock %}
