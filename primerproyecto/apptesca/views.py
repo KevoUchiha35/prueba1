@@ -12,7 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
-
+from django.core.paginator import Paginator, Page
+user = ""
 #django nos permite tener forms#
 
 
@@ -28,15 +29,31 @@ def feed(request):
 
 def perfil(request):
 
+    per = jugadores.objects.all()
+
+    if request.method == 'POST':
+        imagen_profile = request.FILES['imagen_profile']  # Usa request.FILES para acceder al archivo
+        # Configura un sistema de almacenamiento para las imágenes
+        pro = FileSystemStorage(location='media/productos')
+        filename = pro.save(imagen_profile.name, imagen_profile)  # Guarda la imagen en el sistema de almacenamiento
+        print(filename)
+        imagen_url = ("productos/"+filename)  # Obtiene la URL de la imagen
+        print(imagen_url)
+        dato = jugadores.objects.create(
+            imagen_profile=imagen_url  # Guarda la URL de la imagen en la base de datos
+        )
+        dato.save()
+        global user
+        print (user)
+        messages.success(request,"tu usuario es:"+ user)   
+        return render(request, 'social/perfil.html', {'per':per})
+
+    return render(request, 'social/perfil.html', {'per': per})
 
 
 
 
-    nick = jugadores.objects.all()
-
-
-
-    return render(request, 'social/perfil.html', {'nick':nick})
+    return render(request, 'social/perfil.html')
 
 
 def registro(request):
@@ -55,6 +72,7 @@ def registro(request):
 
 
 def login(request):
+    global usuarios
     usuarios = registro.objects.get()
     return render(request, 'social/login.html')
 
@@ -134,25 +152,31 @@ def principal(request):
 
 
 @login_required
+
+
+
+
 def compras(request):
+    ejemplos = Producto.objects.all()
 
+    # Configura el paginador con los ejemplos y la cantidad de ejemplos por página
+    paginator = Paginator(ejemplos, 6)  # Cambia 6 al número deseado de ejemplos por página
 
-  ejemplos = Producto.objects.all()
-  print(request)
-  
-  if request.method == 'POST':  
-       
+    # Obten la página actual del GET request, si no se especifica, será la página 1
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+
+    if request.method == 'POST':
         dato = tienda.objects.create(
-
-                user_id=request.POST['user'],
-                pago=request.POST['metodo_pago'],
-                total=request.POST['total']
-				
-               
-            
-          )
+            user_id=request.POST['user'],
+            pago=request.POST['metodo_pago'],
+            total=request.POST['total']
+        )
         dato.save()
-  return render(request, 'social/carrito.html', {'ejemplos' :ejemplos})
+
+    return render(request, 'social/carrito.html', {'page': page})
+
+
 
 
 def carro(request):

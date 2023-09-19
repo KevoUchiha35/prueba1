@@ -53,7 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "primerproyecto.urls"
+ITEMS_PER_PAGE = 10  # O el número que prefieras
 
+# Agrega la configuración para la paginación
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    'MARGIN_PAGES_DISPLAYED': 2,
+}
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

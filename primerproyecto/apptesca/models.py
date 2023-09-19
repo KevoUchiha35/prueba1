@@ -17,6 +17,7 @@ class jugadores(models.Model):
     redsocial = models.CharField(max_length=250, null=True, unique=False)
     videojuegofav = models.CharField(max_length=250, null=True, unique=False)
     plataforma_xbox = models.BooleanField(default=False,null=True)
+    imagen_profile  = models.ImageField(upload_to="productos", null=True)
 
 class contactanos(models.Model):
     nombre = models.CharField(max_length=250, null=True)
