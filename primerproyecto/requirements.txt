@@ -7,7 +7,7 @@ colorama==0.4.6
 dill==0.3.6
 distlib==0.3.6
 dj-database-url==0.5.0
-Django==3.2.16
+Django==3.2.10
 django-environ==0.8.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2

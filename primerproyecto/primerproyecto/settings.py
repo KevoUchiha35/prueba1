@@ -120,6 +120,7 @@ USE_I18N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -129,7 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = '/static'
 
 LOGIN_REDIRECT_URL = 'inicio'
-LOGIN_URL = 'prueba'
+LOGIN_URL = 'login'
 
 #STATIC_ROOT= (os.path.join(BASE_DIR, 'appDjango/static'),) 
 

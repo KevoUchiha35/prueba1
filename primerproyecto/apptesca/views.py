@@ -13,7 +13,6 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 from django.core.paginator import Paginator, Page
-user = ""
 #django nos permite tener forms#
 
 
@@ -24,14 +23,19 @@ def feed(request):
 
     arroba = jugadores.objects.all()
 
-    return render(request, 'social/feed.html', {'arroba':arroba})
+    return render(request, 'social/inicio.html', {'arroba':arroba})
 
 
 def perfil(request):
+    per = jugadores.objects.all()
+    return render(request, 'social/perfil.html', {'per':per})
 
+
+def actualiza(request):
     per = jugadores.objects.all()
 
     if request.method == 'POST':
+        ###se esta creando de nuevo
         imagen_profile = request.FILES['imagen_profile']  # Usa request.FILES para acceder al archivo
         # Configura un sistema de almacenamiento para las imágenes
         pro = FileSystemStorage(location='media/productos')
@@ -43,17 +47,11 @@ def perfil(request):
             imagen_profile=imagen_url  # Guarda la URL de la imagen en la base de datos
         )
         dato.save()
-        global user
-        print (user)
-        messages.success(request,"tu usuario es:"+ user)   
-        return render(request, 'social/perfil.html', {'per':per})
 
-    return render(request, 'social/perfil.html', {'per': per})
+        per = jugadores.objects.filter(user = request.user)
+        return render(request, 'social/actualizar.html', {'per':per})
 
-
-
-
-    return render(request, 'social/perfil.html')
+    return render(request, 'social/actualizar.html', {'per': per})
 
 
 def registro(request):
@@ -154,8 +152,6 @@ def principal(request):
 @login_required
 
 
-
-
 def compras(request):
     ejemplos = Producto.objects.all()
 
@@ -176,9 +172,6 @@ def compras(request):
 
     return render(request, 'social/carrito.html', {'page': page})
 
-
-
-
 def carro(request):
     info = jugadores.objects.all()
     ejemplo = tienda.objects.all()
@@ -197,9 +190,7 @@ def ppost(request):
     return render(request, 'social/post.html')
 
 def agregar(request):
-
-    
-        return render(request, 'social/menu_admin.html')
+    return render(request, 'social/menu_admin.html')
 
 def gamer(request):
     ejemplos = Producto.objects.all()
@@ -226,6 +217,3 @@ def gamer(request):
         return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
 
     return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
-
-
-

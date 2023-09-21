@@ -45,8 +45,6 @@ class Noticias  (models.Model):
        
         verbose_name= "noticia" 
         verbose_name_plural= "noticias"
-    
-
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)

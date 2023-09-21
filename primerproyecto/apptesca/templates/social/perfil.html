@@ -3,63 +3,67 @@
 {% block content%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Perfil</title>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="scripts.js"></script>
-    <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="scripts.js"></script>
+	<script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
 </head>
 <style>
-    body {
+	body {
 
-        background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
-        font-family: 'Times New Roman', Times, serif;
-    }
+		background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
+		font-family: 'Times New Roman', Times, serif;
+	}
 
-    .main-head {
+	.main-head {
 
-          background: cyan;
-        color: black;
-    }
+		background: cyan;
+		color: black;
+	}
 
-    .main {
-        background: cyan;
-        color: black;
-        width: 60%;
-        margin: 5% auto;
-        border-radius: 4px;
-        padding-bottom: 20px;
-    }
+	.main {
+		background: cyan;
+		color: black;
+		width: 60%;
+		margin: 5% auto;
+		border-radius: 4px;
+		padding-bottom: 20px;
+	}
+
 	input {
-    width: 20%;
-    border: 0;
- 
-    outline: 0;
-    background: cyan;
-    padding: 20px 0 4px;
-    margin: 0 0 20px;
-    color: black;
-  }
-  img.profile{
-  height: 80px;
-  width: 80px;
-  margin-right: 10px;
-  margin-left: 30px;
-  border-radius: 50%;
-}
+		width: 20%;
+		border: 0;
+
+		outline: 0;
+		background: cyan;
+		padding: 20px 0 4px;
+		margin: 0 0 20px;
+		color: black;
+	}
+
+	img.profile {
+		height: 80px;
+		width: 80px;
+		margin-right: 10px;
+		margin-left: 30px;
+		border-radius: 50%;
+	}
 </style>
 <script language="javascript" type="text/javascript">
 	function exefunction() {
-	  var lfckv = document.getElementById("lifecheck").checked;
-	  alert(lfckv);
+		var lfckv = document.getElementById("lifecheck").checked;
+		alert(lfckv);
 	}
-  </script>
+</script>
+
 <body>
 	{%if messages %}
 	{% for message in messages %}
@@ -67,72 +71,52 @@
 	{% endfor %}
 	{% endif %}
 	<div class="profile" enctype="multipart/form-data">
-		{% csrf_token %}
-		{% for jugadores in per %}
-
-		{% endfor %}
-		<img src="{{ per.imagen_profile.url }}">
-
 		
+		{% for per in per %}
+		
+		{%if request.user == per.user %}
+		<img src="{{ per.imagen_profile.url }}">
+		{% endif %}
+		
+		{% endfor %}
+
+
+
 		{% if request.user.is_authenticated %}
 		<h2>{{ request.user.username }}</h2>
-		<h4>@{{ request.user.username }}</h4>
+		<h4>{{ request.user.email }}</h4>
 		{% endif %}
-			
-			<input class="form-control" type="file" name="Imagen" id="imagenField" placeholder="Ingrese imagen" accept="image/*" required>
-			<button class="buttons" type="submit" onclick="prof()" style="color: white;"> Enviar </button>
-				
+		<form method="POST">
+			{% csrf_token %}
+		<a href="{% url 'actualizarr' %}">uwwu</a>
+		</form>
 		
-	</div>
-	<script>
 
-		function prof() {
-			var formData = new FormData();
-			formData.append('imagen_profile', $('#imagenField')[0].files[0]); // Acceder al archivo seleccionado
-		
-			$.ajax({
-				url: "{% url 'perfil' %}",
-				type: "POST",
-				data: formData,
-				processData: false, // Evita que jQuery procese los datos
-				contentType: false, // Evita que jQuery establezca el tipo de contenido
-				headers: {
-					'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() // Agrega el token CSRF como encabezado
-				},
-				success: function (response) {
-					// Maneja la respuesta del servidor aquí
-				},
-				error: function (error) {
-					// Maneja los errores aquí
-				}
-			});
-		}
-		
-		
-		
-			</script>
-	
+
+	</div>
+
 
 
 
 	<div class="follow">
 		<div>
 			<h5>Post</h5>
-			
+
 		</div>
 		<div>
 			<h5>Followers</h5>
-			
-			
-	
+
+
+
 		</div>
 		<div>
 			<h5>Following</h5>
-		
+
 		</div>
 	</div>
-	
+
 </body>
+
 </html>
 
 
