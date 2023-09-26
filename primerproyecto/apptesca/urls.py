@@ -30,7 +30,7 @@ urlpatterns = [
     url('^menu/$' , views.agregar, name="menu"),
     url('^productoss/$' , views.gamer, name="productoss"),
     url('^actualizarr/$' , views.actualiza, name="actualizarr"),
-
+    
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

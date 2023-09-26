@@ -17,6 +17,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
     <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static "img/videojuego.png" %}">
 
 </head>
 <style>
@@ -80,7 +81,7 @@
 
     #wrapper {
         text-align: center;
-        color: yellow;
+        color: cyan;
     }
 
     #div1 {
@@ -248,10 +249,13 @@
                         <p class="card-text" style="color: black">$ {{ producto.precio }} MXN</p>
                         <button class="btn btn-primary" onclick="add('{{ producto }}', '{{ producto.precio }}')"
                             onkeypress="return ch(event)" required style="background-color: #007BFF;">Agregar</button>
+
                     </div>
                 </div>
+                
             </div>
             {% endfor %}
+
         </div>
     </div>
     
@@ -297,13 +301,44 @@
             <a href="#close" title="Close" class="close">X</a>
             <center>
                 <form class="form-container">
-                    <div class="form-group">
-                        <label for="userField" style="color: black;"></label>
-                        <input class="form-control" value="{{user.id}}" type="hidden" name="user" id="userField"
+                    <div>
+
+                        <label class="etiquetaForm">Usuario*</label>
+                        <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
                             placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
                     </div>
+                    
+                    <div>
+                        <label class="etiquetaForm">Nombre*</label>
+                        <input class="controllers" type="text" name="nombre" id="nombreField"
+                        value="{{ user.first_name}}" placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                    </div>
+                    <div>
+                        <label class="etiquetaForm">Apellidos* </label>
+                        <input class="controllers" type="text" name="apellido" id="apellidoField"
+                        value="{{ user.last_name}}" placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
+                    </div>
+                    <div>
+                        <label class="etiquetaForm">Correo* </label>
+                        <input class="controllers" type="email" name="correo" id="correoField"
+                        value="{{ user.email}}"  placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
+                    </div>
 
+                    <div>
+                        {% for jugadores in auto %}
+                            {% if forloop.first %}  
+                                <label class="etiquetaForm">Numero* </label>
+                                <input class="controllers" type="text" name="Numero" id="numeroField"
+                                       value="{{ jugadores.numero }}" placeholder="Ingrese su numero" onkeypress="return ch(event)" required>
 
+                    </div>
+                    <div>
+                        <label class="etiquetaForm">Direccion* </label>
+                        <input class="controllers" type="text" name="direccion" id="direccionField"
+                        value="{{ jugadores.direccion }}" placeholder="Ingrese tu direccion" onkeypress="return ch(event)" required>
+                    </div>
+                            {% endif %}
+                        {% endfor %}
                     <label for="pagoField">metodo de pago</label>
                     <select name="metodo_pago" id="pagoField">
                         <option value="True">Tarjeta</option>
@@ -312,10 +347,19 @@
                     </select>
 
                 </form>
-
+                {% if request.user.is_authenticated %}
                 <button id="checkout" type="submit" class="button-checkout" onclick="pay()"
                     style="background-color: cyan;">Ordenar</button>
             </center>
+            {% else %}
+            <script>
+                // Verificar si el usuario no está autenticado (debe ajustarse según tu lógica de autenticación)
+                {% if not user.is_authenticated %}
+                    // Mostrar una alerta o ventana emergente
+                    alert("Debe iniciar sesión antes de comprar.");
+                {% endif %}
+            </script>
+                            {% endif %}
         </div>
     </div>
 

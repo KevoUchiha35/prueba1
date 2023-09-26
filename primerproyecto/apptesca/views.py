@@ -149,11 +149,12 @@ def principal(request):
     return render(request, 'social/inicio.html')
 
 
-@login_required
+
 
 
 def compras(request):
     ejemplos = Producto.objects.all()
+    auto = jugadores.objects.filter()
 
     # Configura el paginador con los ejemplos y la cantidad de ejemplos por página
     paginator = Paginator(ejemplos, 6)  # Cambia 6 al número deseado de ejemplos por página
@@ -165,16 +166,22 @@ def compras(request):
     if request.method == 'POST':
         dato = tienda.objects.create(
             user_id=request.POST['user'],
+            nombre=request.POST['nombre'],
+            apellido=request.POST['apellido'],
+            correo=request.POST['correo'],
+            numero=request.POST['Numero'],
+            direccion=request.POST['direccion'],
             pago=request.POST['metodo_pago'],
             total=request.POST['total']
         )
         dato.save()
 
-    return render(request, 'social/carrito.html', {'page': page})
+    return render(request, 'social/carrito.html', {'page': page, 'auto': auto })
 
 def carro(request):
     info = jugadores.objects.all()
     ejemplo = tienda.objects.all()
+    info = jugadores.objects.filter(user = request.user)
     
 
     return render(request, 'social/consultas_carrito.html', {'info' :info , 'ejemplo' :ejemplo})

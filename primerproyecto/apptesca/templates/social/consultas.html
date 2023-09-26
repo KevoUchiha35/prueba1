@@ -1,16 +1,18 @@
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static "img/videojuego.png" %}">
     <title>consultas</title>
 </head>
 <style>
     body {
-        background-color: crimson;
-        text-align: center;
+      margin: 0px;
+        background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
 
     }
 
@@ -26,37 +28,91 @@
         flex-wrap: wrap;
         font-family: Times New Roman;
         text-align: center;
-        background-color: aqua;
+        background-color: cyan;
+        border: 1px solid black;
     }
+
+    td {
+      border: 1px solid black;
+    }
+    th {
+      border: 1px solid black;
+
+    }
+
     tbody{
         text-align: center;
         font-family: arial;
     }
-    main{
+
+
+    #wrapper {
         text-align: center;
+        color: cyan;
     }
+
+    #div1 {
+        display: inline-block;
+
+    }
+
+    #div2 {
+        display: inline-block;
+
+    }
+
+    #div3 {
+        display: inline-block;
+
+    }
+    .page-nav {
+        background-image: url("{% static 'img/baner.png' %}");
+        border: 1px solid black;
+        position: relative;
+    }
+
+    .page-nav {
+        margin-left: 700px;
+        margin-inline-start: 0px;
+        align-content: center;
+        color: yellow;
+        margin-top: 0px;
+
+    }
+    
+
 </style>
 <body>
-  <a class="feed" href="{% url 'inicio' %}">REGRESAR</a>
-  <main>
+  
+  <div class="page-nav">
 
+    {% csrf_token %}
 
-    <div class="info">
-        <h1 class="titt"> Consultas de datos de personal</h1>
-        <nav class="second-nav">
+    <div id="wrapper">
+        <div id="div1">
+          <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+        </div>
+        <div id="div2">
+            <b>
+                <p style="font-size: 50px;">Consulta de datos personales</p>
+            </b>
+        </div>
+        <div id="div3">
+          <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+        </div>
+    </div>
+</div>
 
-       
-          </nav>
-       
-      </div>
-   
+<br>
+<br>
+
 
   
   
       <center>
     <table class="table table-bordered"  > 
       <thead>
-        <tr style="background-color: black;">
+        <tr style="background-color: black; ">
             
             <th style="color: white ;">ID</th>
           <th style="color: white ;">Nombre</th>
@@ -108,7 +164,7 @@
         <h1>NO HAY REGISTROS</h1>
 
         {% endif %}
-      </main>
+
       </table></center>
 </body>
 </html>

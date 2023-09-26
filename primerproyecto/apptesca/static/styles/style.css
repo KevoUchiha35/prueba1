@@ -1,8 +1,4 @@
-body{
-	background: url(https://images3.alphacoders.com/107/107899.jpg);
-	font-size: 62.5%;
-	font-family: 'Times New Roman', Times, serif;
-}
+
 
 h1{
 color: black;
@@ -27,7 +23,7 @@ button{
 	color: black;
 	padding: 0.4rem 1.4rem;
 	border: none;
-	background: blue;
+	background: #007BFF;
 	 border-radius: 4px;
 	cursor: pointer;
 
@@ -38,10 +34,7 @@ img{
 }
 
 /* Nav bar */
-.main-head{
-	background: blue;
-	color: black;
-}
+
 
 nav.main{
 	min-height: 7vh;
@@ -60,10 +53,7 @@ nav.main ul{
 	list-style: none;
 }
 
-#logo{
-	flex: 2 1 40rem;
-    
-}
+
 
 
 a{
@@ -73,13 +63,7 @@ a{
 }
 
 
-.main{
-	background: yellow;
-	width: 60%;
-	margin: 5% auto;
-	border-radius: 4px;
-	padding-bottom: 20px;
-}
+
 
 
 .second-nav{
@@ -87,14 +71,7 @@ a{
 	padding: 15px 30px;
 }
 
-.second-nav .feed{
-	flex: 1 1 30px;
-}
 
-.second-nav .feed:hover{
-	flex: 1 1 30px;
-	color: black;
-}
 
 .second-nav .profile{
 	flex: 1 1 30px;
@@ -125,13 +102,7 @@ article{
 	border-bottom: 2px solid purple;
 }
 
-.username{
-	margin-bottom: .2rem;
-}
 
-.username a{
-	font-size: 1.1rem;
-}
 
 .container-article{
   display: flex;
@@ -251,8 +222,8 @@ button#submit:hover {
   color: white;
 }
 .error {
-  background: red;
-  color: blue;
+  background: white;
+  color: black;
   margin-bottom: 20px;
 }
 

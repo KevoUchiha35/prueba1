@@ -70,7 +70,7 @@
 
     #wrapper {
         text-align: center;
-        color: yellow;
+        color: cyan;
     }
 
     #div1 {
@@ -93,12 +93,11 @@
     {{ form.as_p }}
     <div class="page-nav">
 
-        <b><a class="feed" href="{% url 'inicio' %}" style="color:yellow ;">REGRESAR</a></b>
         {% csrf_token %}
 
         <div id="wrapper">
             <div id="div1">
-                <img src="{% static 'img/logo_gaming.png' %}" width="100px" alt="">
+                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
             <div id="div2">
                 <b>
@@ -106,7 +105,7 @@
                 </b>
             </div>
             <div id="div3">
-                <img src="{% static 'img/logo_gaming.png' %}" width="100px" alt="">
+                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
         </div>
     </div>
