@@ -166,11 +166,6 @@ def compras(request):
     if request.method == 'POST':
         dato = tienda.objects.create(
             user_id=request.POST['user'],
-            nombre=request.POST['nombre'],
-            apellido=request.POST['apellido'],
-            correo=request.POST['correo'],
-            numero=request.POST['Numero'],
-            direccion=request.POST['direccion'],
             pago=request.POST['metodo_pago'],
             total=request.POST['total']
         )
@@ -181,8 +176,7 @@ def compras(request):
 def carro(request):
     info = jugadores.objects.all()
     ejemplo = tienda.objects.all()
-    info = jugadores.objects.filter(user = request.user)
-    
+
 
     return render(request, 'social/consultas_carrito.html', {'info' :info , 'ejemplo' :ejemplo})
 

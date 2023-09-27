@@ -214,12 +214,11 @@
     {{ form.as_p }}
     <div class="page-nav">
 
-        <b><a class="feed" href="{% url 'inicio' %}" style="color:yellow ;">REGRESAR</a></b>
         {% csrf_token %}
 
         <div id="wrapper">
             <div id="div1">
-                <img src="{% static 'img/logo_gaming.png' %}" width="100px" alt="">
+                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
             <div id="div2">
                 <b>
@@ -227,7 +226,7 @@
                 </b>
             </div>
             <div id="div3">
-                <img src="{% static 'img/logo_gaming.png' %}" width="100px" alt="">
+                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
         </div>
     </div>
@@ -308,37 +307,6 @@
                             placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
                     </div>
                     
-                    <div>
-                        <label class="etiquetaForm">Nombre*</label>
-                        <input class="controllers" type="text" name="nombre" id="nombreField"
-                        value="{{ user.first_name}}" placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-                    </div>
-                    <div>
-                        <label class="etiquetaForm">Apellidos* </label>
-                        <input class="controllers" type="text" name="apellido" id="apellidoField"
-                        value="{{ user.last_name}}" placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
-                    </div>
-                    <div>
-                        <label class="etiquetaForm">Correo* </label>
-                        <input class="controllers" type="email" name="correo" id="correoField"
-                        value="{{ user.email}}"  placeholder="Ingrese tu correo" onkeypress="return ch(event)" required>
-                    </div>
-
-                    <div>
-                        {% for jugadores in auto %}
-                            {% if forloop.first %}  
-                                <label class="etiquetaForm">Numero* </label>
-                                <input class="controllers" type="text" name="Numero" id="numeroField"
-                                       value="{{ jugadores.numero }}" placeholder="Ingrese su numero" onkeypress="return ch(event)" required>
-
-                    </div>
-                    <div>
-                        <label class="etiquetaForm">Direccion* </label>
-                        <input class="controllers" type="text" name="direccion" id="direccionField"
-                        value="{{ jugadores.direccion }}" placeholder="Ingrese tu direccion" onkeypress="return ch(event)" required>
-                    </div>
-                            {% endif %}
-                        {% endfor %}
                     <label for="pagoField">metodo de pago</label>
                     <select name="metodo_pago" id="pagoField">
                         <option value="True">Tarjeta</option>
@@ -382,9 +350,9 @@
 
     <script>
         function pay() {
-            let nombre = String(nombreField.value).trim();
+            let metodo_pago = String(pagoField.value).trim();
 
-            if (nombre.length === 0) {
+            if (metodo_pago.length === 0) {
                 Swal.fire({
                     title: 'Error!',
                     text: 'DATOS REQUERIDOS',
@@ -399,11 +367,7 @@
                     data: {
 
                         'user': $('#userField').val(),
-                        'nombre': $('#nombreField').val(),
-                        'apellido': $('#apellidoField').val(),
-                        'correo': $('#correoField').val(),
-                        'Numero': $('#numeroField').val(),
-                        'direccion': $('#direccionField').val(),
+
                         'metodo_pago': $('#pagoField').val(),
                         'total': total,
                         csrfmiddlewaretoken: '{{ csrf_token }}',

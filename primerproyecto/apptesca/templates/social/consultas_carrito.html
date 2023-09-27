@@ -117,7 +117,7 @@
         <thead>
           <tr style="background-color: black;">
 
-            <th style="color: white ;">ID</th>
+            <th style="color: white ;">ID de compra</th>
 
             <th style="color: white ;">ID user</th>
 
@@ -142,15 +142,17 @@
         <tbody>
 
           {% for tienda in ejemplo %}
+          
           <tr>
 
             <td>{{tienda.id}}</td>
-            <td>{{user.id}}</td>
-            <td>{{tienda.nombre}}</td>
-            <td>{{tienda.apellido}}</td>
-            <td>{{tienda.correo}}</td>
-            <td>{{tienda.direccion}}</td>
-            <td>{{tienda.numero}}</td>
+            <td>{{tienda.user.id}}</td>
+            <td>{{tienda.user.first_name}}</td>
+            <td>{{tienda.user.last_name}}</td>
+            <td>{{tienda.user.email}}</td>
+          
+            <td>{{user.jugadores.direccion}}</td>
+            <td>{{user.jugadores.numero}}</td>
             <td>{{tienda.pago}}</td>
             <td>{{tienda.total}}</td>
 
