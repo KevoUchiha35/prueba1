@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/normalize.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
 	<link rel="shortcut icon" href="{% static "img/videojuego.png" %}">
-
+	<script src="https://kit.fontawesome.com/a6d8733145.js" crossorigin="anonymous"></script>
 
 
 </head>
@@ -60,23 +60,25 @@ background-size: cover;
 			<ul>
 				{% if request.user.is_authenticated %}
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-				<li><a href="{% url 'logout' %}" style="font-size: 15px;">Logout</a></li>
+				<a class="new" href="{% url 'logout' %}" style="font-size: 15px;"> <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #007BFF;"></i>  Logout</a>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-				<li><a class="profile" href="{% url 'perfil' %}" style="font-size: 15px;">Mi Perfil</a></li>
+				<a class="new" href="{% url 'perfil' %}" style="font-size: 15px;"><i class="fa-solid fa-user fa-xl" style="color: #007BFF;"></i>   Mi Perfil</a>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-				<li><a class="new" href="{% url 'datos' %}" style="font-size: 15px;">Datos</a></li>
+				<a class="new" href="{% url 'datos' %}" style="font-size: 15px;"> <i class="fa-solid fa-address-card fa-xl" style="color: #007BFF;"></i>  Datos</a>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+				<a class="new" href="{% url 'carrusel' %}" style="font-size: 15px;"><i class="fa-solid fa-images fa-xl"style="color: #007BFF;"></i>  carrusel</a>
 
 				
 
 
 				{% else %}
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-				<li><a href="{% url 'registro' %}" style="font-size: 15px;">Register</a></li>
+				<li><a href="{% url 'registro' %}" style="font-size: 15px;"><i class="fa-solid fa-address-card fa-xl" style="color: #007BFF;"></i>  Register</a></li>
 				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-				<li><a href="{% url 'login' %}" style="font-size: 15px;">Login</a></li>
-				<li><a  href="{% url 'carrito'  %}" style="font-size: 15px;">Tienda</a></li>
-				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-	
+				<li><a href="{% url 'login' %}" style="font-size: 15px;"><i class="fa-solid fa-right-to-bracket fa-xl"style="color: #007BFF;"></i>  Login</a></li>
+				&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;				
+				<li><a  href="{% url 'carrito'  %}" style="font-size: 15px;"></i><i class="fa-solid fa-cart-shopping fa-xl" style="color: #007BFF;"></i>  Tienda</a></li>
+
 
 
 
@@ -103,23 +105,21 @@ background-size: cover;
 		<nav class="second-nav">
 			{% if request.user.is_authenticated %}
 			{% if user.is_superuser == True %}
-			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Tabla grupos musicales</a>
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;"><i class="fa-solid fa-music fa-xl"style="color: #007BFF;"></i>  Tabla grupos musicales</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-			<a class="new" href="{% url 'consultas' %}" style="font-size: 15px;">consultas</a>
+			<a class="new" href="{% url 'consultas' %}" style="font-size: 15px;"><i class="fa-solid fa-table fa-xl"style="color: #007BFF;"></i>  consultas</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-			<a class="new" href="{% url 'carrusel' %}" style="font-size: 15px;">carrusel</a>
+			<a class="new" href="{% url 'consultas_carrito' %}" style="font-size: 15px;"><i class="fa-solid fa-table fa-xl"style="color: #007BFF;"></i>  consultas_carrito</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-			<a class="new" href="{% url 'consultas_carrito' %}" style="font-size: 15px;">consultas_carrito</a>
-			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-			<a class="new" href="{% url 'menu' %}" style="font-size: 15px;">menu carrito</a>
+			<a class="new" href="{% url 'menu' %}" style="font-size: 15px;"><i class="fa-solid fa-cart-plus fa-xl"style="color: #007BFF;"></i>  menu carrito</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 
 			{% else %}
-			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;">Tabla grupos musicales</a>
+			<a class="new" href="{% url 'prueba' %}" style="font-size: 15px;"><i class="fa-solid fa-music fa-xl"style="color: #007BFF;"></i>  Tabla grupos musicales</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
-			<a class="new" href="{% url 'carrito'  %}" style="font-size: 15px;">Tienda</a>
+			<a class="new" href="{% url 'carrito'  %}" style="font-size: 15px;"><i class="fa-solid fa-cart-shopping fa-xl" style="color: #007BFF;"></i> Tienda</a>
 			&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
 
 

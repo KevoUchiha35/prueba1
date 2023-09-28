@@ -1,5 +1,8 @@
+{% extends 'social/carrito.html' %}
+{% load static%}
+{% block content%}
 <!DOCTYPE html>
-{% load static %}
+
 <html lang="en">
 
 <head>
@@ -75,6 +78,7 @@
         background-image: url("{% static 'img/baner.png' %}");
         border: 1px solid black;
         position: relative;
+        height: 121px;
     }
 
     .page-nav {
@@ -85,25 +89,30 @@
         margin-top: 0px;
 
     }
+    
 </style>
 
 <body>
+  {{ form.as_p }}
   <div class="page-nav">
+
     {% csrf_token %}
 
     <div id="wrapper">
         <div id="div1">
-          <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+            <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
         </div>
         <div id="div2">
             <b>
-                <p style="font-size: 35px;">Consulta de datos personales</p>
+                <p style="font-size: 50px;">Consulta de compras</p>
             </b>
         </div>
         <div id="div3">
-          <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+            <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
         </div>
     </div>
+</div>
+
 </div>
 
 <br>
@@ -169,3 +178,4 @@
 </body>
 
 </html>
+{% endblock %}
