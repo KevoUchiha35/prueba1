@@ -17,12 +17,13 @@
 	<script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
 </head>
 <style>
-	body {
-
-		background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
-		font-family: 'Times New Roman', Times, serif;
-		background-size: cover;
-	}
+  body {
+    background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
+	  font-family: 'Times New Roman', Times, serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
 	.main-head {
 
@@ -72,13 +73,13 @@
 	{% endfor %}
 	{% endif %}
 	<div class="profile" enctype="multipart/form-data">
-		
+
 		{% for per in per %}
-		
+
 		{%if request.user == per.user %}
 		<img src="{{ per.imagen_profile.url }}">
 		{% endif %}
-		
+
 		{% endfor %}
 
 
@@ -89,9 +90,9 @@
 		{% endif %}
 		<form method="POST">
 			{% csrf_token %}
-		<a href="{% url 'actualizarr' %}">uwwu</a>
+			<a href="{% url 'actualizarr' %}">uwwu</a>
 		</form>
-		
+
 
 
 	</div>

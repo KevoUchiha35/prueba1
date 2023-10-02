@@ -82,30 +82,46 @@ def retorno(request):
 
 
 def formulario(request):
+    up = jugadores.objects.all()
     if request.method == 'POST':
+        user_id = request.POST.get('Usuario')
+        nombre = request.POST.get('Nombre')
+        apellido = request.POST.get('Apellidos')
+        nickname = request.POST.get('Nickname')
+        nacimiento = request.POST.get('Nacimiento')
+        correo = request.POST.get('Correo')
+        numero = request.POST.get('Numero')
+        direccion = request.POST.get('Direccion')
+        redsocial = request.POST.get('RedSocial')
+        videojuegofav = request.POST.get('Videojuegofav')
+        plataforma_xbox = request.POST.get('Plataforma_xbox')  # Cambio de 'Plataforma_xbox' a 'plataforma_xbox'
+        imagen_profile = request.FILES['imagen_profile']
 
+        fs = FileSystemStorage(location='media/productos')
+        filename = fs.save(imagen_profile.name, imagen_profile)  # Guarda la imagen en el sistema de almacenamiento
+        print(filename)
+        imagen_url = ("productos/"+filename)  # Obtiene la URL de la imagen
+        print(imagen_url)
         dato = jugadores.objects.create(
-
-            user_id=request.POST['Usuario'],
-            nombre=request.POST['Nombre'],
-            apellido=request.POST['Apellidos'],
-            nickname=request.POST['Nickname'],
-            nacimiento=request.POST['Nacimiento'],
-            correo=request.POST['Correo'],
-            numero=request.POST['Numero'],
-            direccion=request.POST['Direccion'],
-            redsocial=request.POST['RedSocial'],
-            videojuegofav=request.POST['Videojuegofav'],
-            plataforma_xbox=request.POST['plataforma_xbox'],
-
-
-
-
-
+            user_id=user_id,
+            nombre=nombre,
+            apellido=apellido,
+            nickname=nickname,
+            nacimiento=nacimiento,
+            correo=correo,
+            numero=numero,
+            direccion=direccion,
+            redsocial=redsocial,
+            videojuegofav=videojuegofav,
+            plataforma_xbox=plataforma_xbox,
+            imagen_profile=imagen_url  # Guarda la URL de la imagen en la base de datos
         )
         dato.save()
-    return render(request, 'social/datos.html')
+        if dato:
+            print("logrado")
 
+        return render(request, 'social/datos.html', {'up': up})
+    return render(request, 'social/datos.html', {'up': up})
 
 def consulta(request):
     info = jugadores.objects.all()
@@ -218,3 +234,13 @@ def gamer(request):
         return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
 
     return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
+
+def buscar_producto(request):
+    
+    if 'q' in request.GET:
+        query = request.GET['q']
+        resultados = Producto.objects.filter(nombre__icontains=query)
+    else:
+        resultados = None
+
+    return render(request, 'social/carrito.html', {'resultados': resultados})

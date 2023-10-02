@@ -28,7 +28,7 @@
   body {
     background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
     font-size: 62.5%;
-	  font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -105,7 +105,6 @@
     text-transform: uppercase;
     color: black;
   }
-  
 </style>
 <script language="javascript" type="text/javascript">
   function exefunction() {
@@ -115,19 +114,15 @@
 </script>
 
 <body>
-  <div class="container">
+  <div class="container" >
     <!-- Formulario-->
     <!-- <section class="form-register"> -->
-    <form class="form-register">
+    <form class="form-register" enctype="multipart/form-data" method="POST">
       {% csrf_token %}
 
-      <div class="info">
+      <div class="info" >
         <h1> Informacion basica</h1>
-        <nav class="second-nav">
 
-
-
-        </nav>
         <h2> Ingrese sus datos para completar su perfil</h2>
       </div>
 
@@ -135,21 +130,21 @@
         <!-- campos a llenar -->
         <div class="camposForm">
 
-            <p>
-              <label class="etiquetaForm">Usuario*</label>
-              <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
-                placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-            </p>
+          <p>
+            <label class="etiquetaForm">Usuario*</label>
+            <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
+              placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+          </p>
 
-            <p>
-              <label class="etiquetaForm">Nombre*</label>
-              <input class="controllers" type="text" name="user" id="nombreField" placeholder="Ingrese su usuario"
-                onkeypress="return ch(event)" required>
-            </p>
+          <p>
+            <label class="etiquetaForm">Nombre*</label>
+            <input class="controllers" type="text" name="Nombre" id="nombreField" placeholder="Ingrese su usuario"
+              onkeypress="return ch(event)" required>
+          </p>
 
           <p>
             <label class="etiquetaForm">Apellidos* </label>
-            <input class="controllers" type="text" name="apellido" id="apellidoField" placeholder="Ingrese su apellido"
+            <input class="controllers" type="text" name="Apellidos" id="apellidoField" placeholder="Ingrese su apellido"
               onkeypress="return ch(event)" required>
           </p>
 
@@ -167,20 +162,20 @@
 
           <p>
             <label class="etiquetaForm">Correo* </label>
-            <input class="controllers" type="email" name="correo" id="correoField" placeholder="Ingrese tu correo"
+            <input class="controllers" type="email" name="Correo" id="correoField" placeholder="Ingrese tu correo"
               onkeypress="return ch(event)" required>
           </p>
 
           <p>
             <label class="etiquetaForm">Numero* </label>
-            <input class="controllers" type="text" name="numero" id="numeroField" placeholder="Ingrese tu numero"
+            <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese tu numero"
               onkeypress="return ch(event)" required>
           </p>
 
           <p>
             <label class="etiquetaForm">Direccion* </label>
-            <input class="controllers" type="text" name="direccion" id="direccionField" placeholder="Ingrese su direccion"
-              onkeypress="return ch(event)" required>
+            <input class="controllers" type="text" name="Direccion" id="direccionField"
+              placeholder="Ingrese su direccion" onkeypress="return ch(event)" required>
           </p>
 
           <p>
@@ -198,13 +193,18 @@
 
           <p>
             <label for="plataformaField">¿juegas en xbox?</label>
-            <select name="plataforma_xbox" id="plataformaField">
+            <select name="Plataforma_xbox" id="plataformaField">
               <option value="True">Si</option>
               <option value="False">No</option>
 
             </select>
 
+          <div class="form-group">
+            <label for="imagenField" style="color: black;">Ingrese imagen de perfil</label>
+            <input class="form-control" type="file" name="imagen_profile" id="imagenField" placeholder="Ingrese imagen"
+              accept="image/*" required>
 
+          </div>
 
           </p>
         </div>
@@ -215,7 +215,7 @@
           onkeypress="return check(event)" required></textarea>
 
         <center>
-        <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
+          <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
         </center>
       </div>
 
@@ -229,30 +229,38 @@
   <script>
 
     function datos() {
+      var formData = new FormData();
+      formData.append('Usuario', $('#userField').val());
+      formData.append('Nombre', $('#nombreField').val());
+      formData.append('Apellidos', $('#apellidoField').val());
+      formData.append('Nickname', $('#nickField').val());
+      formData.append('Nacimiento', $('#nacimientoField').val());
+      formData.append('Correo', $('#correoField').val());
+      formData.append('Numero', $('#numeroField').val());
+      formData.append('Direccion', $('#direccionField').val());
+      formData.append('RedSocial', $('#socialField').val());
+      formData.append('Videojuegofav', $('#juegoField').val());
+      formData.append('Plataforma_xbox', $('#plataformaField').val());
+      formData.append('imagen_profile', $('#imagenField')[0].files[0]); // Acceder al archivo seleccionado
 
       $.ajax({
         url: "{% url 'datos' %}",
         type: "POST",
-        data: {
-          'Usuario': $('#userField').val(),
-          'Nombre': $('#nombreField').val(),
-          'Apellidos': $('#apellidoField').val(),
-          'Nickname': $('#nickField').val(),
-          'Nacimiento': $('#nacimientoField').val(),
-          'Correo': $('#correoField').val(),
-          'Numero': $('#numeroField').val(),
-          'Direccion': $('#direccionField').val(),
-          'RedSocial': $('#socialField').val(),
-          'Videojuegofav': $('#juegoField').val(),
-          'plataforma_xbox': $('#plataformaField').val(),
-
-
-
-          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        data: formData,
+        processData: false, // Evita que jQuery procese los datos
+        contentType: false, // Evita que jQuery establezca el tipo de contenido
+        headers: {
+          'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() // Agrega el token CSRF como encabezado
+        },
+        success: function (response) {
+          // Maneja la respuesta del servidor aquí
+        },
+        error: function (error) {
+          // Maneja los errores aquí
         }
-      })
-
+      });
     }
+
 
 
   </script>

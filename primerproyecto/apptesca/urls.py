@@ -30,6 +30,7 @@ urlpatterns = [
     url('^menu/$' , views.agregar, name="menu"),
     url('^productoss/$' , views.gamer, name="productoss"),
     url('^actualizarr/$' , views.actualiza, name="actualizarr"),
+    path('buscar/', views.buscar_producto, name='buscar_producto'),
     
 ]
 if settings.DEBUG:
