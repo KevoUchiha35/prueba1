@@ -131,14 +131,14 @@
         <div class="camposForm">
 
           <p>
-            <label class="etiquetaForm">Usuario*</label>
-            <input class="controllers" value="{{user.id}}" type="text" name="user" id="userField"
+
+            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
               placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
           </p>
 
           <p>
             <label class="etiquetaForm">Nombre*</label>
-            <input class="controllers" type="text" name="Nombre" id="nombreField" placeholder="Ingrese su usuario"
+            <input class="controllers" type="text" name="Nombre" id="nombreField" placeholder="Ingrese su nombre"
               onkeypress="return ch(event)" required>
           </p>
 
@@ -155,20 +155,20 @@
           </p>
 
           <p>
-            <label class="etiquetaForm">Nacimiento* </label>
+            <label class="etiquetaForm">Fecha de nacimiento* </label>
             <input class="controllers" type="date" name="Nacimiento" id="nacimientoField"
-              placeholder="Ingrese tu fecha de nacimiento" onkeypress="return numb(event)" required>
+              placeholder="Ingrese su fecha de nacimiento" onkeypress="return numb(event)" required>
           </p>
 
           <p>
             <label class="etiquetaForm">Correo* </label>
-            <input class="controllers" type="email" name="Correo" id="correoField" placeholder="Ingrese tu correo"
+            <input class="controllers" type="email" name="Correo" id="correoField" placeholder="Ingrese su correo"
               onkeypress="return ch(event)" required>
           </p>
 
           <p>
             <label class="etiquetaForm">Numero* </label>
-            <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese tu numero"
+            <input class="controllers" type="text" name="Numero" id="numeroField" placeholder="Ingrese su numero"
               onkeypress="return ch(event)" required>
           </p>
 
@@ -185,23 +185,23 @@
           </p>
 
           <p>
-            <label class="etiquetaForm">Videojuegofav* </label>
+            <label class="etiquetaForm">Videojuego favorito* </label>
             <input class="controllers" type="text" name="Videojuegofav" id="juegoField"
-              placeholder="Ingres su Videojuegofav" onkeypress="return ch(event)" required>
+              placeholder="Ingrese su videojuego favorito" onkeypress="return ch(event)" required>
           </p>
 
 
           <p>
-            <label for="plataformaField">¿juegas en xbox?</label>
+            <label for="plataformaField">¿En que dispositivo juega?</label>
             <select name="Plataforma_xbox" id="plataformaField">
-              <option value="True">Si</option>
-              <option value="False">No</option>
+              <option value="True">PC Gamer</option>
+              <option value="False">Consola de videojuegos</option>
 
             </select>
 
           <div class="form-group">
             <label for="imagenField" style="color: black;">Ingrese imagen de perfil</label>
-            <input class="form-control" type="file" name="imagen_profile" id="imagenField" placeholder="Ingrese imagen"
+            <input class="form-control" type="file" name="imagen_profile" id="imagenField" placeholder="Ingrese foto de perfil"
               accept="image/*" required>
 
           </div>

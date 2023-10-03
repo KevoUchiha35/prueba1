@@ -81,10 +81,10 @@ def retorno(request):
     return render(request, 'social/prueba.html')
 
 
-def formulario(request):
+def formulario(request): #mandar el request 
     up = jugadores.objects.all()
-    if request.method == 'POST':
-        user_id = request.POST.get('Usuario')
+    if request.method == 'POST':#solicitud de que se esta haciendo un post
+        user_id = request.POST.get('Usuario')#se usa el get porque obtiene el dato de mi variable que esta en front y lo trae para guardarlo
         nombre = request.POST.get('Nombre')
         apellido = request.POST.get('Apellidos')
         nickname = request.POST.get('Nickname')
