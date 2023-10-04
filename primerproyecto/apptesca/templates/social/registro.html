@@ -45,7 +45,7 @@ button#submit {
 
 .burbuja{
     border-radius: 10%;
-    background: white;
+    background: darkgrey;
     opacity: .3;
 	background-size: cover;
     position: absolute;
@@ -138,16 +138,17 @@ button#submit {
 @keyframes burbujas{
     0%{
         bottom: 0;
-        opacity: 0;
+        opacity: .4;
     }
     30%{
         transform: translateX(30px);
     }
     50%{
+
         opacity: .4;
     }
     100%{
-        bottom: 100vh;
+        bottom: 200vh;
         opacity: 0;
     }
 }

@@ -60,7 +60,7 @@
 	}
 	.burbuja{
     border-radius: 10%;
-    background: white;
+    background: darkgrey;
     opacity: .3;
 	background-size: cover;
     position: absolute;
@@ -162,7 +162,7 @@
         opacity: .4;
     }
     100%{
-        bottom: 100vh;
+        bottom: 150vh;
         opacity: 0;
     }
 }
@@ -210,7 +210,7 @@
 		{% endif %}
 		<form method="POST">
 			{% csrf_token %}
-			<a href="{% url 'actualizarr' %}">uwwu</a>
+			<a href="{% url 'actualizarr' %}">Actualizar foto</a>
 		</form>
 
 

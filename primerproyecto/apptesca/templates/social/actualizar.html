@@ -62,7 +62,7 @@
 
     .burbuja{
     border-radius: 10%;
-    background: white;
+    background: darkgrey;
     opacity: .3;
 	background-size: cover;
     position: absolute;
@@ -155,16 +155,17 @@
 @keyframes burbujas{
     0%{
         bottom: 0;
-        opacity: 0;
+        opacity: .4;
     }
     30%{
         transform: translateX(30px);
     }
     50%{
+
         opacity: .4;
     }
     100%{
-        bottom: 100vh;
+        bottom: 200vh;
         opacity: 0;
     }
 }
@@ -189,80 +190,28 @@
 </script>
 
 <body>
-    {%if messages %}
-    {% for message in messages %}
-    {{message}}
-    {% endfor %}
-    {% endif %}
-    <div class="profile" enctype="multipart/form-data">
-
-        {% for per in per %}
-
-        {%if request.user == per.user %}
-        <img src="{{ per.imagen_profile.url }}">
-        {% endif %}
-
+    <body>
+        {% if messages %}
+        {% for message in messages %}
+        {{ message }}
         {% endfor %}
-
-
-
-        {% if request.user.is_authenticated %}
-        <h2>{{ request.user.username }}</h2>
-        <h4>{{ request.user.email }}</h4>
         {% endif %}
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %} <!--genera un token CSRF -->
+       
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <center>
 
-            <center>
-                {% for per in per %}
-                {%if request.user == per.user %}
-                <label for="image">Imagen de Perfil Actual:</label> <br>
-                <img src="{{ per.imagen_profile.url }}"><br> <br>
-                {% endif %}
-                {% endfor %}
-            </center>
-            <label for="new_image">Cambiar Imagen de Perfil:</label> <br>
-            <input type="file" id="imagenField" name="imagen_profile"  placeholder="Ingrese imagen" accept="image/*"><br>
+                    {% if request.user == per.user %}
+                    <label for="current_image">Imagen de Perfil Actual:</label><br>
+                    <img src="{{ per.imagen_profile.url }}" class="profile"><br><br>
+                    {% endif %}
 
-            <!--
-            <label for="extra">Información Adicional:</label>
-            <textarea id="extra" name="extra">{{ datos.extra }}</textarea><br>-->
-
-
-            <button type="submit" onclick="actualizacion()" id="checkout">Guardar cambios</button>
-        </form>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-            crossorigin="anonymous"></script>
-
-    </div>
-
-    <script>
-
-        function actualizacion() {
-            var formData = new FormData();
-            formData.append('imagen_profile', $('#imagenField')[0].files[0]); // Acceder al archivo seleccionado
-
-            $.ajax({
-                url: "{% url 'datos' %}",
-                type: "POST",
-                data: formData,
-                processData: false, // Evita que jQuery procese los datos
-                contentType: false, // Evita que jQuery establezca el tipo de contenido
-                headers: {
-                    'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() // Agrega el token CSRF como encabezado
-                },
-                success: function (response) {
-                    // Maneja la respuesta del servidor aquí
-                },
-                error: function (error) {
-                    // Maneja los errores aquí
-                }
-            });
-        }
-    </script>
-
+                </center>
+                <label for="new_image">Cambiar Imagen de Perfil:</label><br>
+                <input type="file" id="new_image" name="imagen_profile" accept="image/*"><br>
+                <button type="submit">Guardar cambios</button>
+            </form>
+    </body>
 
 
 

@@ -32,24 +32,37 @@ def perfil(request):
 
 
 def actualiza(request):
-    per = jugadores.objects.all()
+    try:
+        per = jugadores.objects.get(user=request.user)  # Obtén el objeto de jugador existente del usuario
+    except jugadores.DoesNotExist:
+        per = None
 
     if request.method == 'POST':
-        ###se esta creando de nuevo
-        imagen_profile = request.FILES['imagen_profile']  # Usa request.FILES para acceder al archivo
-        # Configura un sistema de almacenamiento para las imágenes
-        pro = FileSystemStorage(location='media/productos')
-        filename = pro.save(imagen_profile.name, imagen_profile)  # Guarda la imagen en el sistema de almacenamiento
-        print(filename)
-        imagen_url = ("productos/"+filename)  # Obtiene la URL de la imagen
-        print(imagen_url)
-        dato = jugadores.objects.create(
-            imagen_profile=imagen_url  # Guarda la URL de la imagen en la base de datos
-        )
-        dato.save()
+        if per:
+            # Verifica si el jugador tiene una imagen de perfil existente y elimínala
+            if per.imagen_profile:
+                fs = FileSystemStorage(location='media/productos')
+                fs.delete(per.imagen_profile.name)
 
-        per = jugadores.objects.filter(user = request.user)
-        return render(request, 'social/actualizar.html', {'per':per})
+            # Procede a guardar la nueva imagen de perfil
+            imagen_profile = request.FILES['imagen_profile']
+            pro = FileSystemStorage(location='media/productos')
+            filename = pro.save(imagen_profile.name, imagen_profile)
+            per.imagen_profile = 'productos/' + filename
+            per.save()
+            return redirect('perfil')
+        else:
+            # Si no existe un jugador para este usuario, crea uno nuevo
+            imagen_profile = request.FILES['imagen_profile']
+            pro = FileSystemStorage(location='media/productos')
+            filename = pro.save(imagen_profile.name, imagen_profile)
+            imagen_url = 'productos/' + filename
+            per = jugadores.objects.create(
+                user=request.user,
+                imagen_profile=imagen_url
+            )
+
+        return render(request, 'social/actualizar.html', {'per': per})
 
     return render(request, 'social/actualizar.html', {'per': per})
 

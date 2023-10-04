@@ -48,15 +48,17 @@ background-size: cover;
 		color:black;
 	}
 	
-	.burbuja{
+    .burbuja{
     border-radius: 10%;
-    background: white;
+    background: darkgrey;
     opacity: .3;
 	background-size: cover;
     position: absolute;
-    bottom: 500000%;
+    bottom: -150;
 	background-attachment: fixed;
     animation: burbujas 3s linear infinite ;
+	z-index: -1;
+	
 }
 
 .burbuja:nth-child(1){
@@ -144,27 +146,19 @@ background-size: cover;
 @keyframes burbujas{
     0%{
         bottom: 0;
-        opacity: 0;
+        opacity: .4;
     }
-    25%{
-		bottom: 50vh;
+    30%{
         transform: translateX(30px);
-		opacity: .25;
     }
     50%{
-        opacity: .50;
-		bottom: 100vh;
+
+        opacity: .4;
     }
-	75%{
-        opacity: .50;
-		bottom: 150vh;
-    }
-	
     100%{
-        bottom: 200vh;
+        bottom: 300vh;
         opacity: 0;
     }
-	
 }
 
 @keyframes movimiento{
@@ -172,7 +166,7 @@ background-size: cover;
         transform: translateY(0);
     }
     50%{
-        transform: translateY(-30px);
+        transform: translateY(-30000000px);
     }
     100%{
         transform: translateY(0);

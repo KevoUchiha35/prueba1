@@ -220,6 +220,7 @@
     bottom: -150;
 	background-attachment: fixed;
     animation: burbujas 3s linear infinite ;
+    z-index: -1;
 }
 
 .burbuja:nth-child(1){
@@ -312,10 +313,11 @@
         transform: translateX(30px);
     }
     50%{
+
         opacity: .4;
     }
     100%{
-        bottom: 100vh;
+        bottom: 170vh;
         opacity: 0;
     }
 }
@@ -325,7 +327,7 @@
         transform: translateY(0);
     }
     50%{
-        transform: translateY(30px);
+        transform: translateY(-30000000px);
     }
     100%{
         transform: translateY(0);
@@ -371,10 +373,10 @@
         <ul>
             {% for producto in resultados %}
             <div class="container mt-4">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" style="z-index: 50;">
 
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="card" style="background-color: #f7f7f7; border: 1px solid #ddd;">
+                        <div class="card" style="background-color: #f7f7f7; border: 1px solid #ddd;     ">
                             <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}"
                                 style="max-height: 150px; object-fit: contain;">
                             <div class="card-body text-center">
@@ -562,6 +564,18 @@
 </body>
 
 <footer>
+    <div class="burbujas">
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+        <div class="burbuja"></div>
+    </div>
     <center>
         <h2 style="font-size: 20px;">
             <b><a class="new" href="{% url 'correo' %}" style="font-size: 15px;color: cyan;">Contactanos</a></b>
@@ -576,16 +590,6 @@
         </h2>
     </center>
 </footer>
-<div class="burbujas">
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
-	<div class="burbuja"></div>
+
 </html>
 {% endblock %}
