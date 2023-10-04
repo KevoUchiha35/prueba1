@@ -39,30 +39,30 @@ def actualiza(request):
 
     if request.method == 'POST':
         if per:
-            # Verifica si el jugador tiene una imagen de perfil existente y elimínala
-            if per.imagen_profile:
-                fs = FileSystemStorage(location='media/productos')
-                fs.delete(per.imagen_profile.name)
+            # Actualizar otros datos del usuario
+            per.nombre = request.POST.get('nombre', '')
+            per.apellido = request.POST.get('apellido', '')
+            per.correo = request.POST.get('correo', '')
+            # Agregar más campos aquí según sea necesario
 
-            # Procede a guardar la nueva imagen de perfil
-            imagen_profile = request.FILES['imagen_profile']
-            pro = FileSystemStorage(location='media/productos')
-            filename = pro.save(imagen_profile.name, imagen_profile)
-            per.imagen_profile = 'productos/' + filename
+            # Guardar los cambios en el objeto jugadores
             per.save()
-            return redirect('perfil')
-        else:
-            # Si no existe un jugador para este usuario, crea uno nuevo
-            imagen_profile = request.FILES['imagen_profile']
-            pro = FileSystemStorage(location='media/productos')
-            filename = pro.save(imagen_profile.name, imagen_profile)
-            imagen_url = 'productos/' + filename
-            per = jugadores.objects.create(
-                user=request.user,
-                imagen_profile=imagen_url
-            )
 
-        return render(request, 'social/actualizar.html', {'per': per})
+            # Verificar si se está actualizando la imagen de perfil
+            if 'imagen_profile' in request.FILES:
+                # Verifica si el jugador tiene una imagen de perfil existente y elimínala
+                if per.imagen_profile:
+                    fs = FileSystemStorage(location='media/productos')
+                    fs.delete(per.imagen_profile.name)
+
+                # Procede a guardar la nueva imagen de perfil
+                imagen_profile = request.FILES['imagen_profile']
+                pro = FileSystemStorage(location='media/productos')
+                filename = pro.save(imagen_profile.name, imagen_profile)
+                per.imagen_profile = 'productos/' + filename
+                per.save()
+
+            return redirect('perfil')  # Redirigir a la página de perfil
 
     return render(request, 'social/actualizar.html', {'per': per})
 
