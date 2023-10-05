@@ -17,6 +17,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="scripts.js"></script>
     <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     body {
@@ -87,6 +91,39 @@
         display: inline-block;
 
     }
+
+    .boton {
+        display: inline-block;
+        padding: 10px 20px;
+        /* Ajusta el espaciado según tu preferencia */
+        background-color: #007bff;
+        /* Color de fondo del botón */
+        color: white;
+        /* Color del texto */
+        text-decoration: none;
+        /* Quita la subrayado por defecto en los enlaces */
+        border: none;
+        /* Quita el borde del botón */
+        border-radius: 5px;
+        /* Ajusta el radio de borde según tu preferencia */
+        cursor: pointer;
+        /* Cambia el cursor al pasar el mouse sobre el botón */
+        transition: background-color 0.3s, color 0.3s;
+
+        /* Transiciones suaves en color y fondo */
+    }
+
+    /* Estilos al pasar el mouse por encima del botón */
+    .boton:hover {
+        background-color: #0056b3;
+        /* Cambia el color de fondo al pasar el mouse */
+    }
+
+    /* Estilos para botón activo (presionado) */
+    .boton:active {
+        background-color: #003d80;
+        /* Cambia el color de fondo cuando se presiona el botón */
+    }
 </style>
 
 <body>
@@ -97,7 +134,7 @@
 
         <div id="wrapper">
             <div id="div1">
-                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+                <a href="{% url 'inicio' %}"><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
             <div id="div2">
                 <b>
@@ -105,7 +142,7 @@
                 </b>
             </div>
             <div id="div3">
-                <a href="{% url 'inicio' %}" ><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
+                <a href="{% url 'inicio' %}"><img src="{% static 'img/logo_gaming.png' %}" width="100px" alt=""></a>
             </div>
         </div>
     </div>
@@ -114,31 +151,32 @@
     <br>
     <center>
         <form class="form-container" enctype="multipart/form-data">
-    
+
             <div class="form-group">
                 <label for="nombreField" style="color: black;">Nombre del producto</label>
-                <input class="form-control" type="text" name="Nombre" id="nombreField" placeholder="Ingrese nombre del producto"
-                    onkeypress="return ch(event)" autofocus required>
+                <input class="form-control" type="text" name="Nombre" id="nombreField"
+                    placeholder="Ingrese nombre del producto" onkeypress="return ch(event)" autofocus required>
             </div>
             <div class="form-group">
                 <label for="precioField" style="color: black;">Precio del producto</label>
                 <input class="form-control" type="text" name="Precio" id="precioField"
-                    placeholder="Ingrese el precio del producto" >
+                    placeholder="Ingrese el precio del producto">
             </div>
             <div class="form-group">
                 <label for="descripcionField" style="color: black;">Descripción del producto</label>
-                <input class="form-control" type="text" name="Descripcion" id="descripcionField" placeholder="Ingrese descripcion del producto"
-                    >
+                <input class="form-control" type="text" name="Descripcion" id="descripcionField"
+                    placeholder="Ingrese descripcion del producto">
             </div>
             <div class="form-group">
                 <label for="imagenField" style="color: black;">Ingrese imagen del producto</label>
-                <input class="form-control" type="file" name="Imagen" id="imagenField" placeholder="Ingrese imagen" accept="image/*" required>
+                <input class="form-control" type="file" name="Imagen" id="imagenField" placeholder="Ingrese imagen"
+                    accept="image/*" required>
 
             </div>
 
         </form>
 
-        <button id="checkout" type="submit" onclick="bob()" style="color: white; background-color: #007BFF;"> Enviar </button>
+        <button id="checkout" type="submit" onclick="bob()" class="boton"> Enviar </button>
     </center>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -146,30 +184,41 @@
         crossorigin="anonymous"></script>
     <script>
 
-function bob() {
-    var formData = new FormData();
-    formData.append('Nombre', $('#nombreField').val());
-    formData.append('Precio', $('#precioField').val());
-    formData.append('Descripcion', $('#descripcionField').val());
-    formData.append('Imagen', $('#imagenField')[0].files[0]); // Acceder al archivo seleccionado
+        function bob() {
+            var formData = new FormData();
+            formData.append('Nombre', $('#nombreField').val());
+            formData.append('Precio', $('#precioField').val());
+            formData.append('Descripcion', $('#descripcionField').val());
+            formData.append('Imagen', $('#imagenField')[0].files[0]); // Acceder al archivo seleccionado
 
-    $.ajax({
-        url: "{% url 'productoss' %}",
-        type: "POST",
-        data: formData,
-        processData: false, // Evita que jQuery procese los datos
-        contentType: false, // Evita que jQuery establezca el tipo de contenido
-        headers: {
-            'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() // Agrega el token CSRF como encabezado
-        },
-        success: function (response) {
-            // Maneja la respuesta del servidor aquí
-        },
-        error: function (error) {
-            // Maneja los errores aquí
+            $.ajax({
+                url: "{% url 'productoss' %}",
+                type: "POST",
+                data: formData,
+                processData: false, // Evita que jQuery procese los datos
+                contentType: false, // Evita que jQuery establezca el tipo de contenido
+                headers: {
+                    'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val() // Agrega el token CSRF como encabezado
+                },
+                success: function (response) {
+                    Swal.fire(
+                        'Exitoso!',
+                        'Tu producto se acaba de subir!',
+                        'success'
+                    )
+
+                    setTimeout(function () {
+                        // Realizar la recarga de la página después de 10 segundos
+                        location.reload();
+                    }, 1000);
+
+                    // Maneja la respuesta del servidor aquí
+                },
+                error: function (error) {
+                    // Maneja los errores aquí
+                }
+            });
         }
-    });
-}
 
 
 

@@ -7,7 +7,7 @@ from .models import Noticias
 from .models import Producto
 from .forms import UserRegisterForm
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.core.mail import send_mail
@@ -251,9 +251,10 @@ def gamer(request):
         )
         dato.save()
 
-        return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
+        response_data = {'success': True}
+        return JsonResponse(response_data)
+    
 
-    return render(request, 'social/menu_admin.html', {'ejemplos': ejemplos})
 
 def buscar_producto(request):
     
