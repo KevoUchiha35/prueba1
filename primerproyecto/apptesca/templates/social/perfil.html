@@ -5,237 +5,282 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Perfil</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
 
 
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="scripts.js"></script>
-	<script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://kit.fontawesome.com/82cfdc2825.js" crossorigin="anonymous"></script>
 </head>
 <style>
-  body {
-    background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
-	  font-family: 'Times New Roman', Times, serif;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
-	.main-head {
-
-		background: cyan;
-		color: black;
-	}
-
-	.main {
-		background: cyan;
-		color: black;
-		width: 60%;
-		margin: 5% auto;
-		border-radius: 4px;
-		padding-bottom: 20px;
-	}
-
-	input {
-		width: 20%;
-		border: 0;
-
-		outline: 0;
-		background: cyan;
-		padding: 20px 0 4px;
-		margin: 0 0 20px;
-		color: black;
-	}
-
-	img.profile {
-		height: 80px;
-		width: 80px;
-		margin-right: 10px;
-		margin-left: 30px;
-		border-radius: 50%;
-	}
-	.burbuja{
-    border-radius: 10%;
-    background: darkgrey;
-    opacity: .3;
-	background-size: cover;
-    position: absolute;
-    bottom: -150;
-	background-attachment: fixed;
-    animation: burbujas 3s linear infinite ;
-}
-
-.burbuja:nth-child(1){
-    width: 80px;
-    height: 80px;
-    left: 5%;
-    animation-duration: 3s;
-    animation-delay: 3s;
-}
-
-.burbuja:nth-child(2){
-    width: 100px;
-    height: 100px;
-    left: 35%;
-    animation-duration: 3s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(3){
-    width: 20px;
-    height: 20px;
-    left: 15%;
-    animation-duration: 1.5s;
-    animation-delay: 7s;
-}
-
-.burbuja:nth-child(4){
-    width: 50px;
-    height: 50px;
-    left: 90%;
-    animation-duration: 6s;
-    animation-delay: 3s;
-}
-
-.burbuja:nth-child(5){
-    width: 70px;
-    height: 70px;
-    left: 65%;
-    animation-duration: 3s;
-    animation-delay: 1s;
-}
-
-.burbuja:nth-child(6){
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    animation-duration: 4s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(7){
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    animation-duration: 4s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(8){
-    width: 100;
-    height: 100px;
-    left: 52%;
-    animation-duration: 5s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(9){
-    width: 65px;
-    height: 65px;
-    left: 51%;
-    animation-duration: 3s;
-    animation-delay: 2s;
-}
-
-.burbuja:nth-child(10){
-    width: 40px;
-    height: 40px;
-    left: 35%;
-    animation-duration: 3s;
-    animation-delay: 4s;
-}
-
-
-@keyframes burbujas{
-    0%{
-        bottom: 0;
-        opacity: 0;
+    body {
+        background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
+        font-family: 'Times New Roman', Times, serif;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+    padding: 0;
     }
-    30%{
-        transform: translateX(30px);
+
+    .main-head {
+
+        background: cyan;
+        color: black;
     }
-    50%{
-        opacity: .4;
+
+    .main {
+        background: cyan;
+        color: black;
+        width: 60%;
+        margin: 5% auto;
+        border-radius: 4px;
+        padding-bottom: 20px;
     }
-    100%{
-        bottom: 150vh;
-        opacity: 0;
+
+    input {
+        width: 20%;
+        border: 0;
+
+        outline: 0;
+        background: cyan;
+        padding: 20px 0 4px;
+        margin: 0 0 20px;
+        color: black;
     }
+
+    img.profile {
+        height: 80px;
+        width: 80px;
+        margin-right: 10px;
+        margin-left: 30px;
+        border-radius: 50%;
+    }
+
+    .burbuja {
+        border-radius: 10%;
+        background: darkgrey;
+        opacity: .3;
+        background-size: cover;
+        position: absolute;
+        bottom: -150;
+        background-attachment: fixed;
+        animation: burbujas 3s linear infinite;
+    }
+
+    .burbuja:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        left: 5%;
+        animation-duration: 3s;
+        animation-delay: 3s;
+    }
+
+    .burbuja:nth-child(2) {
+        width: 100px;
+        height: 100px;
+        left: 35%;
+        animation-duration: 3s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(3) {
+        width: 20px;
+        height: 20px;
+        left: 15%;
+        animation-duration: 1.5s;
+        animation-delay: 7s;
+    }
+
+    .burbuja:nth-child(4) {
+        width: 50px;
+        height: 50px;
+        left: 90%;
+        animation-duration: 6s;
+        animation-delay: 3s;
+    }
+
+    .burbuja:nth-child(5) {
+        width: 70px;
+        height: 70px;
+        left: 65%;
+        animation-duration: 3s;
+        animation-delay: 1s;
+    }
+
+    .burbuja:nth-child(6) {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        animation-duration: 4s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(7) {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        animation-duration: 4s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(8) {
+        width: 100;
+        height: 100px;
+        left: 52%;
+        animation-duration: 5s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(9) {
+        width: 65px;
+        height: 65px;
+        left: 51%;
+        animation-duration: 3s;
+        animation-delay: 2s;
+    }
+
+    .burbuja:nth-child(10) {
+        width: 40px;
+        height: 40px;
+        left: 35%;
+        animation-duration: 3s;
+        animation-delay: 4s;
+    }
+
+
+    @keyframes burbujas {
+        0% {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        30% {
+            transform: translateX(30px);
+        }
+
+        50% {
+            opacity: .4;
+        }
+
+        100% {
+            bottom: 150vh;
+            opacity: 0;
+        }
+    }
+
+    @keyframes movimiento {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(30px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el espaciado según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado por defecto en los enlaces */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s;
+
+     /* Transiciones suaves en color y fondo */
 }
 
-@keyframes movimiento{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(30px);
-    }
-    100%{
-        transform: translateY(0);
-    }
+/* Estilos al pasar el mouse por encima del botón */
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
 }
+
+/* Estilos para botón activo (presionado) */
+.boton:active {
+    background-color: #003d80; /* Cambia el color de fondo cuando se presiona el botón */
+}
+
 </style>
 <script language="javascript" type="text/javascript">
-	function exefunction() {
-		var lfckv = document.getElementById("lifecheck").checked;
-		alert(lfckv);
-	}
+    function exefunction() {
+        var lfckv = document.getElementById("lifecheck").checked;
+        alert(lfckv);
+    }
 </script>
 
 <body>
-	{%if messages %}
-	{% for message in messages %}
-	{{message}}
-	{% endfor %}
-	{% endif %}
-	<div class="profile" enctype="multipart/form-data">
+    {%if messages %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+    <div class="profile" enctype="multipart/form-data">
 
-		{% for per in per %}
+        {% for per in per %}
+        {%if request.user == per.user %}
+        <img src="{{ per.imagen_profile.url }}">
+        {% endif %}
+        {% endfor %}
 
-		{%if request.user == per.user %}
-		<img src="{{ per.imagen_profile.url }}">
-		{% endif %}
+    <div class="datos" style="text-align: center;">
+        {% if request.user.is_authenticated %}
+        <h1>@{{ request.user.username }}</h1>
+        <h4>{{ request.user.email }}</h4>
+        {% endif %}
+</div>
 
-		{% endfor %}
-
-
-
-		{% if request.user.is_authenticated %}
-		<h2>{{ request.user.username }}</h2>
-		<h4>{{ request.user.email }}</h4>
-		{% endif %}
-		<form method="POST">
-			{% csrf_token %}
-			<a href="{% url 'actualizarr' %}">Actualizar foto</a>
-		</form>
-
-
-
-	</div>
-
+<div class="datosdos" style="text-align: center; margin: -1; padding: -10;">
+        {% for per in per %}
+        {%if request.user == per.user %}     
+        <h4>Nombre: {{per.nombre}} {{per.apellido}}</h4>
+        <h4>Videojuego favorito: {{per.videojuegofav}}</h4>
+        {% endif %}
+        {% endfor %}
+    </div>
 
 
 
-	<div class="follow">
-		<div>
-			<h5>Post</h5>
-
-		</div>
-		<div>
-			<h5>Followers</h5>
 
 
+        <form method="POST">
+            {% csrf_token %}
+            <a href="{% url 'actualizarr' %}" class="boton" style="color: white;">Actualizar foto</a>
+        </form>
 
-		</div>
-		<div>
-			<h5>Following</h5>
 
-		</div>
-	</div>
+
+    </div>
+
+
+
+
+    <div class="follow">
+        <div>
+            <h5>Post</h5>
+
+        </div>
+        <div>
+            <h5>Followers</h5>
+
+
+
+        </div>
+        <div>
+            <h5>Following</h5>
+
+        </div>
+    </div>
 
 </body>
 

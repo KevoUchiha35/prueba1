@@ -333,6 +333,29 @@
         transform: translateY(0);
     }
 }
+  .boton {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el espaciado según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado por defecto en los enlaces */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s;
+
+     /* Transiciones suaves en color y fondo */
+}
+
+/* Estilos al pasar el mouse por encima del botón */
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para botón activo (presionado) */
+.boton:active {
+    background-color: #003d80; /* Cambia el color de fondo cuando se presiona el botón */
+}
 </style>
 
 <body>
@@ -383,9 +406,8 @@
                                 <h5 class="card-title" style="color: black;">{{ producto.nombre }}</h5>
                                 <p class="card-text" style="color: black;">{{ producto.descripcion }}</p>
                                 <p class="card-text" style="color: black">$ {{ producto.precio }} MXN</p>
-                                <button class="btn btn-primary" onclick="add('{{ producto }}', '{{ producto.precio }}')"
-                                    onkeypress="return ch(event)" required
-                                    style="background-color: #007BFF;">Agregar</button>
+                                <button class="boton" onclick="add('{{ producto }}', '{{ producto.precio }}')"
+                                    onkeypress="return ch(event)" required>Agregar</button>
 
                             </div>
                         </div>
@@ -416,8 +438,8 @@
                         <h5 class="card-title" style="color: black;">{{ producto.nombre }}</h5>
                         <p class="card-text" style="color: black;">{{ producto.descripcion }}</p>
                         <p class="card-text" style="color: black">$ {{ producto.precio }} MXN</p>
-                        <button class="btn btn-primary" onclick="add('{{ producto }}', '{{ producto.precio }}')"
-                            onkeypress="return ch(event)" required style="background-color: #007BFF;">Agregar</button>
+                        <button class="boton" onclick="add('{{ producto }}', '{{ producto.precio }}')"
+                            onkeypress="return ch(event)" required >Agregar</button>
 
                     </div>
                 </div>
@@ -466,7 +488,7 @@
     <br>
     <br>
     <center>
-        <a href="#openModal"><button style="background-color: #007BFF; color: white;">Pagar</button></a>
+        <a href="#openModal"><button class="boton">Pagar</button></a>
     </center>
     <div id="openModal" class="modalDialog">
         <div>
@@ -474,8 +496,6 @@
             <center>
                 <form class="form-container">
                     <div>
-
-
                         <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
                             placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
                     </div>
@@ -489,8 +509,7 @@
 
                 </form>
                 {% if request.user.is_authenticated %}
-                <button id="checkout" type="submit" class="button-checkout" onclick="pay()"
-                    style="background-color: cyan;">Ordenar</button>
+                <button id="checkout" type="submit" class="boton" onclick="pay()">Ordenar</button>
             </center>
             {% else %}
             <script>

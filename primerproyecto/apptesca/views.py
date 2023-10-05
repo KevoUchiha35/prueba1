@@ -39,15 +39,24 @@ def actualiza(request):
 
     if request.method == 'POST':
         if per:
-            # Actualizar otros datos del usuario
-            per.nombre = request.POST.get('nombre', '')
-            per.apellido = request.POST.get('apellido', '')
-            per.correo = request.POST.get('correo', '')
-            # Agregar más campos aquí según sea necesario
+        # Obtener los valores del formulario
+            nuevo_nombre = request.POST.get('nombre', per.nombre)
+            nuevo_apellido = request.POST.get('apellido', per.apellido)
+            nuevo_correo = request.POST.get('correo', per.correo)
+            nuevo_numero = request.POST.get('numero', per.numero)
+            nuevo_direccion = request.POST.get('direccion', per.direccion)
+            nuevo_videojuegofav = request.POST.get('videojuegofav', per.videojuegofav)
 
-            # Guardar los cambios en el objeto jugadores
+        # Verificar si los campos están en blanco y mantener los valores actuales si es así
+            per.nombre = nuevo_nombre if nuevo_nombre.strip() else per.nombre
+            per.apellido = nuevo_apellido if nuevo_apellido.strip() else per.apellido
+            per.correo = nuevo_correo if nuevo_correo.strip() else per.correo
+            per.numero = nuevo_numero if nuevo_numero.strip() else per.numero
+            per.direccion = nuevo_direccion if nuevo_direccion.strip() else per.direccion
+            per.videojuegofav = nuevo_videojuegofav if nuevo_videojuegofav.strip() else per.videojuegofav
+
+        # Guardar los cambios en la base de datos
             per.save()
-
             # Verificar si se está actualizando la imagen de perfil
             if 'imagen_profile' in request.FILES:
                 # Verifica si el jugador tiene una imagen de perfil existente y elimínala
@@ -176,8 +185,6 @@ def correo(request):
 
 def principal(request):
     return render(request, 'social/inicio.html')
-
-
 
 
 

@@ -74,17 +74,7 @@
     color: #000000;
   }
 
-  button#submit {
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    background: black;
-    color: black;
-    border: 0;
-    border-radius: 4px;
-    opacity: .8;
-    transition: .35s linear;
-  }
+
 
   h1 {
     color: black;
@@ -105,6 +95,30 @@
     text-transform: uppercase;
     color: black;
   }
+
+  .boton {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el espaciado según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado por defecto en los enlaces */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s;
+
+     /* Transiciones suaves en color y fondo */
+}
+
+/* Estilos al pasar el mouse por encima del botón */
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para botón activo (presionado) */
+.boton:active {
+    background-color: #003d80; /* Cambia el color de fondo cuando se presiona el botón */
+}
 </style>
 <script language="javascript" type="text/javascript">
   function exefunction() {
@@ -215,7 +229,7 @@
           onkeypress="return check(event)" required></textarea>
 
         <center>
-          <button class="buttons" type="submit" onclick="datos()" style="color: white;"> Enviar </button>
+          <button class="boton" type="submit" onclick="datos()" > Enviar </button>
         </center>
       </div>
 

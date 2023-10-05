@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login</title>
 </head>
 <style>
   body {
@@ -29,26 +29,31 @@ border-radius: 4px;
 padding-bottom: 20px;
 }
 input {
-width: 100%;
-border: 0;
-border-radius: 15px;
-outline: 0;
-background: white;
-padding: 20px 0 4px;
-margin: 0 0 20px;
-color: black;
-}
-button#submit {
-width: 100%;
-padding: 20px 0;
-text-align: center;
-background: #007BFF;
-color: white;
-border: 0;
-border-radius: 15px;
-opacity: .8;
-transition: .35s linear;
-}
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
+
+textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
+
+  textarea:focus {
+    border-color: black;
+    color: #000000;
+  }
 
 .burbuja{
     border-radius: 10%;
@@ -170,13 +175,37 @@ transition: .35s linear;
         transform: translateY(0);
     }
 }
+
+.boton {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el espaciado según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado por defecto en los enlaces */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s;
+
+     /* Transiciones suaves en color y fondo */
+}
+
+/* Estilos al pasar el mouse por encima del botón */
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para botón activo (presionado) */
+.boton:active {
+    background-color: #003d80; /* Cambia el color de fondo cuando se presiona el botón */
+}
 </style>
 <body>
   <form class="form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
   
-    <button type="submit" id="submit">Login</button>
+    <button class="boton" type="submit" id="submit" style="background-color: #007bff; color: white;">Login</button>
   </form>
   
 </body>

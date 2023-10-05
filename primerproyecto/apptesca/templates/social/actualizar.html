@@ -22,8 +22,8 @@
         background: url(https://media.kasperskydaily.com/wp-content/uploads/sites/87/2021/02/10134843/tales-from-steam-featured.jpg);
         font-family: 'Times New Roman', Times, serif;
         background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 
     .main-head {
@@ -41,16 +41,16 @@
         padding-bottom: 20px;
     }
 
-    input {
-        width: 55%;
-        border: 0;
-
-        outline: 0;
-        background: cyan;
-        padding: 20px 0 4px;
-        margin: 0 0 20px;
-        color: black;
-    }
+  input {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
 
     img.profile {
         height: 80px;
@@ -60,136 +60,170 @@
         border-radius: 50%;
     }
 
-    .burbuja{
-    border-radius: 10%;
-    background: darkgrey;
-    opacity: .3;
-	background-size: cover;
-    position: absolute;
-    bottom: -150;
-	background-attachment: fixed;
-    animation: burbujas 3s linear infinite ;
-}
-
-.burbuja:nth-child(1){
-    width: 80px;
-    height: 80px;
-    left: 5%;
-    animation-duration: 3s;
-    animation-delay: 3s;
-}
-
-.burbuja:nth-child(2){
-    width: 100px;
-    height: 100px;
-    left: 35%;
-    animation-duration: 3s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(3){
-    width: 20px;
-    height: 20px;
-    left: 15%;
-    animation-duration: 1.5s;
-    animation-delay: 7s;
-}
-
-.burbuja:nth-child(4){
-    width: 50px;
-    height: 50px;
-    left: 90%;
-    animation-duration: 6s;
-    animation-delay: 3s;
-}
-
-.burbuja:nth-child(5){
-    width: 70px;
-    height: 70px;
-    left: 65%;
-    animation-duration: 3s;
-    animation-delay: 1s;
-}
-
-.burbuja:nth-child(6){
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    animation-duration: 4s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(7){
-    width: 20px;
-    height: 20px;
-    left: 50%;
-    animation-duration: 4s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(8){
-    width: 100;
-    height: 100px;
-    left: 52%;
-    animation-duration: 5s;
-    animation-delay: 5s;
-}
-
-.burbuja:nth-child(9){
-    width: 65px;
-    height: 65px;
-    left: 51%;
-    animation-duration: 3s;
-    animation-delay: 2s;
-}
-
-.burbuja:nth-child(10){
-    width: 40px;
-    height: 40px;
-    left: 35%;
-    animation-duration: 3s;
-    animation-delay: 4s;
-}
-
-
-@keyframes burbujas{
-    0%{
-        bottom: 0;
-        opacity: .4;
+    .burbuja {
+        border-radius: 10%;
+        background: darkgrey;
+        opacity: .3;
+        background-size: cover;
+        position: absolute;
+        bottom: -150;
+        background-attachment: fixed;
+        animation: burbujas 3s linear infinite;
     }
-    30%{
-        transform: translateX(30px);
-    }
-    50%{
 
-        opacity: .4;
+    .burbuja:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        left: 5%;
+        animation-duration: 3s;
+        animation-delay: 3s;
     }
-    100%{
-        bottom: 200vh;
-        opacity: 0;
+
+    .burbuja:nth-child(2) {
+        width: 100px;
+        height: 100px;
+        left: 35%;
+        animation-duration: 3s;
+        animation-delay: 5s;
     }
+
+    .burbuja:nth-child(3) {
+        width: 20px;
+        height: 20px;
+        left: 15%;
+        animation-duration: 1.5s;
+        animation-delay: 7s;
+    }
+
+    .burbuja:nth-child(4) {
+        width: 50px;
+        height: 50px;
+        left: 90%;
+        animation-duration: 6s;
+        animation-delay: 3s;
+    }
+
+    .burbuja:nth-child(5) {
+        width: 70px;
+        height: 70px;
+        left: 65%;
+        animation-duration: 3s;
+        animation-delay: 1s;
+    }
+
+    .burbuja:nth-child(6) {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        animation-duration: 4s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(7) {
+        width: 20px;
+        height: 20px;
+        left: 50%;
+        animation-duration: 4s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(8) {
+        width: 100;
+        height: 100px;
+        left: 52%;
+        animation-duration: 5s;
+        animation-delay: 5s;
+    }
+
+    .burbuja:nth-child(9) {
+        width: 65px;
+        height: 65px;
+        left: 51%;
+        animation-duration: 3s;
+        animation-delay: 2s;
+    }
+
+    .burbuja:nth-child(10) {
+        width: 40px;
+        height: 40px;
+        left: 35%;
+        animation-duration: 3s;
+        animation-delay: 4s;
+    }
+
+
+    @keyframes burbujas {
+        0% {
+            bottom: 0;
+            opacity: .4;
+        }
+
+        30% {
+            transform: translateX(30px);
+        }
+
+        50% {
+
+            opacity: .4;
+        }
+
+        100% {
+            bottom: 200vh;
+            opacity: 0;
+        }
+    }
+
+    @keyframes movimiento {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(30px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    background: cyan;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: black;
+  }
+
+  textarea:focus {
+    border-color: black;
+    color: #000000;
+  }
+  .boton {
+    display: inline-block;
+    padding: 10px 20px; /* Ajusta el espaciado según tu preferencia */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Quita la subrayado por defecto en los enlaces */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s;
+
+     /* Transiciones suaves en color y fondo */
 }
 
-@keyframes movimiento{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(30px);
-    }
-    100%{
-        transform: translateY(0);
-    }
+/* Estilos al pasar el mouse por encima del botón */
+.boton:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
 }
-	input {
-  width: 100%;
-  border: 0;
-  border-radius: 15px;
-  outline: 0;
-  background: white;
-  padding: 20px 0 4px;
-  margin: 0 0 20px;
-  color: black;
+
+/* Estilos para botón activo (presionado) */
+.boton:active {
+    background-color: #003d80; /* Cambia el color de fondo cuando se presiona el botón */
 }
 </style>
 <script language="javascript" type="text/javascript">
@@ -200,33 +234,45 @@
 </script>
 
 <body>
+
     <body>
         {% if messages %}
         {% for message in messages %}
         {{ message }}
         {% endfor %}
         {% endif %}
-       
+
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-    
+
             <!-- Campo para la imagen de perfil -->
             <label for="imagen_profile">Imagen de Perfil:</label>
             <input type="file" id="imagen_profile" name="imagen_profile" accept="image/*"><br>
-    
+
             <!-- Campos para otros datos del usuario -->
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="{{ per.nombre }}"><br>
-    
+            <input type="text" id="nombre" name="nombre" placeholder="{{ per.nombre }}" ><br>
+
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" value="{{ per.apellido }}"><br>
-    
+            <input type="text" id="apellido" name="apellido" placeholder="{{ per.apellido }}"><br>
+
             <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" value="{{ per.correo }}"><br>
-    
+            <input type="email" id="correo" name="correo" placeholder="{{ per.correo }}"><br>
+
+            <label for="correo">Direccion:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="{{ per.direccion }}"><br>
+
+            <label for="correo">Numero:</label>
+            <input type="text" id="numero" name="numero" placeholder="{{ per.numero }}"><br>
+
+            <label for="correo">Videoujuego favorito:</label>
+            <input type="text" id="videojuegofav" name="videojuegofav" placeholder="{{ per.videojuegofav }}"><br>
+
+
             <!-- Agregar más campos aquí según sea necesario -->
-    
-            <button type="submit">Guardar cambios</button>
+            <center>
+                <button type="submit" class="boton" style="color: white;">Guardar cambios</button>
+            </center>
         </form>
     </body>
 
